@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2016 a las 11:16:16
+-- Tiempo de generación: 04-05-2016 a las 10:48:58
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 03-05-2016 a las 08:37:41
+-- Creación: 04-05-2016 a las 08:44:27
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -40,13 +40,13 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `texto_anuncio` varchar(250) COLLATE utf8_bin NOT NULL,
   `icono_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
   `imagen_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
-  `tienda_anuncio` int(11) NOT NULL
+  `usuario_anuncio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_anuncio`:
---   `tienda_anuncio`
---       `tbl_tienda` -> `id_tienda`
+--   `usuario_anuncio`
+--       `tbl_usuario` -> `id_usuario`
 --
 
 -- --------------------------------------------------------
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 03-05-2016 a las 07:17:32
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -62,13 +62,16 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `id_articulo` int(11) NOT NULL,
   `titulo_articulo` varchar(30) COLLATE utf8_bin NOT NULL,
   `texto_articulo` varchar(1500) COLLATE utf8_bin NOT NULL,
-  `usuario_articulo` int(11) NOT NULL
+  `usuario_articulo` int(11) NOT NULL,
+  `menu_articulo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_articulo`:
 --   `usuario_articulo`
 --       `tbl_usuario` -> `id_usuario`
+--   `menu_articulo`
+--       `tbl_menu` -> `id_menu`
 --
 
 -- --------------------------------------------------------
@@ -76,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 03-05-2016 a las 07:21:28
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -98,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 03-05-2016 a las 07:18:38
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -117,9 +120,51 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_menu`
+--
+-- Creación: 04-05-2016 a las 08:26:27
+--
+
+DROP TABLE IF EXISTS `tbl_menu`;
+CREATE TABLE IF NOT EXISTS `tbl_menu` (
+  `id_menu` int(11) NOT NULL,
+  `nombre_menu` varchar(25) COLLATE utf8_bin NOT NULL,
+  `padre_menu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_menu`:
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_publicacion`
+--
+-- Creación: 04-05-2016 a las 08:44:51
+--
+
+DROP TABLE IF EXISTS `tbl_publicacion`;
+CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
+  `id_publicacion` int(11) NOT NULL,
+  `fechainicio_publicacion` date NOT NULL,
+  `fechafinal_publicacion` date NOT NULL,
+  `anuncio_publicacion` int(11) NOT NULL,
+  `visitas_publicacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_publicacion`:
+--   `anuncio_publicacion`
+--       `tbl_anuncio` -> `id_anuncio`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 03-05-2016 a las 07:28:07
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -142,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 03-05-2016 a las 07:25:33
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -158,27 +203,9 @@ CREATE TABLE IF NOT EXISTS `tbl_tags` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_tienda`
---
--- Creación: 03-05-2016 a las 08:40:13
---
-
-DROP TABLE IF EXISTS `tbl_tienda`;
-CREATE TABLE IF NOT EXISTS `tbl_tienda` (
-  `id_tienda` int(11) NOT NULL,
-  `nombre_tienda` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- RELACIONES PARA LA TABLA `tbl_tienda`:
---
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 03-05-2016 a las 06:42:08
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -197,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tipousuario` (
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 03-05-2016 a las 09:14:23
+-- Creación: 04-05-2016 a las 08:26:27
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -228,14 +255,15 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
 --
 ALTER TABLE `tbl_anuncio`
   ADD PRIMARY KEY (`id_anuncio`),
-  ADD KEY `tienda_anuncio` (`tienda_anuncio`);
+  ADD KEY `usuario_anuncio` (`usuario_anuncio`);
 
 --
 -- Indices de la tabla `tbl_articulo`
 --
 ALTER TABLE `tbl_articulo`
   ADD PRIMARY KEY (`id_articulo`),
-  ADD KEY `usuario_articulo` (`usuario_articulo`);
+  ADD KEY `usuario_articulo` (`usuario_articulo`),
+  ADD KEY `menu_articulo` (`menu_articulo`);
 
 --
 -- Indices de la tabla `tbl_comentario`
@@ -253,6 +281,18 @@ ALTER TABLE `tbl_imgarticulo`
   ADD KEY `articulo_imgarticulo` (`articulo_imgarticulo`);
 
 --
+-- Indices de la tabla `tbl_menu`
+--
+ALTER TABLE `tbl_menu`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indices de la tabla `tbl_publicacion`
+--
+ALTER TABLE `tbl_publicacion`
+  ADD KEY `anuncio_publicacion` (`anuncio_publicacion`);
+
+--
 -- Indices de la tabla `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tagarticulo`
@@ -265,12 +305,6 @@ ALTER TABLE `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tags`
   ADD PRIMARY KEY (`id_tag`);
-
---
--- Indices de la tabla `tbl_tienda`
---
-ALTER TABLE `tbl_tienda`
-  ADD PRIMARY KEY (`id_tienda`);
 
 --
 -- Indices de la tabla `tbl_tipousuario`
@@ -312,6 +346,11 @@ ALTER TABLE `tbl_comentario`
 ALTER TABLE `tbl_imgarticulo`
   MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `tbl_menu`
+--
+ALTER TABLE `tbl_menu`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tagarticulo`
@@ -321,11 +360,6 @@ ALTER TABLE `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tags`
   MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `tbl_tienda`
---
-ALTER TABLE `tbl_tienda`
-  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipousuario`
 --
@@ -344,13 +378,14 @@ ALTER TABLE `tbl_usuario`
 -- Filtros para la tabla `tbl_anuncio`
 --
 ALTER TABLE `tbl_anuncio`
-  ADD CONSTRAINT `tbl_anuncio_ibfk_1` FOREIGN KEY (`tienda_anuncio`) REFERENCES `tbl_tienda` (`id_tienda`);
+  ADD CONSTRAINT `tbl_anuncio_ibfk_1` FOREIGN KEY (`usuario_anuncio`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `tbl_articulo`
 --
 ALTER TABLE `tbl_articulo`
-  ADD CONSTRAINT `tbl_articulo_ibfk_1` FOREIGN KEY (`usuario_articulo`) REFERENCES `tbl_usuario` (`id_usuario`);
+  ADD CONSTRAINT `tbl_articulo_ibfk_1` FOREIGN KEY (`usuario_articulo`) REFERENCES `tbl_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tbl_articulo_ibfk_2` FOREIGN KEY (`menu_articulo`) REFERENCES `tbl_menu` (`id_menu`);
 
 --
 -- Filtros para la tabla `tbl_comentario`
@@ -363,6 +398,12 @@ ALTER TABLE `tbl_comentario`
 --
 ALTER TABLE `tbl_imgarticulo`
   ADD CONSTRAINT `tbl_imgarticulo_ibfk_1` FOREIGN KEY (`articulo_imgarticulo`) REFERENCES `tbl_articulo` (`id_articulo`);
+
+--
+-- Filtros para la tabla `tbl_publicacion`
+--
+ALTER TABLE `tbl_publicacion`
+  ADD CONSTRAINT `tbl_publicacion_ibfk_1` FOREIGN KEY (`anuncio_publicacion`) REFERENCES `tbl_anuncio` (`id_anuncio`);
 
 --
 -- Filtros para la tabla `tbl_tagarticulo`
