@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2016 a las 10:48:58
+-- Tiempo de generación: 04-05-2016 a las 13:43:18
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -213,11 +213,22 @@ CREATE TABLE IF NOT EXISTS `tbl_tipousuario` (
   `id_tipoUsuario` int(11) NOT NULL,
   `nombre_tipousuario` varchar(15) COLLATE utf8_bin NOT NULL,
   `desc_tipousuario` varchar(150) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_tipousuario`:
 --
+
+--
+-- Volcado de datos para la tabla `tbl_tipousuario`
+--
+
+INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tipousuario`) VALUES
+(1, 'Administrador', 'Este usuario puede gestionar todos los apartados de la página web.'),
+(2, 'Redactor', 'Este usuario puede crear artículos y blogs en nuestra web, también puede modificar sus creaciones. '),
+(3, 'Redactor-Jefe', 'Este usuario puede crear artículos y blogs en nuestra web, también puede modificar cualquier articulo y blog '),
+(4, 'Blogger', 'Este usuario puede visitar toda la página web, crear sus propios artículos y modificarlos.'),
+(5, 'Moderador-Blog', 'Este usuario puede borrar cualquier blog.');
 
 -- --------------------------------------------------------
 
@@ -238,13 +249,23 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
   `bio_usuario` varchar(150) COLLATE utf8_bin NOT NULL,
   `img_usuario` varchar(25) COLLATE utf8_bin NOT NULL,
   `tipousuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_usuario`:
 --   `tipousuario`
 --       `tbl_tipousuario` -> `id_tipoUsuario`
 --
+
+--
+-- Volcado de datos para la tabla `tbl_usuario`
+--
+
+INSERT INTO `tbl_usuario` (`id_usuario`, `usuario`, `pass`, `nombre_usuario`, `apellido_usuario`, `correo_usuario`, `bio_usuario`, `img_usuario`, `tipousuario`) VALUES
+(1, 'usadmin1', 'qwer1234', 'Jorge', 'Jaico', 'usadmin1@clamm.com', 'Usuario administrador p.web', 'admin1.jpg', 1),
+(2, 'usedit1', 'qwer1234', 'Jose Luis', 'Maseda', 'usedit1@clamm.com', 'Usuario redactor de articulos.', 'edit1.jpg', 2),
+(3, 'useditboss1', 'qwer1234', 'Eric', 'Sanchez', 'useditboss1@clamm.com', 'Usuario redactor-Jefe de articulos', 'editboss1.jpg', 3),
+(4, 'useditblog1', 'qwer1234', 'Alenjandro', 'Moreno', 'useditblog1@clamm.com', 'Usuario editor de blogs', 'editblog1.jpg', 5);
 
 --
 -- Índices para tablas volcadas
@@ -364,12 +385,12 @@ ALTER TABLE `tbl_tags`
 -- AUTO_INCREMENT de la tabla `tbl_tipousuario`
 --
 ALTER TABLE `tbl_tipousuario`
-  MODIFY `id_tipoUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tipoUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
