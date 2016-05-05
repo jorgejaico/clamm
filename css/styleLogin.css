@@ -1,10 +1,3 @@
-html,body{width:100%;height:100%;padding:0;background:#fff;margin:0;font-family:arial}
-a { text-decoration:none }
-.container { width:262px; margin:0 auto; padding-top:200px; }
-
-#bar { width:100%; height:35px; padding:15px 0; background:url(../images/bar.png) repeat-x; }
-#container { width:960px; margin:0 auto; }
-
 /*-------LOGIN STARTS HERE -------*/
 
 /* Login Container (default to float:right) */
@@ -18,8 +11,6 @@ a { text-decoration:none }
 #loginButton { 
     display:inline-block;
     float:right;
-    background:#d2e0ea url(../images/buttonbg.png) repeat-x; 
-    border:1px solid #899caa; 
     border-radius:3px;
     -moz-border-radius:3px;
     position:relative;
@@ -34,12 +25,12 @@ a { text-decoration:none }
     font-weight:bold; 
     text-shadow:1px 1px #fff; 
     padding:7px 29px 9px 10px;
-    background:url(../images/loginArrow.png) no-repeat 53px 7px;
+
     display:block
 }
 
 #loginButton:hover {
-    background:url(../images/buttonbgHover.png) repeat-x;
+  
 }
 
 /* Login Box */
@@ -136,7 +127,7 @@ fieldset#body {
 #loginForm #login {
     width:auto;
     float:left;
-    background:#339cdf url(../images/loginbuttonbg.png) repeat-x;
+  
     color:#fff;
     padding:7px 10px 8px 10px;
     text-shadow:0px -1px #278db8;
