@@ -18,7 +18,7 @@
 		//creamos las variable de sesión 
 		$_SESSION['id']=$datos_usuario['id_Usuario'];
 		$_SESSION['mail']=$_REQUEST['mail'];
-		$_SESSION['nombre']=$datos_usuario['nombre'];
+		$_SESSION['nombre']=$datos_usuario['nombre_usuario'];
 		$_SESSION['nivel']=$datos_usuario['id_TipoUsuario'];
 		$_SESSION['usuario']=$datos_usuario['usuario'];
 
