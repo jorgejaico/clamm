@@ -9,11 +9,14 @@
 		<meta name="author" content="">
 		<title>CLAMM - Marca tendencia</title>
 		<!-- Bootstrap Core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- DESCOMENTAR -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom Fonts -->
-		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- DESCOMENTAR -->
+		<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/patros.css" >
+<!-- DESCOMENTAR -->
+		<link rel="stylesheet" href="../../css/patros.css" >
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -58,20 +61,45 @@
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="first_name" class="form-control custom-labels" id="name" placeholder="FULL NAME" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="nombre" placeholder="Nombre" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="email" name="email" class="form-control custom-labels" id="email" placeholder="EMAIL" required data-validation-required-message="Please write your email!"/>
+											<input type="text" name="apellidos" placeholder="Apellidos" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="text" name="user" placeholder="Usuario" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="email" name="mail" placeholder="Correo electrónico" class="form-control custom-labels" id="email"  required data-validation-required-message="Please write your email!"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-12 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="message" class="form-control custom-labels" id="message" placeholder="WHAT'S ON YOUR MIND" required data-validation-required-message="Please write a message!"/>
+											<textarea name="desc" rows="4" cols="50" class="form-control custom-labels" placeholder="Descripción"></textarea>
 										</div>
+										<input type="file" name="foto">
 									</div>
 									<div class="col-sm-3 col-xs-6 height-contact-element">
 										<div class="form-group">

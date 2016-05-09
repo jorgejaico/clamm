@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2016 a las 13:43:18
+-- Tiempo de generación: 09-05-2016 a las 11:58:49
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 09-05-2016 a las 09:56:11
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -63,7 +63,8 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `titulo_articulo` varchar(30) COLLATE utf8_bin NOT NULL,
   `texto_articulo` varchar(1500) COLLATE utf8_bin NOT NULL,
   `usuario_articulo` int(11) NOT NULL,
-  `menu_articulo` int(11) NOT NULL
+  `menu_articulo` int(11) NOT NULL,
+  `fecha_articulo` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
