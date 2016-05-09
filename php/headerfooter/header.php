@@ -21,7 +21,14 @@
 						
 						
 					</ul>
-					<?php include ("/php/cuentas/login.php"); ?>
+					<?php 
+					if(!isset($_SESSION['mail'])){
+						include ("/php/cuentas/login.php"); 
+					}else{
+						echo "Bienvenido, ".$_SESSION['nombre'];
+						echo "<a href='php/conexion/logout.php'>Logout</a>";
+					}
+						?>
 				</div>
 			</div>
 
