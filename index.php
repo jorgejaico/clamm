@@ -250,7 +250,7 @@
 
 		<!-- Footer -->
 	<?php
-		include ("/php/headerfooter/footer.php");
+		include ("php/headerfooter/footer.php");
 	?>
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
