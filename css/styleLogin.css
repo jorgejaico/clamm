@@ -20,15 +20,11 @@
 
 /* Login Button Text */
 #loginButton span {
-    color:#445058; 
-    font-size:14px; 
-    font-weight:bold; 
-    text-shadow:1px 1px #fff; 
-    padding:7px 29px 9px 10px;
-
-    display:block
+  color: #fff;
+  display: block;
+  font-size: 15px;
+  padding: 24% 28% 14% 10%;
 }
-
 #loginButton:hover {
   
 }

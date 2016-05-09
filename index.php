@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>PATROS - HTML5 FREE TEMPLATE</title>
+		<title>CLAMM - Marca tendencia</title>
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom Fonts -->
@@ -46,6 +46,7 @@
 						
 						
 					</ul>
+					<div class="login">
 					<?php 
 					if(!isset($_SESSION['mail'])){
 						include ("/php/cuentas/login.php"); 
@@ -54,6 +55,7 @@
 						echo "<a href='php/conexion/logout.php'>Logout</a>";
 					}
 						?>
+						</div>
 				</div>
 			</div>
 
@@ -94,14 +96,6 @@
 					</div>
 				</li>
 				<li><span>Image 05</span>
-					<div class="container">
-						<div class="row">
-							
-						</div>
-						
-					</div>
-				</li>
-				<li><span>Image 06</span>
 					<div class="container">
 						<div class="row">
 							
@@ -173,11 +167,6 @@
 
 	
 
-		<div id="location">
-			<div class="row prodmap">
-				<div id="map-canvas-holder" class="map_holder" style="height: 400px;"></div>
-			</div>
-		</div>
 
 		<section id="contact">
 			<div class="container"> 
