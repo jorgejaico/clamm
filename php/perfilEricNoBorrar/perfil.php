@@ -20,13 +20,15 @@
                     WHERE tbl_usuario.id_usuario = '$_REQUEST[idPerfil]'";
 
             $sql_posts = "SELECT COUNT(id_articulo) FROM tbl_articulo WHERE usuario_articulo = '$_REQUEST[idPerfil]'";
+            $sql_likes = "SELECT tbl_usuario.id_usuario, tbl_articulo.id_articulo, COUNT(tbl_likes.id_likes) AS num_likes FROM tbl_usuario INNER JOIN tbl_articulo ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_usuario.id_usuario = '$_REQUEST[idPerfil]'";
             // echo $sql;
             $datos = mysqli_query($con, $sql);
             $datos2 = mysqli_query($con, $sql2);
             $datos_posts = mysqli_query($con, $sql_posts);
+            $datos_likes = mysqli_query($con, $sql_likes);
             $prod = mysqli_fetch_array($datos);
             $prod_posts = mysqli_fetch_array($datos_posts);
-
+            $prod_likes = mysqli_fetch_array($datos_likes);
 			
 
 
@@ -37,7 +39,7 @@
 				echo "post:";
 				echo $prod_posts['COUNT(id_articulo)'];
 				echo "</br>likes:";
-				
+				echo $prod_likes['num_likes'];
 
 				echo "</br>obras:</br>";
 			while ($prod2 = mysqli_fetch_array($datos2)) {
