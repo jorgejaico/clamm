@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2016 a las 11:58:49
+-- Tiempo de generación: 10-05-2016 a las 12:31:24
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 09-05-2016 a las 09:56:11
+-- Creación: 10-05-2016 a las 09:52:45
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -63,9 +63,10 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `titulo_articulo` varchar(30) COLLATE utf8_bin NOT NULL,
   `texto_articulo` varchar(1500) COLLATE utf8_bin NOT NULL,
   `usuario_articulo` int(11) NOT NULL,
+  `portada_articulo` varchar(20) COLLATE utf8_bin NOT NULL,
   `menu_articulo` int(11) NOT NULL,
   `fecha_articulo` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_articulo`:
@@ -74,6 +75,22 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
 --   `menu_articulo`
 --       `tbl_menu` -> `id_menu`
 --
+
+--
+-- Volcado de datos para la tabla `tbl_articulo`
+--
+
+INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, `usuario_articulo`, `portada_articulo`, `menu_articulo`, `fecha_articulo`) VALUES
+(11, 'art1', 'gdsrtaETYEWQr', 2, 'img1.png', 1, '2016-05-17 00:00:00'),
+(12, 'art2', 'dfsfr', 2, 'img1.png', 1, '2016-05-27 00:00:00'),
+(13, 'art3', 'hetrwtf', 2, 'img2.png', 1, '2016-05-22 00:00:00'),
+(14, 'art4', 'sfra', 2, 'img2.png', 1, '2016-05-19 00:00:00'),
+(15, 'art5', 'fdsafsdf', 2, 'img3.png', 1, '2016-05-20 00:00:00'),
+(16, 'art6', 'fasdfs', 2, 'img3.png', 1, '2016-05-10 04:00:00'),
+(17, 'art7', 'asdfsaf', 2, 'img4.png', 1, '2016-05-10 10:00:00'),
+(18, 'art8', 'asfdsda', 2, 'img4.png', 1, '2016-05-06 00:00:00'),
+(19, 'art9', 'asdfsd', 1, 'img5.png', 1, '2016-04-11 00:00:00'),
+(20, 'art10', 'asfddsaf', 2, 'img5.png', 1, '2016-05-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -121,6 +138,43 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_likes`
+--
+-- Creación: 10-05-2016 a las 08:37:00
+--
+
+DROP TABLE IF EXISTS `tbl_likes`;
+CREATE TABLE IF NOT EXISTS `tbl_likes` (
+  `id_like` int(11) NOT NULL,
+  `articulo_like` int(11) NOT NULL,
+  `usuario_like` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_likes`:
+--   `articulo_like`
+--       `tbl_articulo` -> `id_articulo`
+--
+
+--
+-- Volcado de datos para la tabla `tbl_likes`
+--
+
+INSERT INTO `tbl_likes` (`id_like`, `articulo_like`, `usuario_like`) VALUES
+(1, 11, 4),
+(2, 14, 3),
+(3, 16, 3),
+(4, 13, 3),
+(5, 14, 4),
+(6, 11, 3),
+(7, 14, 3),
+(8, 16, 3),
+(9, 13, 3),
+(10, 14, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_menu`
 --
 -- Creación: 04-05-2016 a las 08:26:27
@@ -131,11 +185,18 @@ CREATE TABLE IF NOT EXISTS `tbl_menu` (
   `id_menu` int(11) NOT NULL,
   `nombre_menu` varchar(25) COLLATE utf8_bin NOT NULL,
   `padre_menu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_menu`:
 --
+
+--
+-- Volcado de datos para la tabla `tbl_menu`
+--
+
+INSERT INTO `tbl_menu` (`id_menu`, `nombre_menu`, `padre_menu`) VALUES
+(1, 'menu', 1);
 
 -- --------------------------------------------------------
 
@@ -303,6 +364,13 @@ ALTER TABLE `tbl_imgarticulo`
   ADD KEY `articulo_imgarticulo` (`articulo_imgarticulo`);
 
 --
+-- Indices de la tabla `tbl_likes`
+--
+ALTER TABLE `tbl_likes`
+  ADD PRIMARY KEY (`id_like`),
+  ADD KEY `articulo_like` (`articulo_like`);
+
+--
 -- Indices de la tabla `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
@@ -356,7 +424,7 @@ ALTER TABLE `tbl_anuncio`
 -- AUTO_INCREMENT de la tabla `tbl_articulo`
 --
 ALTER TABLE `tbl_articulo`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `tbl_comentario`
 --
@@ -368,10 +436,15 @@ ALTER TABLE `tbl_comentario`
 ALTER TABLE `tbl_imgarticulo`
   MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `tbl_likes`
+--
+ALTER TABLE `tbl_likes`
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
 -- AUTO_INCREMENT de la tabla `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
