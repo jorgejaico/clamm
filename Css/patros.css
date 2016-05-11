@@ -330,6 +330,11 @@ ul.nav-pills  { text-align: center; margin: 25px auto 20px auto; width: auto; di
 }
 
 .login {
-  margin-top: 1.7%;
+  margin-top: 1.3%;
   text-align: right;
+}
+.logout {
+  color: white;
+  float: right;
+  margin-top: 1.3%;
 }

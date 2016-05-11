@@ -46,7 +46,7 @@
 	
 
 <div id="loginContainer">
-                <a href="#" id="loginButton"><span>login</span></a>
+                <a href="#" id="loginButton"><span>LOGIN</span></a>
                 <div style="clear:both"></div>
                 <div id="loginBox">
 
@@ -66,11 +66,11 @@
                     <fieldset id="body">
                             <fieldset>
                                 <label for="email">Correo</label>
-                                <input type="text" name="mail" placeholder="Correo" maxlength="50">
+                                <input class "text" type="text" name="mail" placeholder="Correo" maxlength="50">
                             </fieldset>
                             <fieldset>
                                 <label for="password">Password</label>
-    							<input type="password" name="pass" class="form-control" placeholder="Contraseña">
+    							<input type="password" name="pass" class="text" placeholder="Contraseña">
                             </fieldset>
                             <button type="submit" name="acce">Entrar</button>
                         </fieldset>

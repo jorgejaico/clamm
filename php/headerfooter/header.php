@@ -28,9 +28,10 @@
 						<li><a href="#noticias">Noticias</a></li>
 						<li><a href="#contact">Contacto</a></li>
 						<li><a href="blog.html">Blogs</a></li>
-						<li><a href="#">Tienda</a></li>
-						<li><a href="single-post.html">Single</a></li>			
+						<li><a href="#">Bloggers</a></li>
+						<li><a href="#">Tienda</a></li>			
 					</ul>
+					<div class="logout">
 					<?php
 					if ($resultado == FALSE){ 
 						if(!isset($_SESSION['mail'])){
@@ -48,6 +49,7 @@
 						};		
 					}
 						?>
+						</div>
 				</div>
 			</div>
 
