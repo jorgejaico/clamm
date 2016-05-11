@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2016 a las 12:31:24
+-- Tiempo de generación: 11-05-2016 a las 09:21:35
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 04-05-2016 a las 08:44:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 10-05-2016 a las 09:52:45
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -97,7 +97,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -140,19 +140,19 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 10-05-2016 a las 08:37:00
+-- Creación: 11-05-2016 a las 07:20:10
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
 CREATE TABLE IF NOT EXISTS `tbl_likes` (
-  `id_like` int(11) NOT NULL,
-  `articulo_like` int(11) NOT NULL,
-  `usuario_like` int(11) NOT NULL
+  `id_likes` int(11) NOT NULL,
+  `articulo_likes` int(11) NOT NULL,
+  `usuario_likes` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
---   `articulo_like`
+--   `articulo_likes`
 --       `tbl_articulo` -> `id_articulo`
 --
 
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
 -- Volcado de datos para la tabla `tbl_likes`
 --
 
-INSERT INTO `tbl_likes` (`id_like`, `articulo_like`, `usuario_like`) VALUES
+INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 (1, 11, 4),
 (2, 14, 3),
 (3, 16, 3),
@@ -177,7 +177,7 @@ INSERT INTO `tbl_likes` (`id_like`, `articulo_like`, `usuario_like`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_menu`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_menu`;
@@ -203,7 +203,7 @@ INSERT INTO `tbl_menu` (`id_menu`, `nombre_menu`, `padre_menu`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 04-05-2016 a las 08:44:51
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -267,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tags` (
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:16:03
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -297,7 +297,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 04-05-2016 a las 08:26:27
+-- Creación: 11-05-2016 a las 07:19:14
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -310,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
   `correo_usuario` varchar(50) COLLATE utf8_bin NOT NULL,
   `bio_usuario` varchar(150) COLLATE utf8_bin NOT NULL,
   `img_usuario` varchar(25) COLLATE utf8_bin NOT NULL,
-  `tipousuario` int(11) NOT NULL
+  `tipousuario` int(11) NOT NULL DEFAULT '4'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -367,8 +367,8 @@ ALTER TABLE `tbl_imgarticulo`
 -- Indices de la tabla `tbl_likes`
 --
 ALTER TABLE `tbl_likes`
-  ADD PRIMARY KEY (`id_like`),
-  ADD KEY `articulo_like` (`articulo_like`);
+  ADD PRIMARY KEY (`id_likes`),
+  ADD KEY `articulo_like` (`articulo_likes`);
 
 --
 -- Indices de la tabla `tbl_menu`
@@ -439,7 +439,7 @@ ALTER TABLE `tbl_imgarticulo`
 -- AUTO_INCREMENT de la tabla `tbl_likes`
 --
 ALTER TABLE `tbl_likes`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `tbl_menu`
 --
