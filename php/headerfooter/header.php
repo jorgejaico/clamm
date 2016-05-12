@@ -29,7 +29,7 @@
 						<li><a href="#contact">Contacto</a></li>
 						<li><a href="blog.html">Blogs</a></li>
 						<li><a href="#">Bloggers</a></li>
-						<li><a href="#">Tienda</a></li>			
+						<li><a href="#">Catalogo</a></li>			
 					</ul>
 					<div class="logout">
 					<?php
