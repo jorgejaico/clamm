@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2016 a las 11:02:25
+-- Tiempo de generación: 11-05-2016 a las 13:26:46
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS `tbl_articulo`;
 CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `id_articulo` int(11) NOT NULL,
   `titulo_articulo` varchar(30) COLLATE utf8_bin NOT NULL,
-  `texto_articulo` varchar(1500) COLLATE utf8_bin NOT NULL,
+  `texto_articulo` text COLLATE utf8_bin NOT NULL,
   `usuario_articulo` int(11) NOT NULL,
   `portada_articulo` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `menu_articulo` int(11) NOT NULL,
@@ -324,10 +324,10 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
 --
 
 INSERT INTO `tbl_usuario` (`id_usuario`, `usuario`, `pass`, `nombre_usuario`, `apellido_usuario`, `correo_usuario`, `bio_usuario`, `img_usuario`, `tipousuario`) VALUES
-(1, 'usadmin1', 'qwer1234', 'Jorge', 'Jaico', 'usadmin1@clamm.com', 'Usuario administrador p.web', 'admin1.jpg', 1),
-(2, 'usedit1', 'qwer1234', 'Jose Luis', 'Maseda', 'usedit1@clamm.com', 'Usuario redactor de articulos.', 'edit1.jpg', 2),
-(3, 'useditboss1', 'qwer1234', 'Eric', 'Sanchez', 'useditboss1@clamm.com', 'Usuario redactor-Jefe de articulos', 'editboss1.jpg', 3),
-(4, 'useditblog1', 'qwer1234', 'Alenjandro', 'Moreno', 'useditblog1@clamm.com', 'Usuario editor de blogs', 'editblog1.jpg', 5);
+(1, 'usadmin1', 'qwer1234', 'Jorge', 'Jaico', 'usadmin1@clamm.com', 'Usuario administrador p.web', 'admin1.jpg', 4),
+(2, 'usedit1', 'qwer1234', 'Jose Luis', 'Maseda', 'usedit1@clamm.com', 'Usuario redactor de articulos.', 'edit1.jpg', 4),
+(3, 'useditboss1', 'qwer1234', 'Eric', 'Sanchez', 'useditboss1@clamm.com', 'Usuario redactor-Jefe de articulos', 'editboss1.jpg', 4),
+(4, 'useditblog1', 'qwer1234', 'Alenjandro', 'Moreno', 'useditblog1@clamm.com', 'Usuario editor de blogs', 'editblog1.jpg', 4);
 
 --
 -- Índices para tablas volcadas

@@ -8,21 +8,25 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>CLAMM - Marca tendencia</title>
-		<!-- Bootstrap Core CSS -->
-<!-- DESCOMENTAR -->
 		<link href="../../css/bootstrap.min.css" rel="stylesheet">
-		<!-- Custom Fonts -->
-<!-- DESCOMENTAR -->
 		<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<!-- Custom CSS -->
-<!-- DESCOMENTAR -->
 		<link rel="stylesheet" href="../../css/patros.css" >
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-			<![endif]-->
+		<script src="val_registro.js"></script>
+		<script> 
+		function validatePassword(){
+			enviar=false;
+			var password = document.getElementById("pass");
+			var confirm_password = document.getElementById("pass2");
+			  if(password.value != confirm_password.value) {
+			    confirm_password.setCustomValidity("Las contraseñas no coinciden");
+			    enviar=false;
+			  } else {
+			    confirm_password.setCustomValidity('');
+			    enviar=true;
+			  }
+			return enviar;
+		}
+		</script>
 	</head>
 
 	<body data-spy="scroll">
@@ -41,12 +45,6 @@
 			</div>
 		</section>
 
-		
-
-
-	
-
-
 		<section id="contact">
 			<div class="container"> 
 				<div class="row">
@@ -57,7 +55,7 @@
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-8">
-							<form class="inline" id="contactForm" method="post" >
+							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/registro.proc.php"  onSubmit="return enviar;">
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
@@ -79,19 +77,19 @@
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
-											<p class="help-block text-danger"></p>
-										</div>
-									</div>
-									<div class="col-sm-6 height-contact-element">
-										<div class="form-group">
-											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
-											<p class="help-block text-danger"></p>
-										</div>
-									</div>
-									<div class="col-sm-6 height-contact-element">
-										<div class="form-group">
 											<input type="email" name="mail" placeholder="Correo electrónico" class="form-control custom-labels" id="email"  required data-validation-required-message="Please write your email!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="pass" required data-validation-required-message="Please write your name!"/>
+											<p class="help-block text-danger"></p>
+										</div>
+									</div>
+									<div class="col-sm-6 height-contact-element">
+										<div class="form-group">
+											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="pass2" required data-validation-required-message="Please write your name!"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
@@ -103,12 +101,12 @@
 									</div>
 									<div class="col-sm-3 col-xs-6 height-contact-element">
 										<div class="form-group">
-											<input type="submit" class="btn btn-md btn-custom btn-noborder-radius" value="Send It"/>
+											<button type="submit" class="btn btn-md btn-custom btn-noborder-radius" onClick="validatePassword()"/>Enviar</button>
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6 height-contact-element">
 										<div class="form-group">
-											<button type="button" class="btn btn-md btn-noborder-radius btn-custom" name="reset">RESET
+											<button type="button" class="btn btn-md btn-noborder-radius btn-custom" name="reset">Borrar
 											</button>
 										</div>
 									</div>
@@ -160,9 +158,6 @@
 		<script src="js/jquery.js"></script>
 		<!-- Bootstrap Core JavaScript -->
 		<script src="js/bootstrap.min.js"></script>
-
-		<!-- Google Map -->
-		<script src="//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places"></script>
 
 		<!-- Portfolio -->
 		<script src="js/jquery.quicksand.js"></script>	    
@@ -236,262 +231,7 @@
 		</script>
 
 
-		<script type="text/javascript">
-	$(document).ready(function(){
-		inicializemap()
-
-		$('#contactForm').on('submit', function(e){
-			e.preventDefault();
-			e.stopPropagation();
-
-			// get values from FORM
-			var name = $("#name").val();
-			var email = $("#email").val();
-			var message = $("#message").val();
-			var goodToGo = false;
-			var messgaeError = 'Request can not be send';
-			var pattern = new RegExp(/^(('[\w-\s]+')|([\w-]+(?:\.[\w-]+)*)|('[\w-\s]+')([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-
-
-			 if (name && name.length > 0 && $.trim(name) !='' && message && message.length > 0 && $.trim(message) !='' && email && email.length > 0 && $.trim(email) !='') {
-				  if (pattern.test(email)) {
-					 goodToGo = true;
-				  } else {
-					 messgaeError = 'Please check your email address';
-					 goodToGo = false; 
-				  }
-			 } else {
-			   messgaeError = 'You must fill all the form fields to proceed!';
-			   goodToGo = false;
-			 }
-
-			 
-			if (goodToGo) {
-			   $.ajax({
-				 data: $('#contactForm').serialize(),
-				 beforeSend: function() {
-				   $('#success').html('<div class="col-md-12 text-center"><img src="images/spinner1.gif" alt="spinner" /></div>');
-				 },
-				 success:function(response){
-				   if (response==1) {
-					 $('#success').html('<div class="col-md-12 text-center">Your email was sent successfully</div>');
-					 window.location.reload();
-				   } else {
-					 $('#success').html('<div class="col-md-12 text-center">E-mail was not sent. Please try again!</div>');
-				   }
-				 },
-				 error:function(e){
-				   $('#success').html('<div class="col-md-12 text-center">We could not fetch the data from the server. Please try again!</div>');
-				 },
-				 complete: function(done){
-				   console.log('Finished');
-				 },
-				 type: 'POST',
-				 url: 'js/send_email.php', 
-			   });
-			   return true;
-			} else {
-			   $('#success').html('<div class="col-md-12 text-center">'+messgaeError+'</div>');
-			   return false;
-			}
-			return false;
-		});
-	});
-
-	var map = null;
-	 var latitude;
-	 var longitude;
-	 function inicializemap(){
-	   latitude = 41.3349509; 
-	   longitude = 19.8217028;
-
-	  var egglabs = new google.maps.LatLng(latitude, longitude);
-	  var egglabs1 = new google.maps.LatLng(43.0630171, 89.2296082);
-	  var egglabs2 = new google.maps.LatLng(13.0630171, 80.2296082 );
-
-
-	  var image = new google.maps.MarkerImage('images/marker.png', new google.maps.Size(84,56), new google.maps.Point(0,0), new google.maps.Point(42,56));
-	  var mapCoordinates = new google.maps.LatLng(latitude, longitude);
-	  var mapOptions = {
-	   backgroundColor: '#ffffff',
-	   zoom: 10,
-	   disableDefaultUI: true,
-	   center: mapCoordinates,
-	   mapTypeId: google.maps.MapTypeId.ROADMAP,
-	   scrollwheel: true,
-	   draggable: true, 
-	   zoomControl: false,
-	   disableDoubleClickZoom: true,
-	   mapTypeControl: false,
-	   styles: [
-					{
-						"featureType": "all",
-						"elementType": "labels.text.fill",
-						"stylers": [
-							{
-								"color": "#1f242f"
-							}
-						]
-					},
-					{
-						"featureType": "all",
-						"elementType": "labels.icon",
-						"stylers": [
-							{
-								"hue": "#ff9d00"
-							}
-						]
-					},
-					{
-						"featureType": "landscape.man_made",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"color": "#fef8ef"
-							}
-						]
-					},
-					{
-						"featureType": "poi.medical",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"hue": "#ff0000"
-							}
-						]
-					},
-					{
-						"featureType": "poi.park",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"color": "#c9d142"
-							},
-							{
-								"lightness": "0"
-							},
-							{
-								"visibility": "on"
-							},
-							{
-								"weight": "1"
-							},
-							{
-								"gamma": "1.98"
-							}
-						]
-					},
-					{
-						"featureType": "road",
-						"elementType": "geometry",
-						"stylers": [
-							{
-								"weight": "1.00"
-							}
-						]
-					},
-					{
-						"featureType": "road",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"color": "#d7b19c"
-							},
-							{
-								"weight": "1"
-							}
-						]
-					},
-					{
-						"featureType": "road.highway",
-						"elementType": "geometry",
-						"stylers": [
-							{
-								"visibility": "on"
-							}
-						]
-					},
-					{
-						"featureType": "road.highway",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"weight": "4.03"
-							}
-						]
-					},
-					{
-						"featureType": "road.highway",
-						"elementType": "geometry.stroke",
-						"stylers": [
-							{
-								"visibility": "off"
-							},
-							{
-								"color": "#ffed00"
-							}
-						]
-					},
-					{
-						"featureType": "road.highway.controlled_access",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"visibility": "on"
-							}
-						]
-					},
-					{
-						"featureType": "road.arterial",
-						"elementType": "geometry",
-						"stylers": [
-							{
-								"visibility": "on"
-							}
-						]
-					},
-					{
-						"featureType": "road.local",
-						"elementType": "geometry",
-						"stylers": [
-							{
-								"visibility": "on"
-							}
-						]
-					},
-					{
-						"featureType": "transit.line",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"color": "#cbcbcb"
-							}
-						]
-					},
-					{
-						"featureType": "water",
-						"elementType": "geometry.fill",
-						"stylers": [
-							{
-								"color": "#0b727f"
-							}
-						]
-					}
-				]
-					  };
-
-	  map = new google.maps.Map(document.getElementById('map-canvas-holder'),mapOptions);
-	  marker = new google.maps.Marker({position: egglabs, raiseOnDrag: false, icon: image, map: map, draggable: false,  title: 'ATIS1'}); 
-	  marker = new google.maps.Marker({position: egglabs1, raiseOnDrag: false, icon: image, map: map, draggable: false,  title: 'ATIS2'}); 
-	  marker = new google.maps.Marker({position: egglabs2, raiseOnDrag: false, icon: image, map: map, draggable: false,  title: 'ATIS3'}); 
-	  google.maps.event.addListener(map, 'zoom_changed', function() {
-	   var center = map.getCenter();
-	   google.maps.event.trigger(map, 'resize');
-	   map.setCenter(center);
-	  });
-	 }
-
-</script>
+		
 
 
 </body>
