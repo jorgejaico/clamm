@@ -12,25 +12,51 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">
 						<?php
-						if ($resultado == FALSE){
+					if ($resultado == FALSE){
+						?>
+						<a class="navbar-brand" href="index.php">
+						<?php 
+					}else{
+						?>
+						<a class="navbar-brand" href="../../index.php">
+						<?php
+					}
+						?>
+
+
+					<?php
+				if ($resultado == FALSE){
 						echo "<img src='images/logo.png' alt='company logo' />";
-						}else{
-						echo "<img src='../../images/logo.png' alt='company logo' />";	
+					?>
+						
+						</a>
+				</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right custom-menu">
+							<li class="active"><a href="#home">Home</a></li>
+							<li><a href="#noticias">Noticias</a></li>
+							<li><a href="#contact">Contacto</a></li>
+							<li><a href="blog.html">Blogs</a></li>
+							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
+							<li><a href="#">Tienda</a></li>			
+						</ul>
+					<?php
+				}else{
+						echo "<img src='../../images/logo.png' alt='company logo' />";
+					?>
+						</a>
+				</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right custom-menu">
+							<li><a href="blog.html">Blogs</a></li>
+							<li><a href="../perfil/bloggers.php">Bloggers</a></li>
+							<li><a href="#">Tienda</a></li>			
+						</ul>
+					<?php
 						}
 						?>
-					</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right custom-menu">
-						<li class="active"><a href="#home">Home</a></li>
-						<li><a href="#noticias">Noticias</a></li>
-						<li><a href="#contact">Contacto</a></li>
-						<li><a href="blog.html">Blogs</a></li>
-						<li><a href="#">Bloggers</a></li>
-						<li><a href="#">Catalogo</a></li>			
-					</ul>
+					
 					<div class="logout">
 					<?php
 					if ($resultado == FALSE){ 
