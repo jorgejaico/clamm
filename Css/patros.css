@@ -106,10 +106,19 @@ footer { background-color: #1E1E1E; width:100%; display:block; color:#f7f7f7; }
 #follow-us {height:220px;}
 #myCarousel li{transform:rotateZ(45deg);}
 #footer {width:100%;font-size:12px;color:#1E1E1E;}
-.social-icons{color:#313131;font-size:24px;}
-.list-social-icons {display: inline-block; vertical-align: middle;}
-.list-social-icons li {margin: 0px 15px;width: 40px;height: 40px;text-align: center;line-height: 40px;border-radius: 50%;-webkit-transition: all 0.4s ease;-moz-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;}
-.list-social-icons li:hover {background:#E96840;}
+.social-icons {
+  color: #fff;
+  font-size: 24px;
+}.list-social-icons {display: inline-block; vertical-align: middle;}
+.list-social-icons li {
+  border-radius: 50%;
+  height: 40px;
+  line-height: 50px;
+  margin: 0 15px;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+  width: 40px;
+}.list-social-icons li:hover {background:#E96840;}
 .list-social-icons li:hover .social-icons {color:#f7f7f7;}
 .list-social-icons li:active .social-icons {background:#E96840;}
 .blog{padding-top:70px;}
