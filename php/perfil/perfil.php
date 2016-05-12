@@ -66,7 +66,9 @@
         <div class="col-md-12 col-sm-12 col-sx-12">
             <div class="current-profile">
                 <div class="user-bg" style="background-color: grey "</div>
-                <div class="user-pic" style="background: url(http://bootdey.com/img/Content/user_3.jpg) no-repeat">&nbsp;</div>
+                <div class="user-pic">
+                	<img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" />
+                </div>
                 <div class="user-details">
                 	<?php
                 		echo utf8_encode("<h4 class='user-name'>$prod[usuario]<i>!</i></h4>");
@@ -123,32 +125,24 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 homeport1">
-						<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 							<?php
 								while ($prod2 = mysqli_fetch_array($datos2)){
 								?>
-									<figure class="effect-oscar">
-										<img src="images/blog1.jpg" alt="img09" class="img-responsive" />         
-									</figure>
-									<p class="text-center">
-										<?php
-											echo "$prod2[titulo_articulo]";
-										?>
-
-									</p>
-									<div class="text-center">
-										<?php
-										echo "<a href='$prod2[id_articulo]' class='btn btn-primary btn-noborder-radius hvr-bounce-to-bottom'>";
-										?>
-											Read More</a></div>
-									</div>
-									<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
-									
-									
-								<?php
-								}
-							?>
-									</div>
+							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
+								<figure class="effect-oscar">
+									<img src="images/<?php echo $prod2['portada_articulo'] ?>" class="img-responsive" />
+									<figcaption>
+										<h2><?php echo $prod2['titulo_articulo'] ?></h2>
+										<a href="#">View more</a>
+									</figcaption>           
+								</figure>
+								<p class="text-center"><?php echo substr($prod2['texto_articulo'], 0, 141) ?></p>
+								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
+							</div>
+							<?php
+							}
+						?>
+								
 						</div>
 					</div>
 				</div>
