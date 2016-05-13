@@ -39,7 +39,7 @@
 							<li><a href="#contact">Contacto</a></li>
 							<li><a href="blog.html">Blogs</a></li>
 							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
-							<li><a href="#">Tienda</a></li>			
+							<li><a href="php/tienda/tienda.php">Tienda</a></li>			
 						</ul>
 					<?php
 				}else{
@@ -49,9 +49,10 @@
 				</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right custom-menu">
+							<li><a href="../../">Home</a></li>
 							<li><a href="blog.html">Blogs</a></li>
 							<li><a href="../perfil/bloggers.php">Bloggers</a></li>
-							<li><a href="#">Tienda</a></li>			
+							<li><a href="../tienda/tienda.php">Tienda</a></li>			
 						</ul>
 					<?php
 						}
