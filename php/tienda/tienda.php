@@ -20,6 +20,15 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			<![endif]-->
+			<?php
+		//Conexion BDD 
+			include("../conexion/conexion.proc.php");
+			$sql ="SELECT * FROM `tbl_usuario` INNER JOIN tbl_anuncio ON tbl_usuario.id_usuario = tbl_anuncio.usuario_anuncio WHERE tbl_anuncio.activo_anuncio = 1 GROUP BY tbl_usuario.id_usuario ORDER BY RAND()";
+
+			$datos = mysqli_query($con, $sql);
+		?>
+
+
 	</head>
 
 	<body data-spy="scroll">
@@ -39,101 +48,53 @@
 					<img class="img-responsive displayed" src="../../images/short.png" alt="noticias">
 				</div>
 				<div class="row">
-				<h5>Tienda 1</h5>
+					<?php
+				while ($prod = mysqli_fetch_array($datos)){
+
+					$sql2 ="SELECT * FROM `tbl_usuario` INNER JOIN tbl_anuncio ON tbl_usuario.id_usuario = tbl_anuncio.usuario_anuncio WHERE tbl_anuncio.usuario_anuncio = $prod[id_usuario] AND tbl_anuncio.activo_anuncio = 1";
+					$datos2 = mysqli_query($con, $sql2);
+
+
+					?>
+				<h5><?php echo $prod['usuario'] ?></h5>
 				<hr>
 					<div class="col-md-12 homeport1">
-
+						<?php
+							while ($prod2 = mysqli_fetch_array($datos2)){
+						?>
 					<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
+
 								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
 								
-									<h3>Blog Post Long Title</h3>      
+									<h3><?php echo $prod2['titulo_anuncio'] ?></h3>      
 							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
+							<p class="text-center"><?php echo $prod2['texto_anuncio'] ?></p>
 							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
 						</div>
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
+						<?php
+							}
+						?>
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
+						
 						
 					</div>
 				</div>
 
-				<div class="row">
-				<h5>Tienda 2</h5>
-				<hr>
-					<div class="col-md-12 homeport1">
 
-					<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
+				<?php
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
+				}
+					?>
 
-						<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
-							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
-						
-					</div>
-				</div>
-			</div>
+				?>
+
+
+
+
+
 		</section>
 
 		
