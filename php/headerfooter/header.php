@@ -38,6 +38,7 @@
 							<li><a href="#noticias">Noticias</a></li>
 							<li><a href="#contact">Contacto</a></li>
 							<li><a href="blog.html">Blogs</a></li>
+							<li><a href="php/articulos/selecionarticulo.php">Articulos</a></li>
 							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
 							<li><a href="php/tienda/tienda.php">Tienda</a></li>			
 						</ul>
@@ -51,6 +52,7 @@
 						<ul class="nav navbar-nav navbar-right custom-menu">
 							<li><a href="../../">Home</a></li>
 							<li><a href="blog.html">Blogs</a></li>
+							<li><a href="../articulos/selecionarticulo.php">Articulos</a></li>
 							<li><a href="../perfil/bloggers.php">Bloggers</a></li>
 							<li><a href="../tienda/tienda.php">Tienda</a></li>			
 						</ul>
