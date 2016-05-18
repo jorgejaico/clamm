@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2016 a las 20:13:28
+-- Tiempo de generación: 18-05-2016 a las 08:42:12
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 17-05-2016 a las 17:36:27
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -66,7 +66,7 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ico
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 17-05-2016 a las 13:50:35
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -107,7 +107,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:28:38
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -115,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
   `id_comentario` int(11) NOT NULL,
   `texto_comentario` varchar(250) COLLATE utf8_bin NOT NULL,
   `usuario_comentario` int(11) NOT NULL,
+  `fecha_comentario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `articulo_comentario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -129,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -158,7 +159,7 @@ INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -170,6 +171,8 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
+--   `articulo_likes`
+--       `tbl_articulo` -> `id_articulo`
 --
 
 --
@@ -193,7 +196,7 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -216,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -239,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -257,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tags` (
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -287,7 +290,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 17-05-2016 a las 13:31:34
+-- Creación: 18-05-2016 a las 06:24:15
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
