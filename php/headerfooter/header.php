@@ -37,7 +37,7 @@
 							<li class="active"><a href="#home">Home</a></li>
 							<li><a href="#noticias">Noticias</a></li>
 							<li><a href="#contact">Contacto</a></li>
-							<li><a href="blog.html">Blogs</a></li>
+							<li><a href="php/blogArticulo/blog.php">Blogs</a></li>
 							<li><a href="php/articulos/selecionarticulo.php">Articulos</a></li>
 							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
 							<li><a href="php/tienda/tienda.php">Tienda</a></li>			

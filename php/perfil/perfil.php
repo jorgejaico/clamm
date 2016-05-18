@@ -85,7 +85,7 @@
                         <div class="col-md-12 col-md-offset-3">
                             <div class="contadores">
 
-                                <div class="col-md-3 col-sm-3 col-xs-3 center-align-text">
+                                <div class="col-md-3 col-sm-6 col-xs-6 center-align-text">
                                 	<h3>
                                 		<?php
                                 			echo $prod_posts['COUNT(id_articulo)'];
@@ -94,7 +94,7 @@
                                     <!-- <h3>2359</h3> -->
                                     <small>Posts</small>
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3 center-align-text">
+                                <div class="col-md-3 col-sm-6 col-xs-6 center-align-text">
                                     <h3>
                                     	<?php
                                     		echo $prod_likes['num_likes'];
