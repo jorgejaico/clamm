@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2016 a las 09:10:06
+-- Tiempo de generación: 18-05-2016 a las 09:39:07
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -193,6 +193,25 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_preciopublicacion`
+--
+-- Creación: 18-05-2016 a las 07:37:57
+--
+
+DROP TABLE IF EXISTS `tbl_preciopublicacion`;
+CREATE TABLE IF NOT EXISTS `tbl_preciopublicacion` (
+  `id_preciopublicacion` int(11) NOT NULL,
+  `nombre_preciopublicacion` varchar(30) COLLATE utf8_bin NOT NULL,
+  `precio_preciopublicacion` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_preciopublicacion`:
+--
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
 -- Creación: 18-05-2016 a las 06:24:15
@@ -362,6 +381,12 @@ ALTER TABLE `tbl_likes`
   ADD KEY `articulo_like` (`articulo_likes`);
 
 --
+-- Indices de la tabla `tbl_preciopublicacion`
+--
+ALTER TABLE `tbl_preciopublicacion`
+  ADD PRIMARY KEY (`id_preciopublicacion`);
+
+--
 -- Indices de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
@@ -425,6 +450,11 @@ ALTER TABLE `tbl_imgarticulo`
 --
 ALTER TABLE `tbl_likes`
   MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `tbl_preciopublicacion`
+--
+ALTER TABLE `tbl_preciopublicacion`
+  MODIFY `id_preciopublicacion` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
