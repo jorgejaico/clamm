@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2016 a las 08:42:12
+-- Tiempo de generación: 18-05-2016 a las 09:10:06
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 18-05-2016 a las 07:09:43
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -40,8 +40,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `texto_anuncio` varchar(250) COLLATE utf8_bin NOT NULL,
   `icono_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
   `imagen_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
-  `usuario_anuncio` int(11) NOT NULL,
-  `activo_anuncio` tinyint(1) NOT NULL DEFAULT '0'
+  `usuario_anuncio` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -54,12 +53,12 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 -- Volcado de datos para la tabla `tbl_anuncio`
 --
 
-INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `icono_anuncio`, `imagen_anuncio`, `usuario_anuncio`, `activo_anuncio`) VALUES
-(1, 'afsadgs', 'sagh', 'fgfdsfg', 'fdfgsf', 1, 0),
-(2, 'fasdfsdf', 'sadfsdf', 'sdfasfd', 'asfsadf', 1, 0),
-(3, 'asfdsdf', 'asfsad', 'fsdfadsfads', 'fsdfsd', 1, 1),
-(4, 'asfdasdf', 'asfdadsf', 'asdf', 'asdfasf', 2, 1),
-(5, 'asfadsf', 'adsdfasf', 'asdfasdf', 'asdfasdf', 2, 1);
+INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `icono_anuncio`, `imagen_anuncio`, `usuario_anuncio`) VALUES
+(1, 'afsadgs', 'sagh', 'fgfdsfg', 'fdfgsf', 1),
+(2, 'fasdfsdf', 'sadfsdf', 'sdfasfd', 'asfsadf', 1),
+(3, 'asfdsdf', 'asfsad', 'fsdfadsfads', 'fsdfsd', 1),
+(4, 'asfdasdf', 'asfdadsf', 'asdf', 'asdfasf', 2),
+(5, 'asfadsf', 'adsdfasf', 'asdfasdf', 'asdfasdf', 2);
 
 -- --------------------------------------------------------
 
