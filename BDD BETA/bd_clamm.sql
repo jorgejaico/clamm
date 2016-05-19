@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2016 a las 22:41:23
+-- Tiempo de generación: 19-05-2016 a las 22:58:39
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
   `anuncio_publicacion` int(11) NOT NULL,
   `visitas_publicacion` int(11) NOT NULL,
   `precio_publicacion` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_publicacion`:
@@ -256,7 +256,10 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
 --
 
 INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fechafinal_publicacion`, `anuncio_publicacion`, `visitas_publicacion`, `precio_publicacion`) VALUES
-(1, '2016-05-03', '2016-05-26', 2, 0, 1);
+(1, '2016-05-03', '2016-05-26', 2, 0, 1),
+(2, '2016-05-04', '2016-05-07', 3, 0, 1),
+(3, '2016-05-26', '2016-05-28', 4, 0, 2),
+(4, '2016-05-10', '2016-05-13', 3, 30, 2);
 
 -- --------------------------------------------------------
 
@@ -486,6 +489,11 @@ ALTER TABLE `tbl_likes`
 --
 ALTER TABLE `tbl_preciopublicacion`
   MODIFY `id_preciopublicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `tbl_publicacion`
+--
+ALTER TABLE `tbl_publicacion`
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
