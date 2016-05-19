@@ -26,18 +26,18 @@
 			include("../conexion/conexion.proc.php");
 		// Consulta nombre y descripcion del usuario 
 			$sql= "SELECT tbl_usuario.* FROM tbl_usuario 
-					WHERE id_usuario = '$_REQUEST[idPerfil]'";
+					WHERE id_usuario = '$_SESSION[id]'";
 
 		// Consulta listar todos los articulos del usuario
 			$sql2 = "SELECT tbl_usuario.*, tbl_articulo.* FROM tbl_usuario 
 					INNER JOIN tbl_articulo ON tbl_usuario.id_usuario=tbl_articulo.usuario_articulo  
-                    WHERE tbl_usuario.id_usuario = '$_REQUEST[idPerfil]'";
+                    WHERE tbl_usuario.id_usuario = '$_SESSION[id]'";
 
         // Consulta numero total de posts
-            $sql_posts = "SELECT COUNT(id_articulo) FROM tbl_articulo WHERE usuario_articulo = '$_REQUEST[idPerfil]'";
+            $sql_posts = "SELECT COUNT(id_articulo) FROM tbl_articulo WHERE usuario_articulo = '$_SESSION[id]'";
         
         //Consulta numero total likes en posts
-            $sql_likes = "SELECT tbl_usuario.id_usuario, tbl_articulo.id_articulo, COUNT(tbl_likes.id_likes) AS num_likes FROM tbl_usuario INNER JOIN tbl_articulo ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_usuario.id_usuario = '$_REQUEST[idPerfil]'";
+            $sql_likes = "SELECT tbl_usuario.id_usuario, tbl_articulo.id_articulo, COUNT(tbl_likes.id_likes) AS num_likes FROM tbl_usuario INNER JOIN tbl_articulo ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_usuario.id_usuario = '$_SESSION[id]'";
             // echo $sql;
             $datos = mysqli_query($con, $sql);
             $datos2 = mysqli_query($con, $sql2);
@@ -46,6 +46,7 @@
             $prod = mysqli_fetch_array($datos);
             $prod_posts = mysqli_fetch_array($datos_posts);
             $prod_likes = mysqli_fetch_array($datos_likes);
+
 		?>
 	</head>
 
@@ -85,7 +86,7 @@
                         <div class="col-md-12 col-md-offset-3">
                             <div class="contadores">
 
-                                <div class="col-md-3 col-sm-6 col-xs-6 center-align-text">
+                                <div class="col-md-3 col-sm-3 col-xs-3 center-align-text">
                                 	<h3>
                                 		<?php
                                 			echo $prod_posts['COUNT(id_articulo)'];
@@ -94,7 +95,7 @@
                                     <!-- <h3>2359</h3> -->
                                     <small>Posts</small>
                                 </div>
-                                <div class="col-md-3 col-sm-6 col-xs-6 center-align-text">
+                                <div class="col-md-3 col-sm-3 col-xs-3 center-align-text">
                                     <h3>
                                     	<?php
                                     		echo $prod_likes['num_likes'];
@@ -116,9 +117,9 @@
 
 <div class="articulos">
 			<div class="container">
-				<div class="text-center"><h2>Blogs de
+				<div class="text-center"><h2>Blogs de 
 					<?php
-						echo "$prod[usuario]";
+						echo $prod['usuario'];
 					?>
 				</h2>
 					<img class="img-responsive displayed" src="../../images/short.png" alt="noticias">
@@ -132,11 +133,11 @@
 								<figure class="effect-oscar">
 									<img src="images/<?php echo $prod2['portada_articulo'] ?>" class="img-responsive" />
 									<figcaption>
-										<h2><?php echo $prod2['titulo_articulo'] ?></h2>
+										<h2><?php echo utf8_encode($prod2['titulo_articulo']) ?></h2>
 										<a href="#">View more</a>
 									</figcaption>           
 								</figure>
-								<p class="text-center"><?php echo substr($prod2['texto_articulo'], 0, 141) ?></p>
+								<p class="text-center"><?php echo utf8_encode(substr($prod2['texto_articulo'], 0, 141)) ?></p>
 								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
 							</div>
 							<?php
