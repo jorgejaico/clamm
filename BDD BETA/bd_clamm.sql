@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2016 a las 11:14:24
+-- Tiempo de generación: 19-05-2016 a las 22:41:23
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 18-05-2016 a las 07:09:43
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -65,7 +65,7 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ico
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -106,7 +106,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 18-05-2016 a las 06:28:38
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -137,7 +137,7 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -166,7 +166,7 @@ INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -178,8 +178,6 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
---   `articulo_likes`
---       `tbl_articulo` -> `id_articulo`
 --
 
 --
@@ -203,7 +201,7 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_preciopublicacion`
 --
--- Creación: 19-05-2016 a las 09:09:51
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_preciopublicacion`;
@@ -213,18 +211,26 @@ CREATE TABLE IF NOT EXISTS `tbl_preciopublicacion` (
   `codescuento_preciopublicacion` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `precio_preciopublicacion` double NOT NULL,
   `activo_preciopublicacion` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_preciopublicacion`:
 --
+
+--
+-- Volcado de datos para la tabla `tbl_preciopublicacion`
+--
+
+INSERT INTO `tbl_preciopublicacion` (`id_preciopublicacion`, `nombre_preciopublicacion`, `codescuento_preciopublicacion`, `precio_preciopublicacion`, `activo_preciopublicacion`) VALUES
+(1, 'precio1', NULL, 30, 1),
+(2, 'precio2', NULL, 20, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 19-05-2016 a las 09:13:16
+-- Creación: 19-05-2016 a las 20:40:26
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -245,12 +251,19 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
 --       `tbl_preciopublicacion` -> `id_preciopublicacion`
 --
 
+--
+-- Volcado de datos para la tabla `tbl_publicacion`
+--
+
+INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fechafinal_publicacion`, `anuncio_publicacion`, `visitas_publicacion`, `precio_publicacion`) VALUES
+(1, '2016-05-03', '2016-05-26', 2, 0, 1);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -273,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -291,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tags` (
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -321,7 +334,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 20:36:38
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -405,6 +418,7 @@ ALTER TABLE `tbl_preciopublicacion`
 -- Indices de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
+  ADD PRIMARY KEY (`id_publicacion`),
   ADD UNIQUE KEY `id_publicacion` (`id_publicacion`),
   ADD KEY `anuncio_publicacion` (`anuncio_publicacion`),
   ADD KEY `precio_publicacion` (`precio_publicacion`);
@@ -471,7 +485,7 @@ ALTER TABLE `tbl_likes`
 -- AUTO_INCREMENT de la tabla `tbl_preciopublicacion`
 --
 ALTER TABLE `tbl_preciopublicacion`
-  MODIFY `id_preciopublicacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_preciopublicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
