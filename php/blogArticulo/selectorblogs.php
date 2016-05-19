@@ -31,7 +31,7 @@
 		include("../conexion/conexion.proc.php");
 
 	//Consulta para articulos destacados		
-		$sql3 ="SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC ";
+		$sql3 ="SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 1 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC ";
 		$datos3 = mysqli_query($con, $sql3);
 	
 
@@ -88,7 +88,7 @@
 			
 
 		//Obtiene TODO de la tabla
-		$obtener_todo_BD = "SELECT tbl_articulo.* FROM tbl_articulo  WHERE tipo_articulo = 0";
+		$obtener_todo_BD = "SELECT tbl_articulo.* FROM tbl_articulo  WHERE tipo_articulo = 1";
 
 		//Realiza la consulta
 		$consulta_todo = mysqli_query($con, $obtener_todo_BD);
@@ -103,7 +103,7 @@
 			$consulta_resultados = mysqli_query($con, "
 			SELECT tbl_articulo.*, tbl_usuario.* FROM tbl_articulo 
 			INNER JOIN tbl_usuario ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario 
-			WHERE tbl_articulo.tipo_articulo = 0 ORDER BY tbl_articulo.fecha_articulo DESC 
+			WHERE tbl_articulo.tipo_articulo = 1 ORDER BY tbl_articulo.fecha_articulo DESC 
 			LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 	// Paginación Final Inicio BODY
 
