@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2016 a las 09:39:07
+-- Tiempo de generación: 19-05-2016 a las 11:14:24
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -116,13 +116,21 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
   `usuario_comentario` int(11) NOT NULL,
   `fecha_comentario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `articulo_comentario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_comentario`:
 --   `articulo_comentario`
 --       `tbl_articulo` -> `id_articulo`
 --
+
+--
+-- Volcado de datos para la tabla `tbl_comentario`
+--
+
+INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_comentario`, `fecha_comentario`, `articulo_comentario`) VALUES
+(1, 'ghjfcgdsafersg', 0, '2016-05-18 10:39:24', 15),
+(2, 'dsafsaref', 0, '2016-05-18 10:54:16', 14);
 
 -- --------------------------------------------------------
 
@@ -195,14 +203,16 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_preciopublicacion`
 --
--- Creación: 18-05-2016 a las 07:37:57
+-- Creación: 19-05-2016 a las 09:09:51
 --
 
 DROP TABLE IF EXISTS `tbl_preciopublicacion`;
 CREATE TABLE IF NOT EXISTS `tbl_preciopublicacion` (
   `id_preciopublicacion` int(11) NOT NULL,
   `nombre_preciopublicacion` varchar(30) COLLATE utf8_bin NOT NULL,
-  `precio_preciopublicacion` double NOT NULL
+  `codescuento_preciopublicacion` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `precio_preciopublicacion` double NOT NULL,
+  `activo_preciopublicacion` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -214,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `tbl_preciopublicacion` (
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 18-05-2016 a las 06:24:15
+-- Creación: 19-05-2016 a las 09:13:16
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -223,13 +233,16 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
   `fechainicio_publicacion` date NOT NULL,
   `fechafinal_publicacion` date NOT NULL,
   `anuncio_publicacion` int(11) NOT NULL,
-  `visitas_publicacion` int(11) NOT NULL
+  `visitas_publicacion` int(11) NOT NULL,
+  `precio_publicacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_publicacion`:
 --   `anuncio_publicacion`
 --       `tbl_anuncio` -> `id_anuncio`
+--   `precio_publicacion`
+--       `tbl_preciopublicacion` -> `id_preciopublicacion`
 --
 
 -- --------------------------------------------------------
@@ -384,13 +397,17 @@ ALTER TABLE `tbl_likes`
 -- Indices de la tabla `tbl_preciopublicacion`
 --
 ALTER TABLE `tbl_preciopublicacion`
-  ADD PRIMARY KEY (`id_preciopublicacion`);
+  ADD PRIMARY KEY (`id_preciopublicacion`),
+  ADD UNIQUE KEY `codescuento_preciopublicacion_2` (`codescuento_preciopublicacion`),
+  ADD KEY `codescuento_preciopublicacion` (`codescuento_preciopublicacion`);
 
 --
 -- Indices de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
-  ADD KEY `anuncio_publicacion` (`anuncio_publicacion`);
+  ADD UNIQUE KEY `id_publicacion` (`id_publicacion`),
+  ADD KEY `anuncio_publicacion` (`anuncio_publicacion`),
+  ADD KEY `precio_publicacion` (`precio_publicacion`);
 
 --
 -- Indices de la tabla `tbl_tagarticulo`
@@ -439,7 +456,7 @@ ALTER TABLE `tbl_articulo`
 -- AUTO_INCREMENT de la tabla `tbl_comentario`
 --
 ALTER TABLE `tbl_comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tbl_imgarticulo`
 --
@@ -507,7 +524,8 @@ ALTER TABLE `tbl_imgarticulo`
 -- Filtros para la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
-  ADD CONSTRAINT `tbl_publicacion_ibfk_1` FOREIGN KEY (`anuncio_publicacion`) REFERENCES `tbl_anuncio` (`id_anuncio`);
+  ADD CONSTRAINT `tbl_publicacion_ibfk_1` FOREIGN KEY (`anuncio_publicacion`) REFERENCES `tbl_anuncio` (`id_anuncio`),
+  ADD CONSTRAINT `tbl_publicacion_ibfk_2` FOREIGN KEY (`precio_publicacion`) REFERENCES `tbl_preciopublicacion` (`id_preciopublicacion`);
 
 --
 -- Filtros para la tabla `tbl_tagarticulo`
