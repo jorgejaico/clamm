@@ -78,7 +78,7 @@ header.carousel .fill { width: 100%; height: 100%; background-position: center; 
 .price { display: block; font-size: 50px; line-height: 50px;}
 .price sup { top: -20px; left: 2px; font-size: 20px; }
 .period { display: block; font-style: italic; }
-footer { background-color: #1E1E1E; width:100%; display:block; color:#f7f7f7; }
+footer { background-color: #000; width:100%; display:block; color:#f7f7f7; }
 @media(max-width:991px) {.customer-img, .img-related { margin-bottom: 30px; } }
 @media(max-width:767px) {.img-portfolio { margin-bottom: 15px;} header.carousel .carousel { height: 70%; } }
 .height-contact-element {margin:30px 0;} 
@@ -250,9 +250,9 @@ img.displayed{display: block;margin-left: auto;margin-right: auto;background-col
 .btn-stumbleupon { background: #f74425; border-radius: 0; color: #fff }
 .btn-stumbleupon:link, .btn-stumbleupon:visited { color: #fff }
 .btn-stumbleupon:active, .btn-stumbleupon:hover { background: #c7371e; color: #fff }
-.btn-linkedin { background: #0e76a8; border-radius: 0; color: #fff }
-.btn-linkedin:link, .btn-linkedin:visited { color: #fff }
-.btn-linkedin:active, .btn-linkedin:hover { background: #0b6087; color: #fff }
+.btn-insta { background: #0e76a8; border-radius: 0; color: #fff }
+.btn-insta:link, .btn-insta:visited { color: #fff }
+.btn-insta:active, .btn-insta:hover { background: #0b6087; color: #fff }
 .btn-sitename { background-color: #000; border-radius: 0; color: #fff }
 .btn-sitename:link, .btn-sitename:visited { color: #fff }
 .btn-sitename:active, .btn-sitename:hover { background-color: #000; color: #fff }

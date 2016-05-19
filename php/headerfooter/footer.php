@@ -6,7 +6,7 @@
 						<li class="active"><a href="#"><i class="fa fa-facebook social-icons"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter social-icons"></i></a></li>
 						<li><a href="#"><i class="fa fa-google-plus social-icons"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin social-icons"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram social-icons"></i></a></li>
 					</ul>
 				</div>
 				<div class="row myfooter">
