@@ -107,7 +107,7 @@
 									</figcaption>           
 								</figure>
 								<p class="text-center"><?php echo substr($datos['texto_articulo'], 0, 141) ?></p>
-								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
+								<div class="text-center"><a href="php/blogArticulo/blog.php?idB=<?php echo $datos['id_articulo'] ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
 							</div>
 						<?php
 							}
