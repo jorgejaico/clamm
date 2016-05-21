@@ -12,7 +12,7 @@
 		<!-- Bootstrap Core CSS -->
 		<link href="../../css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom Fonts -->
-		<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="../../css/patros.css" >
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -123,12 +123,11 @@
 					<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
 					<div class="contenedorcatalogo">
 							
-								<img src="../../images/blog1.jpg" alt="img09" class="img-responsive" />
-								
-									<h3>Blog Post Long Title</h3>      
+									<img class="img-responsive" src="../../images/<?php echo $prod['imagen_anuncio'] ?>" alt="photo">								
+									<h3><?php echo utf8_encode($prod['titulo_anuncio']); ?></h3>      
 							
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
+							<p class="text-center"><?php echo utf8_encode($prod['texto_anuncio']); ?></p>
+							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="<?php echo $prod['enlace_anuncio'] ?>"">Read More</a></div>
 						</div></div>
 
 				<?php
