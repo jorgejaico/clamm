@@ -39,12 +39,7 @@
 			
 		<!-- Page Content -->
 
-		<section id="noticias">
-			<div class="container">
-
-			</div>
-		</section>
-
+	
 		<section id="contact">
 			<div class="container"> 
 				<div class="row">
@@ -54,7 +49,7 @@
 							<h2>Registrate</h2>
 							</div>
 						</div>
-						<div class="col-lg-6 col-md-8">
+						<div class="col-lg-12 col-md-8">
 							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/registro.proc.php"  onSubmit="return enviar;">
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
@@ -99,12 +94,12 @@
 										</div>
 										<input type="file" name="foto">
 									</div>
-									<div class="col-sm-3 col-xs-6 height-contact-element">
+									<div class="col-sm-6 col-xs-6 height-contact-element">
 										<div class="form-group">
 											<button type="submit" class="btn btn-md btn-custom btn-noborder-radius" onClick="validatePassword()"/>Enviar</button>
 										</div>
 									</div>
-									<div class="col-sm-3 col-xs-6 height-contact-element">
+									<div class="col-sm-6 col-xs-6 height-contact-element">
 										<div class="form-group">
 											<button type="button" class="btn btn-md btn-noborder-radius btn-custom" name="reset">Borrar
 											</button>
@@ -121,26 +116,7 @@
 								</div>
 							</form>
 						</div>
-						<div class="col-lg-5 col-md-3 col-lg-offset-1 col-md-offset-1">
-							<div class="row">
-								<div class="col-md-12 height-contact-element">
-									<div class="form-group">
-										<i class="fa fa-2x fa-map-marker"></i>
-										<span class="text">LOCATION</span>
-									</div>
-								</div>
-								<div class="col-md-12 height-contact-element">
-									<div class="form-group">
-										<i class="fa fa-2x fa-phone"></i>
-										<span class="text">0051 768622115</span>
-									 </div>
-								 </div>
-								<div class="col-md-12 height-contact-element">    
-									<div class="form-group">
-										<i class="fa fa-2x fa-envelope"></i>
-										<span class="text">info@company.com</span>
-									</div>
-								</div>
+					
 							</div>
 						</div>
 					</div>
