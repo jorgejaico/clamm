@@ -17,6 +17,8 @@
         <link href="../../css/reset.css" rel="stylesheet" type="text/css">
 		<link href="../../css/style.css" rel="stylesheet" type="text/css">
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+		<script   src="https://code.jquery.com/jquery-1.4.1.js"   integrity="sha256-ntyfgTeB7KKq1t5474XNvpLuMrsKVnkb5NoPp7Rywdg="   crossorigin="anonymous"></script>
 
         <!-- Custom Fonts -->
         <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -68,59 +70,96 @@
 		include ("../headerfooter/header.php");
 	?>
 
-		<!-- Page Content -->
-		<section class="container blog">
-			<div class="row">
-		        <!-- Blog Column -->
-		        <div class="col-md-8">
-		            <br><br><br>
-		            
-			            <div class="row blogu">
-			            	<?php
-			                //Consulta para articulos destacados		
-							$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idB'];	
-							$blog = mysqli_query($con,$sql1);
-							$datos = mysqli_fetch_array($blog);
-							?>
-						<h2><?php echo utf8_encode($datos['titulo_articulo']); ?></h2>
-							
-							<?php
-								echo utf8_encode($datos['texto_articulo']);
-							?>	
-							<div class="page_content">
-						    </div>
-						    <?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						    <div class="comment_input">
-						        <form name="form1">
-						    <?php
-								}
-						    ?>
-						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
-							<?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
-						           
-						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
-						        </form>
-						    </div>
-						     <?php
-								}
-						    ?>
-						    <div id="comment_logs">
-						    	Cargando comentarios...
-						    </div>
-			            </div>
+<?php
+ //Consulta para articulos destacados		
+$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idB'];	
+$blog = mysqli_query($con,$sql1);
+$datos = mysqli_fetch_array($blog);
+?>
+<div class="tituloArticulo"><h8><?php echo utf8_encode($datos['titulo_articulo']); ?></h8></div>
+		<!-- Slider -->
+		<div id='wrapperslider'>
+		<div id='headerslider'></div>
+		<div id='bodyslider'>
+			<div id="bigPic">
+				<img src="../../images/sliderblog/1.jpg" alt="" />
+				<img src="../../images/sliderblog/2.jpg" alt="" />
+				<img src="../../images/sliderblog/3.jpg" alt="" />
+				<img src="../../images/sliderblog/4.jpg" alt="" />
+				<img src="../../images/sliderblog/5.jpg" alt="" />
+				<img src="../../images/sliderblog/6.jpg" alt="" />
+				<img src="../../images/sliderblog/7.jpg" alt="" />
+				<img src="../../images/sliderblog/8.jpg" alt="" />
+				<img src="../../images/sliderblog/9.jpg" alt="" />
+				<img src="../../images/sliderblog/10.jpg" alt="" />
+			</div>
+			
+			
+			<ul id="thumbs">
+				<li class='active' rel='1'><img src="../../images/sliderblog/1.jpg" alt="" /></li>
+				<li rel='2'><img src="../../images/sliderblog/3.jpg" alt="" /></li>
+				<li rel='3'><img src="../../images/sliderblog/4.jpg" alt="" /></li>
+				<li rel='4'><img src="../../images/sliderblog/5.jpg" alt="" /></li>
+				<li rel='5'><img src="../../images/sliderblog/6.jpg" alt="" /></li>
+				<li rel='6'><img src="../../images/sliderblog/7.jpg" alt="" /></li>
+				<li rel='7'><img src="../../images/sliderblog/8.jpg" alt="" /></li>
+				<li rel='8'><img src="../../images/sliderblog/9.jpg" alt="" /></li>
+				<li rel='9'><img src="../../images/sliderblog/10.jpg" alt="" /></li>
+				<li rel='10'><img src="../../images/sliderblog/2.jpg" alt="" /></li>
+			</ul>
+		
+		</div>
+		<div class='clearfix'></div>
+		<div id='pushslider'></div>
+	</div>
 
-		           
-		            
+			<script type="text/javascript">
+	var currentImage;
+    var currentIndex = -1;
+    var interval;
+    function showImage(index){
+        if(index < $('#bigPic img').length){
+        	var indexImage = $('#bigPic img')[index]
+            if(currentImage){   
+            	if(currentImage != indexImage ){
+                    $(currentImage).css('z-index',2);
+                    clearTimeout(myTimer);
+                    $(currentImage).fadeOut(250, function() {
+					    myTimer = setTimeout("showNext()", 3000);
+					    $(this).css({'display':'none','z-index':1})
+					});
+                }
+            }
+            $(indexImage).css({'display':'block', 'opacity':1});
+            currentImage = indexImage;
+            currentIndex = index;
+            $('#thumbs li').removeClass('active');
+            $($('#thumbs li')[index]).addClass('active');
+        }
+    }
+    
+    function showNext(){
+        var len = $('#bigPic img').length;
+        var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
+        showImage(next);
+    }
+    
+    var myTimer;
+    
+    $(document).ready(function() {
+	    myTimer = setTimeout("showNext()", 3000);
+		showNext(); //loads first image
+        $('#thumbs li').bind('click',function(e){
+        	var count = $(this).attr('rel');
+        	showImage(parseInt(count)-1);
+        });
+	});
+    
+	
+	</script>
 
-		            
-		        	</div>
-		         
-		            <aside class="col-md-4 sidebar-padding">
+
+		            <aside class="aside">
 		               
 		                
 		                
@@ -176,6 +215,56 @@
 
 	
 					</aside>
+
+
+		<!-- Page Content -->
+		<section class="contenedorarticulo">
+			<div class="row">
+		        <!-- Blog Column -->
+		        <div class="col-md-8">
+		            <br><br><br>
+		            
+			            <div class="row blogu">
+
+						
+							
+							<?php
+								echo utf8_encode($datos['texto_articulo']);
+							?>	
+							<div class="page_content">
+						    </div>
+						    <?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						    <div class="comment_input">
+						        <form name="form1">
+						    <?php
+								}
+						    ?>
+						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
+							<?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
+						           
+						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
+						        </form>
+						    </div>
+						     <?php
+								}
+						    ?>
+						    <div id="comment_logs">
+						    	Cargando comentarios...
+						    </div>
+			            </div>
+
+		           
+		            
+
+		            
+		        	</div>
+		         
+
 				
 				</div> 
 				
