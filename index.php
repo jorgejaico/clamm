@@ -100,14 +100,14 @@
 						?>
 							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 								<figure class="effect-oscar">
-									<img src="images/<?php echo $datos['portada_articulo'] ?>" class="img-responsive" />
+									<img src="images/<?php echo utf8_encode($datos['portada_articulo']) ?>" class="img-responsive" />
 									<figcaption>
-										<h2><?php echo $datos['titulo_articulo'] ?></h2>
+										<h2><?php echo utf8_encode($datos['titulo_articulo']) ?></h2>
 										<a href="#">View more</a>
 									</figcaption>           
 								</figure>
-								<p class="text-center"><?php echo substr($datos['texto_articulo'], 0, 141) ?></p>
-								<div class="text-center"><a href="php/blogArticulo/blog.php?idB=<?php echo $datos['id_articulo'] ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
+								<p class="text-center"><?php echo utf8_encode(substr($datos['texto_articulo'], 0, 141)) ?></p>
+								<div class="text-center"><a href="php/blogArticulo/blog.php?idB=<?php echo utf8_encode($datos['id_articulo']) ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
 							</div>
 						<?php
 							}
