@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2016 a las 10:36:19
+-- Tiempo de generación: 23-05-2016 a las 10:54:23
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 23-05-2016 a las 08:34:19
+-- Creación: 23-05-2016 a las 08:53:19
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -38,7 +38,6 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `id_anuncio` int(11) NOT NULL,
   `titulo_anuncio` varchar(25) COLLATE utf8_bin NOT NULL,
   `texto_anuncio` varchar(250) COLLATE utf8_bin NOT NULL,
-  `icono_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
   `imagen_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
   `usuario_anuncio` int(11) NOT NULL,
   `enlace_anuncio` text COLLATE utf8_bin NOT NULL
@@ -54,12 +53,12 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
 -- Volcado de datos para la tabla `tbl_anuncio`
 --
 
-INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `icono_anuncio`, `imagen_anuncio`, `usuario_anuncio`, `enlace_anuncio`) VALUES
-(1, 'afsadgs', 'sagh', 'fgfdsfg', 'fdfgsf', 1, 'www.google.es'),
-(2, 'fasdfsdf', 'sadfsdf', 'sdfasfd', 'asfsadf', 1, 'www.google.es'),
-(3, 'asfdsdf', 'asfsad', 'fsdfadsfads', 'fsdfsd', 1, 'www.google.es'),
-(4, 'asfdasdf', 'asfdadsf', 'asdf', 'asdfasf', 2, 'www.google.es'),
-(5, 'asfadsf', 'adsdfasf', 'asdfasdf', 'asdfasdf', 2, 'www.google.es');
+INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `imagen_anuncio`, `usuario_anuncio`, `enlace_anuncio`) VALUES
+(1, 'afsadgs', 'sagh', 'fdfgsf', 1, 'www.google.es'),
+(2, 'fasdfsdf', 'sadfsdf', 'asfsadf', 1, 'www.thomann.de/es/index.html'),
+(3, 'asfdsdf', 'asfsad', 'fsdfsd', 1, 'www.google.es'),
+(4, 'asfdasdf', 'asfdadsf', 'asdfasf', 2, 'www.google.es'),
+(5, 'asfadsf', 'adsdfasf', 'asdfasdf', 2, 'www.google.es');
 
 -- --------------------------------------------------------
 
