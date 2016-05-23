@@ -374,3 +374,18 @@ h5 {
   box-shadow: 1px 3px 6px;
   padding: 3% 3% 5%;
 }
+.imgresp {
+  border: 1px solid;
+  float: left;
+  height: 100px;
+  text-align: center;
+  width: 100px;
+}
+.blog-thumb a img {
+  display: block;
+  height: auto;
+  max-height: 100px;
+  max-width: 100px;
+  text-align: center;
+  width: auto;
+}

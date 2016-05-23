@@ -129,7 +129,7 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 				            $prod_likes = mysqli_fetch_array($datos_likes);        	
 		            	?>
 			            <div class="row blogu">
-			                <div class="col-sm-4 col-md-4 ">
+			                <div class="imgresp ">
 			                    <div class="blog-thumb">
 			                        <a href="#">
 			                            <img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo">
