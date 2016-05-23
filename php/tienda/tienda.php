@@ -127,7 +127,7 @@
 									<h3><?php echo utf8_encode($prod['titulo_anuncio']); ?></h3>      
 							
 							<p class="text-center"><?php echo utf8_encode($prod['texto_anuncio']); ?></p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="<?php echo $prod['enlace_anuncio'] ?>"">Read More</a></div>
+							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="//<?php echo $prod['enlace_anuncio'] ?>">Read More</a></div>
 						</div></div>
 
 				<?php
