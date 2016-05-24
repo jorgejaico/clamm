@@ -165,57 +165,7 @@
 		include ("../conexion/conexion.proc.php");
 	?>
 
-		<!-- Header Carousel -->
-		<header id="home" class="carousel slide">
-			<ul class="cb-slideshow">
-				<li><span>image1</span>
-					<div class="container">
-						<div class="row">
-						
-						</div>
-						
-					</div>
-				</li>
-				<li><span>image2</span>
-					<div class="container">
-						<div class="row">
-							
-						
-					</div>
-				</li>
-				<li><span>image3</span>
-					<div class="container">
-						<div class="row">
-							
-						</div>
-						
-					</div>
-				</li>
-				<li><span>Image 04</span>
-					<div class="container">
-						<div class="row">
-							
-						</div>
-						
-					</div>
-				</li>
-				<li><span>Image 05</span>
-					<div class="container">
-						<div class="row">
-							
-						</div>
-						
-					</div>
-				</li>
-			</ul>
-			<div class="intro-scroller">
-				<a class="inner-link" href="#noticias">
-					<div class="mouse-icon" style="opacity: 1;">
-						<div class="wheel"></div>
-					</div>
-				</a> 
-			</div>          
-		</header>
+		
 			
 		<!-- Page Content -->
 
