@@ -14,7 +14,7 @@
         <title>CLAMM - Articulos</title>
 
         <!-- Bootstrap Core CSS -->
-
+        <link href="../../css/reset.css" rel="stylesheet" type="text/css">
 		<link href="../../css/style.css" rel="stylesheet" type="text/css">
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/main.css" type="text/css">
@@ -65,25 +65,22 @@
 	</head>
 
 	<body data-spy="scroll">
-
-
-
-
 		<!-- Navigation -->
 				<?php
 		include ("../headerfooter/header.php");
 	?>
 
-
-
 <?php
  //Consulta para articulos destacados		
-$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idB'];	
+$sql1 = "SELECT*FROM tbl_articulo INNER JOIN tbl_usuario ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario WHERE id_articulo=".$_REQUEST['idB'];	
 $blog = mysqli_query($con,$sql1);
 $datos = mysqli_fetch_array($blog);
+	//Sentencia SQL para listar todas las IMG's del articulo
+	$sqlArtIMG = "SELECT*FROM tbl_imgarticulo WHERE articulo_imgarticulo =".$_REQUEST['idB'];
+	$datosArtIMG = mysqli_query($con,$sqlArtIMG);
+	$datosArtIMG2 = mysqli_query($con,$sqlArtIMG);
 ?>
 <div class="tituloArticulo"><h8><?php echo utf8_encode($datos['titulo_articulo']); ?></h8></div>
-
 
 
 		<!-- Page Content -->
@@ -95,11 +92,33 @@ $datos = mysqli_fetch_array($blog);
 		            
 			            <div>
 
-						<?php
+						
+							
+							<?php
 								echo utf8_encode($datos['texto_articulo']);
+								echo $datos['usuario'];
 							?>	
 							
-						</div></div></div></div>
+						    <?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						    <div class="comment_input">
+						        <form name="form1">
+						    <?php
+								}
+						    ?>
+						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
+							<?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
+						           
+						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
+						        </form>
+						    </div>
+						     <?php
+								}
+						    ?></div></div></div></div>
 
 						     <aside class="aside">
 		               
@@ -157,39 +176,47 @@ $datos = mysqli_fetch_array($blog);
 
 	
 					</aside>
+<?php
 
+?>
 
 		<!-- Slider -->
 		<div id='wrapperslider'>
 		<div id='headerslider'></div>
 		<div id='bodyslider'>
 			<div id="bigPic">
-				<img src="../../images/sliderblog/1.jpg" alt="" />
-				<img src="../../images/sliderblog/2.jpg" alt="" />
-				<img src="../../images/sliderblog/3.jpg" alt="" />
-				<img src="../../images/sliderblog/4.jpg" alt="" />
-				<img src="../../images/sliderblog/5.jpg" alt="" />
-				<img src="../../images/sliderblog/6.jpg" alt="" />
-				<img src="../../images/sliderblog/7.jpg" alt="" />
-				<img src="../../images/sliderblog/8.jpg" alt="" />
-				<img src="../../images/sliderblog/9.jpg" alt="" />
-				<img src="../../images/sliderblog/10.jpg" alt="" />
+				<?php
+				while ($prodArtIMG = mysqli_fetch_array($datosArtIMG)){
+					?>
+				<img src="../../usuarios/<?php echo $datos['usuario'] ?>/<?php echo $prodArtIMG['nombre_imgarticulo']?>" alt="" />
+				
+					<?php
+				};
+				?>				
+
 			</div>
 			
 			
 			<ul id="thumbs">
-				<li class='active' rel='1'><img src="../../images/sliderblog/1.jpg" alt="" /></li>
-				<li rel='2'><img src="../../images/sliderblog/3.jpg" alt="" /></li>
-				<li rel='3'><img src="../../images/sliderblog/4.jpg" alt="" /></li>
-				<li rel='4'><img src="../../images/sliderblog/5.jpg" alt="" /></li>
-				<li rel='5'><img src="../../images/sliderblog/6.jpg" alt="" /></li>
-				<li rel='6'><img src="../../images/sliderblog/7.jpg" alt="" /></li>
-				<li rel='7'><img src="../../images/sliderblog/8.jpg" alt="" /></li>
-				<li rel='8'><img src="../../images/sliderblog/9.jpg" alt="" /></li>
-				<li rel='9'><img src="../../images/sliderblog/10.jpg" alt="" /></li>
-				<li rel='10'><img src="../../images/sliderblog/2.jpg" alt="" /></li>
+<!-- <li class='active' rel='1'>  -->
+				<?php
+				$NumIMG = 1;
+				while ($prodArtIMG2 = mysqli_fetch_array($datosArtIMG2)){
+					if ($NumIMG == 1){
+						echo "<li class='active' rel='1'>";
+						echo "<img src='../../usuarios/".$datos['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					}else{
+						echo "<li rel='".$NumIMG."'>";
+						echo "<img src='../../usuarios/".$datos['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					};
+				$NumIMG = $NumIMG + 1;
+				}
+				?>
+
 			</ul>
-		
+		</li>
 		</div>
 		<div class='clearfix'></div>
 		<div id='pushslider'></div>
@@ -242,28 +269,7 @@ $datos = mysqli_fetch_array($blog);
 	
 	</script>
 
-							
-							
-						    <?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						    <div class="comment_input">
-						        <form name="form1">
-						    <?php
-								}
-						    ?>
-						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
-							<?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
-						           
-						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
-						        </form>
-						    </div>
-						     <?php
-								}
-						    ?>
+
 
 
 						    <div id="comment_logs">
