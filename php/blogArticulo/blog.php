@@ -14,7 +14,7 @@
         <title>CLAMM - Articulos</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
 		<link href="../../css/style.css" rel="stylesheet" type="text/css">
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/main.css" type="text/css">
@@ -65,10 +65,16 @@
 	</head>
 
 	<body data-spy="scroll">
+
+
+
+
 		<!-- Navigation -->
 				<?php
 		include ("../headerfooter/header.php");
 	?>
+
+
 
 <?php
  //Consulta para articulos destacados		
@@ -77,6 +83,7 @@ $blog = mysqli_query($con,$sql1);
 $datos = mysqli_fetch_array($blog);
 ?>
 <div class="tituloArticulo"><h8><?php echo utf8_encode($datos['titulo_articulo']); ?></h8></div>
+
 
 
 		<!-- Page Content -->
@@ -88,32 +95,11 @@ $datos = mysqli_fetch_array($blog);
 		            
 			            <div>
 
-						
-							
-							<?php
+						<?php
 								echo utf8_encode($datos['texto_articulo']);
 							?>	
 							
-						    <?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						    <div class="comment_input">
-						        <form name="form1">
-						    <?php
-								}
-						    ?>
-						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
-							<?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
-						           
-						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
-						        </form>
-						    </div>
-						     <?php
-								}
-						    ?></div></div></div></div>
+						</div></div></div></div>
 
 						     <aside class="aside">
 		               
@@ -256,7 +242,28 @@ $datos = mysqli_fetch_array($blog);
 	
 	</script>
 
-
+							
+							
+						    <?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						    <div class="comment_input">
+						        <form name="form1">
+						    <?php
+								}
+						    ?>
+						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
+							<?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
+						           
+						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
+						        </form>
+						    </div>
+						     <?php
+								}
+						    ?>
 
 
 						    <div id="comment_logs">

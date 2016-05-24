@@ -15,9 +15,9 @@ if(isset($_SESSION['id'])){
 		echo "<h4><a href='delete.php?id=" . $row['id_comentario'] . "&idB=".$idB."'> X</a></h4>";
 	}
 }
-echo "<h1>" . $datosUsu['usuario'] . "</h1>";
-echo "<h2>" . $row['fecha_comentario'] . "</h2></br></br>";
-echo "<h3>" . $row['texto_comentario'] . "</h3>";
+echo "<h8>" . $datosUsu['usuario'] . "</h8>";
+echo "<h6>" . $row['fecha_comentario'] . "</h6></br></br>";
+echo "<h9>" . $row['texto_comentario'] . "</h9>";
 echo "</div>";
 }
 mysqli_close($con);
