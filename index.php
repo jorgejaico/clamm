@@ -72,12 +72,7 @@
 					</div>
 				</li>
 			</ul>
-			<div class="intro-scroller">
-				<a class="inner-link" href="#noticias">
-					<div class="mouse-icon" style="opacity: 1;">
-						<div class="wheel"></div>
-					</div>
-				</a> 
+
 			</div>          
 		</header>
 			
@@ -85,9 +80,11 @@
 
 
 		<?php
-			$sql = "SELECT*FROM tbl_articulo ORDER BY fecha_articulo ASC LIMIT 3";
+			$sql = "SELECT*FROM tbl_articulo ORDER BY fecha_articulo ASC LIMIT 6";
 			$art_fechas=mysqli_query($con, $sql);
 		?>
+
+		<div class="col-lg-9 col-md-8">
 		<section id="noticias">
 			<div class="container">
 				<div class="text-center"><h2>Últimos blogs</h2>
@@ -99,6 +96,7 @@
 							while($datos=mysqli_fetch_array($art_fechas)){
 						?>
 							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
+								<div class="contenedorarticulos">
 								<figure class="effect-oscar">
 									<img src="images/<?php echo utf8_encode($datos['portada_articulo']) ?>" class="img-responsive" />
 									<figcaption>
@@ -108,7 +106,7 @@
 								</figure>
 								<p class="text-center"><?php echo utf8_encode(substr($datos['texto_articulo'], 0, 141)) ?></p>
 								<div class="text-center"><a href="php/blogArticulo/blog.php?idB=<?php echo utf8_encode($datos['id_articulo']) ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
-							</div>
+							</div></div>
 						<?php
 							}
 						?>
@@ -116,9 +114,10 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section></div>
 
-		<div>
+		<div class="col-lg-3 col-md-8">
+			<div class="twitter">
 
 			<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=Moda_Clamm" data-widget-id="729979586835054592">Tweets sobre Moda_Clamm</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -128,12 +127,12 @@
 			<a href="https://twitter.com/rockmoda" class="twitter-follow-button" data-show-count="false" data-lang="es" data-size="large" data-show-screen-name="false">Seguir a @Moda_Clamm</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			<br><br>
-		</div>
+		</div></div>
 
 
 	
 
-
+		<div class="col-lg-12 col-md-12">
 		<section id="contact">
 			<div class="container"> 
 				<div class="row">
@@ -210,14 +209,15 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section></div>
 
 		
 
 		<!-- Footer -->
+		<div class="col-lg-12 col-md-8">
 	<?php
 		include ("php/headerfooter/footer.php");
-	?>
+	?></div>
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
 		<!-- Bootstrap Core JavaScript -->
