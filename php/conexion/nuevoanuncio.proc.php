@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("../conexion/conexion.proc.php");
+	include("conexion.proc.php");
 	$foto = $_FILES["foto"]["name"];
 	$sql = "INSERT INTO tbl_anuncio (titulo_anuncio, texto_anuncio, usuario_anuncio, enlace_anuncio, imagen_anuncio) VALUES ('$_REQUEST[titulo]', '$_REQUEST[desc]', $_SESSION[id], '$_REQUEST[enlace]', '$foto')";
 	$resultado=mysqli_query($con, $sql);
