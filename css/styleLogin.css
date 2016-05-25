@@ -8,14 +8,12 @@
 }
 
 /* Login Button */
-#loginButton { 
-    display:inline-block;
-    float:right;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    position:relative;
-    z-index:30;
-    cursor:pointer;
+#loginButton {
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 30;
 }
 
 /* Login Button Text */

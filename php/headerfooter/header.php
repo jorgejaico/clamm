@@ -82,14 +82,14 @@
 							include ("php/cuentas/login.php"); 
 						}else{
 							echo "Bienvenido, ".$_SESSION['nombre'];
-							echo "<a href='php/conexion/logout.php'>Logout</a>";
+							echo "<a href='php/conexion/logout.php'> Logout</a>";
 						};
 					}else{
 						if(!isset($_SESSION['mail'])){
 							include ("../cuentas/login.php"); 
 						}else{
 							echo "Bienvenido, ".$_SESSION['nombre'];
-							echo "<a href='../conexion/logout.php'>Logout</a>";
+							echo "<a href='../conexion/logout.php'> Logout</a>";
 						};		
 					}
 						?>

@@ -46,7 +46,7 @@
 	
 
 <div id="loginContainer">
-                <a href="#" id="loginButton"><span>LOGIN</span></a>
+                <a href="#" id="loginButton"><span>Login</span></a>
                 /
                 <a href="php/cuentas/registro.php" id="loginButton"><span>Registrar</span></a>
                 <div style="clear:both"></div>
