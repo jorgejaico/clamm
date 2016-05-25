@@ -1,8 +1,12 @@
 <?php
 session_start();
 require("db/db.php");
-$idB = $_REQUEST['idB'];
-$sqlB = "SELECT * FROM tbl_comentario WHERE articulo_comentario = '$idB' ORDER BY id_comentario ASC";
+if(isset($_REQUEST['idB'])){
+	$id = $_REQUEST['idB'];
+}else{
+	$id = $_REQUEST['idArt'];
+}
+$sqlB = "SELECT * FROM tbl_comentario WHERE articulo_comentario = '$id' ORDER BY id_comentario ASC";
 $result = mysqli_query($con, $sqlB);
 while($row=mysqli_fetch_array($result)){
 	$sqlComent = "SELECT*FROM tbl_usuario WHERE id_usuario = $row[usuario_comentario]";
@@ -12,12 +16,12 @@ echo "<div class='comments_content'>";
 if(isset($_SESSION['id'])){
 
 	if($_SESSION['id'] == $row['usuario_comentario']){
-		echo "<h4><a href='delete.php?id=" . $row['id_comentario'] . "&idB=".$idB."'> X</a></h4>";
+		echo "<h4><a href='delete.php?id=" . $row['id_comentario'] . "&idB=".$id."'> X</a></h4>";
 	}
 }
-echo "<h8>" . $datosUsu['usuario'] . "</h8>";
-echo "<h6>" . $row['fecha_comentario'] . "</h6></br></br>";
-echo "<h9>" . $row['texto_comentario'] . "</h9>";
+echo "<h1>" . $datosUsu['usuario'] . "</h1>";
+echo "<h2>" . $row['fecha_comentario'] . "</h2></br></br>";
+echo "<h3>" . $row['texto_comentario'] . "</h3>";
 echo "</div>";
 }
 mysqli_close($con);

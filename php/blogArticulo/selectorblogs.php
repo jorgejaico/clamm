@@ -88,7 +88,11 @@
 			
 
 		//Obtiene TODO de la tabla
-		$obtener_todo_BD = "SELECT tbl_articulo.* FROM tbl_articulo  WHERE tipo_articulo = 1";
+		if(!isset($_REQUEST['idT'])){
+			$obtener_todo_BD = "SELECT tbl_articulo.* FROM tbl_articulo WHERE tipo_articulo = 1";
+		}else{
+			$obtener_todo_BD = "SELECT tbl_articulo.* FROM tbl_articulo WHERE tipo_articulo = 1 AND id_tag=".$_REQUEST['idT'];
+		}
 
 		//Realiza la consulta
 		$consulta_todo = mysqli_query($con, $obtener_todo_BD);
@@ -100,11 +104,21 @@
 		$total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 		//Realiza la consulta en el orden de ID ascendente (cambiar "id" por, por ejemplo, "nombre" o "edad", alfabéticamente, etc.)
 		//Limitada por la cantidad de cantidad por página
-			$consulta_resultados = mysqli_query($con, "
-			SELECT tbl_articulo.*, tbl_usuario.* FROM tbl_articulo 
-			INNER JOIN tbl_usuario ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario 
-			WHERE tbl_articulo.tipo_articulo = 1 ORDER BY tbl_articulo.fecha_articulo DESC 
-			LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
+			if(!isset($_REQUEST['idT'])){
+				$consulta_resultados = mysqli_query($con, "
+				SELECT tbl_articulo.*, tbl_usuario.* FROM tbl_articulo 
+				INNER JOIN tbl_usuario ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario 
+				WHERE tbl_articulo.tipo_articulo = 1 ORDER BY tbl_articulo.fecha_articulo DESC 
+				LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
+			}else{
+				$consulta_resultados = mysqli_query($con, "
+					SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.*, tbl_usuario.* FROM tbl_usuario 
+					INNER JOIN tbl_articulo ON id_usuario=usuario_articulo
+					INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo 
+					INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_tag=$_REQUEST[idT] 
+					ORDER BY tbl_articulo.fecha_articulo DESC 
+				LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
+			}
 	// Paginación Final Inicio BODY
 
 
@@ -126,7 +140,9 @@
 						$sql2 ="SELECT tbl_articulo.id_articulo, COUNT(tbl_comentario.id_comentario) AS num_coment FROM tbl_comentario INNER JOIN tbl_articulo ON tbl_comentario.articulo_comentario = tbl_articulo.id_articulo WHERE tbl_articulo.id_articulo = $prod[id_articulo]";
 						$datos2 = mysqli_query($con, $sql2);
 						$prod2 = mysqli_fetch_array($datos2);
-
+						$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$prod['id_articulo'];
+						$datosTags = mysqli_query($con, $sqlTags);
+						
 						?>
 			            <div class="row blogu">
 			                <div class="col-sm-4 col-md-4 ">
@@ -165,6 +181,10 @@
 
 			                    	?>
 			                    <p><?php echo utf8_encode(substr($prod['texto_articulo'], 0, 141)); ?></p>
+			                    <?php
+			                    	while($prodTags = mysqli_fetch_array($datosTags)){
+			                    ?>
+			                    		<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".$prodTags['nombre_tag']."</a>"; }?></p>
 			                </div>
 			            </div>
 			            <hr>
@@ -208,7 +228,7 @@
 
 						<!-- Blogs Destacados -->
 			                <div class="blog-sidebar">
-			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
+			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Blogs Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
 						while ($prod3 = mysqli_fetch_array($datos3)){

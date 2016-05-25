@@ -34,21 +34,21 @@
 		}
 		var comments = form1.comments.value;
 		var xmlhttp = new XMLHttpRequest(); //http request instance
-		var idB = document.getElementById('idBlog').value;
+		var idArt = document.getElementById('idArt').value;
 		
 		xmlhttp.onreadystatechange = function(){ //display the content of insert.php once successfully loaded
 			if(xmlhttp.readyState==4&&xmlhttp.status==200){
 				document.getElementById('comment_logs').innerHTML = xmlhttp.responseText; //the chatlogs from the db will be displayed inside the div section
 			}
 		}
-		xmlhttp.open('GET', 'insert.php?name='+name+'&comments='+comments+'&idB='+idB, true); //open and send http request
+		xmlhttp.open('GET', 'insert.php?name='+name+'&comments='+comments+'&idArt='+idArt, true); //open and send http request
 		xmlhttp.send();
 	}
 	
 		$(document).ready(function(e) {
 			$.ajaxSetup({cache:false});
-			var idB = document.getElementById('idBlog').value;
-			setInterval(function() {$('#comment_logs').load('logs.php?idB='+idB);}, 2000);
+			var idArt = document.getElementById('idArt').value;
+			setInterval(function() {$('#comment_logs').load('logs.php?idArt='+idArt);}, 2000);
 		});
 		
 </script>
@@ -71,16 +71,16 @@
 		<!-- Page Content -->
 		<section class="container blog">
 			<div class="row">
-		        <!-- Blog Column -->
+		        <!-- article Column -->
 		        <div class="col-md-8">
 		            <br><br><br>
 		            
 			            <div class="row blogu">
 			            	<?php
 			                //Consulta para articulos destacados		
-							$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idB'];	
-							$blog = mysqli_query($con,$sql1);
-							$datos = mysqli_fetch_array($blog);
+							$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idArt'];	
+							$art = mysqli_query($con,$sql1);
+							$datos = mysqli_fetch_array($art);
 							?>
 						<h2><?php echo utf8_encode($datos['titulo_articulo']); ?></h2>
 							
@@ -97,7 +97,7 @@
 						    <?php
 								}
 						    ?>
-						        	<input type="hidden" id="idBlog" value="<?php echo $_REQUEST['idB'] ?>" />
+						        	<input type="hidden" id="idArt" value="<?php echo $_REQUEST['idArt'] ?>" />
 							<?php
 						    	if(isset($_SESSION['id'])){
 						    ?>
@@ -130,9 +130,9 @@
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
-							$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 1 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
-							$blogDest = mysqli_query($con,$sql2);
-						while ($datos2 = mysqli_fetch_array($blogDest)){
+							$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
+							$ArtDest = mysqli_query($con,$sql2);
+						while ($datos2 = mysqli_fetch_array($ArtDest)){
 							?>
 			                    <div class="media">
 			                        	<?php
