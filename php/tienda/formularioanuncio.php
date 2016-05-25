@@ -36,23 +36,23 @@
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-8">
-							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/nuevoanuncio.proc.php"  onSubmit="return enviar;">
+							<form class="inline" method="post" enctype="multipart/form-data" action="../cuentas/nuevoanuncio.proc.php"  onSubmit="return enviar;">
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="titulo" placeholder="Titulo anuncio" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="titulo" placeholder="Titulo anuncio" class="form-control custom-labels" id="name" required data-validation-required-message="Instroduce el titulo de tu anuncio"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="enlace" placeholder="Enlace anuncio" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="enlace" placeholder="Enlace anuncio" class="form-control custom-labels" id="name" required data-validation-required-message="Instroduce el enlace de tu anuncio"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-12 height-contact-element">
 										<div class="form-group">
-											<textarea name="desc" rows="2" maxlength="140" cols="50" class="form-control custom-labels" placeholder="Descripción"></textarea>
+											<textarea name="desc" rows="2" maxlength="140" cols="50" class="form-control custom-labels" placeholder="Inroduce una descripción"></textarea>
 										</div>
 										<input type="file" name="foto">
 									</div>
