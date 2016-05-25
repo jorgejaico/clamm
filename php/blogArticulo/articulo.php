@@ -86,6 +86,18 @@
 							
 							<?php
 								echo utf8_encode($datos['texto_articulo']);
+								$sqlLikes = "SELECT COUNT(id_likes) FROM tbl_likes WHERE articulo_likes=".$_REQUEST['idArt'];
+								$artLikes = mysqli_query($con,$sqlLikes);
+								$datosLikes = mysqli_fetch_array($artLikes);
+
+								$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE articulo_likes=$_REQUEST[idArt] AND usuario_likes=$_SESSION[id]";
+								$artLinkLikes = mysqli_query($con,$sqlLinkLikes);
+								if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){
+									echo "<br/><a href='../conexion/like.proc.php?idArt=$_REQUEST[idArt]'>No me gusta</a>";
+								}else{
+									echo "<br/><a href='../conexion/like.proc.php?idArt=$_REQUEST[idArt]'>Me gusta</a>";
+								}
+								echo $datosLikes['COUNT(id_likes)'];
 							?>	
 							<div class="page_content">
 						    </div>
