@@ -54,37 +54,37 @@
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="nombre" placeholder="Nombre" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="nombre" placeholder="Nombre" class="form-control custom-labels" id="name" required data-validation-required-message="Por favor escribe tu nombre"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="apellidos" placeholder="Apellidos" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="apellidos" placeholder="Apellidos" class="form-control custom-labels" id="name" required data-validation-required-message="Por favor escribe tus apellidos"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="user" placeholder="Usuario" class="form-control custom-labels" id="name" required data-validation-required-message="Please write your name!"/>
+											<input type="text" name="user" placeholder="Usuario" class="form-control custom-labels" id="name" required data-validation-required-message="Por favor escribe tu nombre de usuario"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="email" name="mail" placeholder="Correo electrónico" class="form-control custom-labels" id="email"  required data-validation-required-message="Please write your email!"/>
+											<input type="email" name="mail" placeholder="Correo electrónico" class="form-control custom-labels" id="email"  required data-validation-required-message="Por favor escribe tu email"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="pass" required data-validation-required-message="Please write your name!"/>
+											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="pass" required data-validation-required-message="Por favor escribe tu contrseña"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="pass2" required data-validation-required-message="Please write your name!"/>
+											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="pass2" required data-validation-required-message="Por favor repite tu contraseña"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
