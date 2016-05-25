@@ -34,21 +34,21 @@
 		}
 		var comments = form1.comments.value;
 		var xmlhttp = new XMLHttpRequest(); //http request instance
-		var idArt = document.getElementById('idArt').value;
+		var idB = document.getElementById('idBlog').value;
 		
 		xmlhttp.onreadystatechange = function(){ //display the content of insert.php once successfully loaded
 			if(xmlhttp.readyState==4&&xmlhttp.status==200){
 				document.getElementById('comment_logs').innerHTML = xmlhttp.responseText; //the chatlogs from the db will be displayed inside the div section
 			}
 		}
-		xmlhttp.open('GET', 'insert.php?name='+name+'&comments='+comments+'&idArt='+idArt, true); //open and send http request
+		xmlhttp.open('GET', 'insert.php?name='+name+'&comments='+comments+'&idB='+idB, true); //open and send http request
 		xmlhttp.send();
 	}
 	
 		$(document).ready(function(e) {
 			$.ajaxSetup({cache:false});
-			var idArt = document.getElementById('idArt').value;
-			setInterval(function() {$('#comment_logs').load('logs.php?idArt='+idArt);}, 2000);
+			var idB = document.getElementById('idBlog').value;
+			setInterval(function() {$('#comment_logs').load('logs.php?idB='+idB);}, 2000);
 		});
 		
 </script>
@@ -66,38 +66,43 @@
 		<!-- Navigation -->
 				<?php
 		include ("../headerfooter/header.php");
+		if(isset($_REQUEST['idB'])){
+			$id = $_REQUEST['idB'];
+		}else{
+			$id = $_REQUEST['idArt'];
+		}
 	?>
 
 		<!-- Page Content -->
 		<section class="container blog">
 			<div class="row">
-		        <!-- article Column -->
+		        <!-- Blog Column -->
 		        <div class="col-md-8">
 		            <br><br><br>
 		            
 			            <div class="row blogu">
 			            	<?php
 			                //Consulta para articulos destacados		
-							$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$_REQUEST['idArt'];	
-							$art = mysqli_query($con,$sql1);
-							$datos = mysqli_fetch_array($art);
+							$sql1 = "SELECT*FROM tbl_articulo WHERE id_articulo=".$id;	
+							$blog = mysqli_query($con,$sql1);
+							$datos = mysqli_fetch_array($blog);
 							?>
 						<h2><?php echo utf8_encode($datos['titulo_articulo']); ?></h2>
 							
 							<?php
 								echo utf8_encode($datos['texto_articulo']);
-								$sqlLikes = "SELECT COUNT(id_likes) FROM tbl_likes WHERE articulo_likes=".$_REQUEST['idArt'];
+								$sqlLikes = "SELECT COUNT(id_likes) FROM tbl_likes WHERE articulo_likes=".$id;
 								$artLikes = mysqli_query($con,$sqlLikes);
 								$datosLikes = mysqli_fetch_array($artLikes);
 
-								$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE articulo_likes=$_REQUEST[idArt] AND usuario_likes=$_SESSION[id]";
+								$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE articulo_likes=$id AND usuario_likes=$_SESSION[id]";
 								$artLinkLikes = mysqli_query($con,$sqlLinkLikes);
 								if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){
-									echo "<br/><a href='../conexion/like.proc.php?idArt=$_REQUEST[idArt]'>No me gusta</a>";
+									echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta</a>";
 								}else{
-									echo "<br/><a href='../conexion/like.proc.php?idArt=$_REQUEST[idArt]'>Me gusta</a>";
+									echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta</a>";
 								}
-								echo $datosLikes['COUNT(id_likes)'];
+								echo $datosLikes['COUNT(id_likes)']
 							?>	
 							<div class="page_content">
 						    </div>
@@ -109,7 +114,7 @@
 						    <?php
 								}
 						    ?>
-						        	<input type="hidden" id="idArt" value="<?php echo $_REQUEST['idArt'] ?>" />
+						        	<input type="hidden" id="idBlog" value="<?php echo $id ?>" />
 							<?php
 						    	if(isset($_SESSION['id'])){
 						    ?>
@@ -139,12 +144,25 @@
 
 						<!-- Blogs Destacados -->
 			                <div class="blog-sidebar">
-			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
+			                		<?php
+										if(isset($_REQUEST['idB'])){
+											$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
+									?>
+											<h4 class="sidebar-title"><i class="fa fa-align-left"></i> Blogs Destacados</h4>
+
+									<?php
+										}else{
+											$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 1 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
+									?>
+											<h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
+									<?php
+										}
+									?>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
-							$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
-							$ArtDest = mysqli_query($con,$sql2);
-						while ($datos2 = mysqli_fetch_array($ArtDest)){
+							
+							$blogDest = mysqli_query($con,$sql2);
+						while ($datos2 = mysqli_fetch_array($blogDest)){
 							?>
 			                    <div class="media">
 			                        	<?php

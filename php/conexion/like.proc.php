@@ -18,18 +18,18 @@
 		$sql_sumar_like = "INSERT INTO tbl_likes (articulo_likes, usuario_likes) VALUES ('$id', '$_SESSION[id]')";
 		$sumar_like = mysqli_query($con, $sql_sumar_like);
 		if(isset($_REQUEST['idB'])){
-			header("location: ../blogArticulo/blog.php?idB=$id");
+			header("location: ../blogArticulo/content.php?idB=$id");
 		}else{
-			header("location: ../blogArticulo/articulo.php?idArt=$id");
+			header("location: ../blogArticulo/content.php?idArt=$id");
 		}
 
 	}else{
 		$sql_sumar_like = "DELETE FROM tbl_likes WHERE usuario_likes = $_SESSION[id] AND articulo_likes = $id";
 		$sumar_like = mysqli_query($con, $sql_sumar_like);
 		if(isset($_REQUEST['idB'])){
-			header("location: ../blogArticulo/blog.php?idB=$id");
+			header("location: ../blogArticulo/content.php?idB=$id");
 		}else{
-			header("location: ../blogArticulo/articulo.php?idArt=$id");
+			header("location: ../blogArticulo/content.php?idArt=$id");
 		}
 	}
 ?>

@@ -132,7 +132,7 @@
 			                <div class="col-sm-4 col-md-4 ">
 			                    <div class="blog-thumb">
 			                    		<?php
-			                        echo "<a href='articulo.php?idArt=$prod[id_articulo]'>";
+			                        echo "<a href='content.php?idArt=$prod[id_articulo]'>";
 			                        	?>
 			                            <img class="img-responsive" src="../../images/<?php echo $prod['portada_articulo'] ?>" alt="photo">
 			                        </a>
@@ -141,7 +141,7 @@
 			                <div class="col-sm-8 col-md-8">
 			                    <h2 class="blog-title">
 			                        	<?php 
-			                    	echo "<a href='articulo.php?idArt=$prod[id_articulo]'>";
+			                    	echo "<a href='content.php?idArt=$prod[id_articulo]'>";
 			                    	echo utf8_encode($prod['titulo_articulo']);
 			                    	echo "</a>";
 										?>
@@ -215,7 +215,7 @@
 							?>
 			                    <div class="media">
 			                        	<?php
-			                        echo "<a class='pull-left' href='articulo.php?idArt=$prod3[id_articulo]'>";
+			                        echo "<a class='pull-left' href='content.php?idArt=$prod3[id_articulo]'>";
 			                        	?>
 			                            <img class="img-responsive media-object" src="../../images/<?php echo $prod3['portada_articulo'] ?>" alt="Media Object">
 			                        </a>
@@ -224,7 +224,7 @@
 
 			                            	
 			                            	<?php
-			                            		echo "<a href='articulo.php?idArt=$prod3[id_articulo]'>";
+			                            		echo "<a href='content.php?idArt=$prod3[id_articulo]'>";
 			                    	echo utf8_encode($prod3['titulo_articulo']);
 			                    	echo "</a>";
 			                            	?>
