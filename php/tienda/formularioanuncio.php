@@ -36,7 +36,7 @@
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-8">
-							<form class="inline" method="post" enctype="multipart/form-data" action="../cuentas/nuevoanuncio.proc.php"  onSubmit="return enviar;">
+							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/nuevoanuncio.proc.php"  onSubmit="return enviar;">
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
