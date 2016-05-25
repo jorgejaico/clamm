@@ -112,3 +112,14 @@ background:#eee;
 .articulos {
   padding-bottom: 5%;
 }
+.contenedorperfil {
+    margin-top: 1%;
+
+    text-align: center;
+}
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+  display: block;
+  height: auto;
+  max-height: 111px;
+  margin-left: 20%;
+}
