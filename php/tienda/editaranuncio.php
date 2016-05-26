@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
+
 	<head>
+		<?php session_start(); ?>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,17 +14,7 @@
 		<link rel="stylesheet" href="../../css/patros.css" >
 		<script src="val_registro.js"></script>
 		<script> 
-		function validatePassword(){
-			enviar=false;
-			var password = document.getElementById("pass");
-			var confirm_password = document.getElementById("pass2");
-			  if(password.value != confirm_password.value) {
-			    confirm_password.setCustomValidity("Las contraseñas no coinciden");
-			    enviar=false;
-			  } else {
-			    confirm_password.setCustomValidity('');
-			    enviar=true;
-			  }
+		
 			return enviar;
 		}
 		</script>
@@ -32,19 +23,15 @@
 			include("../conexion/conexion.proc.php");
 
 
-		if(isset($_REQUEST['idPerfil'])){
-		// Consulta nombre y descripcion del usuario 
-			$sql= "SELECT tbl_usuario.* FROM tbl_usuario 
-					WHERE id_usuario = '$_REQUEST[idPerfil]'";
-
-
-        }else{
-        	// Consulta nombre y descripcion del usuario 
-			$sql= "SELECT tbl_usuario.* FROM tbl_usuario 
-					WHERE id_usuario = '$_SESSION[id]'";
-
 		
-        }
+		// Consulta nombre y descripcion del usuario 
+			$sql= "SELECT tbl_anuncio.* FROM tbl_anuncio 
+					WHERE id_anuncio = $_REQUEST[mdA]";
+
+
+
+
+        
 
             $datos = mysqli_query($con, $sql);
             $prod = mysqli_fetch_array($datos);
@@ -69,40 +56,28 @@
 					<div class="col-md-12">
 						<div class="col-lg-12">
 							<div class="text-center color-elements">
-							<h2>Editar Perfil</h2>
+							<h2>Editar Anuncio</h2>
 							</div>
 						</div>
+						
 						<div class="col-lg-12 col-md-8">
-							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/editarperfil.proc.php"  onSubmit="return enviar;">
+							<form class="inline" method="post" enctype="multipart/form-data" action="../conexion/editaranuncio.proc.php?mdA=<?php echo $_REQUEST['mdA']?>"  onSubmit="return enviar;">
 								<div class="row">
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="nombre" placeholder="Nombre" class="form-control custom-labels" id="name" value="<?php echo $prod['nombre_usuario']; ?>" required data-validation-required-message="Por favor escribe tu nombre"/>
+											<input type="text" name="titulo" placeholder="Titulo anuncio" class="form-control custom-labels" id="name" value="<?php echo $prod['titulo_anuncio']; ?>" required data-validation-required-message="Instroduce el titulo de tu anuncio"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-6 height-contact-element">
 										<div class="form-group">
-											<input type="text" name="apellidos" placeholder="Apellidos" class="form-control custom-labels" id="name" value="<?php echo $prod['apellido_usuario']; ?>" required data-validation-required-message="Por favor escribe tus apellidos"/>
-											<p class="help-block text-danger"></p>
-										</div>
-									</div>
-									
-									<div class="col-sm-6 height-contact-element">
-										<div class="form-group">
-											<input type="password" name="pass" placeholder="Contraseña" class="form-control custom-labels" id="pass" value="<?php echo $prod['pass']; ?>" required data-validation-required-message="Por favor escribe tu contrseña"/>
-											<p class="help-block text-danger"></p>
-										</div>
-									</div>
-									<div class="col-sm-6 height-contact-element">
-										<div class="form-group">
-											<input type="password" name="repass" placeholder="Re-Contraseña" class="form-control custom-labels" id="pass2" value="<?php echo $prod['pass']; ?>" required data-validation-required-message="Por favor repite tu contraseña"/>
+										<input type="text" name="enlace" placeholder="Enlace anuncio" class="form-control custom-labels" id="name" value="<?php echo $prod['enlace_anuncio']; ?>" required data-validation-required-message="Instroduce el enlace de tu anuncio"/>
 											<p class="help-block text-danger"></p>
 										</div>
 									</div>
 									<div class="col-sm-12 height-contact-element">
 										<div class="form-group">
-											<textarea name="desc" rows="4" cols="50" class="form-control custom-labels" placeholder="Descripción" ><?php echo $prod['bio_usuario']; ?></textarea>
+											<textarea name="desc" rows="2" maxlength="140" cols="50" class="form-control custom-labels" placeholder="Inroduce una descripción"><?php echo $prod['texto_anuncio']; ?></textarea>
 										</div>
 										<input type="file" name="foto">
 									</div>
