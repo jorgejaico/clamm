@@ -24,7 +24,7 @@
 
 		<?php
 			include("../conexion/conexion.proc.php");
-			if(!isset($_REQUEST['idPerfil'])){
+			if(!isset($_REQUEST['idPerfil']) or $_REQUEST['idPerfil'] == $_SESSION['id']){
 		// Consulta nombre y descripcion del usuario 
 			$sql= "SELECT tbl_usuario.* FROM tbl_usuario 
 					WHERE id_usuario = '$_SESSION[id]'";
@@ -163,7 +163,7 @@
 						</div>
 						<div>
 							<?php
-							 if(!isset($_REQUEST['idPerfil'])){
+							 if(!isset($_REQUEST['idPerfil']) or $_REQUEST['idPerfil'] == $_SESSION['id']){
 
 								$sqlanuncio = "SELECT tbl_anuncio.* FROM tbl_anuncio  WHERE tbl_anuncio.usuario_anuncio = $_SESSION[id]";
 								$datos_anuncio = mysqli_query($con, $sqlanuncio);
