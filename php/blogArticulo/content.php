@@ -97,13 +97,23 @@
 
 								$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE articulo_likes=$id AND usuario_likes=$_SESSION[id]";
 								$artLinkLikes = mysqli_query($con,$sqlLinkLikes);
+								if(isset($_REQUEST['idB'])){
+									$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$_REQUEST['idB'];
+								}else{
+									$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$_REQUEST['idArt'];
+								}
+								$datosTags = mysqli_query($con, $sqlTags);
+								while($prodTags = mysqli_fetch_array($datosTags)){
+			                    ?>
+			                    	<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".$prodTags['nombre_tag']."</a>"; }?></p>
+								<?php
 								if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){
 									echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta</a>";
 								}else{
 									echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta</a>";
 								}
-								echo $datosLikes['COUNT(id_likes)']
-							?>	
+									echo $datosLikes['COUNT(id_likes)'];
+								?>	
 							<div class="page_content">
 						    </div>
 						    <?php

@@ -144,8 +144,6 @@
 						INNER JOIN tbl_usuario ON id_usuario = usuario_articulo WHERE tbl_articulo.id_articulo = $prod[id_articulo]";
 						$datos2 = mysqli_query($con, $sql2);
 						$prod2 = mysqli_fetch_array($datos2);
-						$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$prod['id_articulo'];
-						$datosTags = mysqli_query($con, $sqlTags);
 						
 						?>
 			            <div class="row blogu">
@@ -185,10 +183,7 @@
 
 			                    	?>
 			                    <p><?php echo utf8_encode(substr($prod['texto_articulo'], 0, 141)); ?></p>
-			                    <?php
-			                    	while($prodTags = mysqli_fetch_array($datosTags)){
-			                    ?>
-			                    		<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".$prodTags['nombre_tag']."</a>"; }?></p>
+			                    
 			                </div>
 			            </div>
 			            <hr>
