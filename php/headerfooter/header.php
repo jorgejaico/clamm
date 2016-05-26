@@ -37,7 +37,6 @@
 						<ul class="nav navbar-nav navbar-right custom-menu">
 							<li class="active"><a href="">Home</a></li>
 							<li><a href="#noticias">Noticias</a></li>
-							<li><a href="#contact">Contacto</a></li>
 							<li><a href="php/blogArticulo/selectorblogs.php">Blogs</a></li>
 							<li><a href="php/blogArticulo/selectorarticulos.php">Articulos</a></li>
 							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
