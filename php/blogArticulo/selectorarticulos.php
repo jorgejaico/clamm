@@ -31,7 +31,9 @@
 		include("../conexion/conexion.proc.php");
 
 	//Consulta para articulos destacados		
-		$sql3 ="SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC ";
+		$sql3 ="SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo 
+		INNER JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo 
+		INNER JOIN tbl_usuario ON id_usuario = usuario_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC ";
 		$datos3 = mysqli_query($con, $sql3);
 	
 
@@ -123,7 +125,9 @@
 		            <!-- First Blog Post -->
 		            	<?php
 					while ($prod = mysqli_fetch_array($consulta_resultados)){
-						$sql2 ="SELECT tbl_articulo.id_articulo, COUNT(tbl_comentario.id_comentario) AS num_coment FROM tbl_comentario INNER JOIN tbl_articulo ON tbl_comentario.articulo_comentario = tbl_articulo.id_articulo WHERE tbl_articulo.id_articulo = $prod[id_articulo]";
+						$sql2 ="SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_comentario.id_comentario) AS num_coment FROM tbl_comentario 
+						INNER JOIN tbl_articulo ON tbl_comentario.articulo_comentario = tbl_articulo.id_articulo 
+						INNER JOIN tbl_usuario ON usuario_articulo = id_usuario WHERE tbl_articulo.id_articulo = $prod[id_articulo]";
 						$datos2 = mysqli_query($con, $sql2);
 						$prod2 = mysqli_fetch_array($datos2);
 
@@ -134,7 +138,7 @@
 			                    		<?php
 			                        echo "<a href='content.php?idArt=$prod[id_articulo]'>";
 			                        	?>
-			                            <img class="img-responsive" src="../../images/<?php echo $prod['portada_articulo'] ?>" alt="photo">
+			                            <img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['portada_articulo'] ?>" alt="photo">
 			                        </a>
 			                    </div>
 			                </div>
@@ -213,7 +217,7 @@
 			                        	<?php
 			                        echo "<a class='pull-left' href='content.php?idArt=$prod3[id_articulo]'>";
 			                        	?>
-			                            <img class="img-responsive media-object" src="../../images/<?php echo $prod3['portada_articulo'] ?>" alt="Media Object">
+			                            <img class="img-responsive media-object" src="../../usuarios/<?php echo $prod3['usuario'] ?>/<?php echo $prod3['portada_articulo'] ?>" alt="Media Object">
 			                        </a>
 			                        <div class="media-body">
 			                            <h4 class="media-heading">
