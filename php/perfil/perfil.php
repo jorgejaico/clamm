@@ -94,7 +94,7 @@
                 		echo utf8_encode("<h5 class='description'>$prod[bio_usuario]</h5>");
 
                 	?>
-                    
+                    	<a href="../cuentas/editarperfil.php" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Editar perfil</a>
                     
                     <br>
                 </div>
@@ -188,7 +188,24 @@
 									
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
 												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
-												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="//<?php echo $prod['enlace_anuncio'] ?>">Activar</a></div>
+												
+												<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal1'>
+								                    <input type='hidden' name='business' value='Clamm_moda@clamm.com'>
+								                    <input type='hidden' name='cmd' value='_xclick'>
+
+								                    <input type='hidden' name='item_name' value='Publicacion'>
+								                    <input type='hidden' name='item_number' value='123654'>
+								                                   <input type='hidden' name='amount' value='45'>
+
+								                    <input type='hidden' name='no_shipping' value='1'>
+								                    <input type='hidden' name='currency_code' value='EUR'>
+								                    <input type='hidden' name='handling' value='0'>
+								                    <input type='hidden' name='cancel_return' value='http://localhost/clamm/php/tienda/cancel.php'>
+								                    <input type='hidden' name='return' value='http://localhost/clamm/php/perfil/perfil.php'>
+								                    <div class="text-center"><button type="submit"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Activar</a></button></div>
+								                    <!-- <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
+								                    <!-- <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
+								                </form> 
 											</div>
 										</div>
 									<?php
