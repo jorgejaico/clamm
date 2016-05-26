@@ -208,6 +208,7 @@
 
 						<!-- Blogs Destacados -->
 			                <div class="blog-sidebar">
+			                	<button><a href="../post/postear.php">Crear articulo</a></button>
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php

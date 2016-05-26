@@ -174,7 +174,14 @@
 	    <input type="text" id="titulo" placeholder="Título" />
 			<textarea id="my_editor"></textarea>
 			<iframe id="form_target" name="form_target" style="display:none"></iframe>
-	            <form id="my_form" action="../conexion/uploadBlog.proc.php" method="post">
+	            <form id="my_form" action="../conexion/uploadBlog.proc.php" method="get">
+	            	<?php
+	            		if(isset($_REQUEST['tipoPost'])){
+	            	?>
+	            	<input type="hidden" id="tipoPost" name="tipoPost" value="<?php echo $_REQUEST['tipoBlog'] ?>"/>
+	            	<?php
+	            	}
+	            	?>
 	                <input type="hidden" id="tBlog" name="tBlog" />
 	                <input type="hidden" id="tiBlog" name="tiBlog" />
 	                <button type="submit" id="blog" name="blog" onClick="enviar();"/>Publicar</button>

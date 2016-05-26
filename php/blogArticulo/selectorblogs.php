@@ -228,6 +228,7 @@
 
 						<!-- Blogs Destacados -->
 			                <div class="blog-sidebar">
+			                	<button><a href="../post/postear.php?tipoBlog=1">Crear blog</a></button>
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Blogs Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
