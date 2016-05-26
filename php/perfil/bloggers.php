@@ -171,14 +171,7 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 		        </div>
 		            <!-- Blog Sidebar Column -->
 		            <aside class="col-md-4 sidebar-padding">
-		                <div class="blog-sidebar">
-		                    <div class="input-group searchbar">
-		                        <input type="text" class="form-control searchbar" placeholder="Search for...">
-		                        <span class="input-group-btn">
-		                        <button class="btn btn-default" type="button">Search</button>
-		                        </span>
-		                    </div><!-- /input-group -->
-		                </div>
+		                
 		                
 		                <!-- Bloggers Destacados-->
 		        <!--  Descomentar cuando tengamos la sentencia correcta-->
