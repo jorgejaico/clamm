@@ -187,7 +187,7 @@
 												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 									
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
-												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificarabubcio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
 												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="//<?php echo $prod['enlace_anuncio'] ?>">Activar</a></div>
 											</div>
 										</div>
@@ -202,7 +202,7 @@
 												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 									
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
-												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificarabubcio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
 											</div>
 										</div>
 									<?php
