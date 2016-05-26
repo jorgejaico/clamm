@@ -131,7 +131,7 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 			            <div class="row blogu">
 			                <div class="imgresp ">
 			                    <div class="blog-thumb">
-			                        <a href="#">
+			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>">
 			                            <img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo">
 			                        </a>
 			                    </div>
