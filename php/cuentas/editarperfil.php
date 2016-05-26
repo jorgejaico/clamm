@@ -69,7 +69,7 @@
 					<div class="col-md-12">
 						<div class="col-lg-12">
 							<div class="text-center color-elements">
-							<h2>Registrate</h2>
+							<h2>Editar Perfil</h2>
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-8">
