@@ -138,7 +138,7 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 			                </div>
 			                <div class="col-sm-8 col-md-8">
 			                    <h2 class="blog-title">
-			                        <a href="perfil.php"><?php echo $prod['usuario'];?></a>
+			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>"><?php echo $prod['usuario'];?></a>
 			                    </h2>
 			                    <p><i class="fa fa-calendar-o"></i>  Nº de posts: <b><?php echo $prod_posts['COUNT(id_articulo)']; ?></b>
 			                        <span class="comments-padding"></span>

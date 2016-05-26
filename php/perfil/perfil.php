@@ -161,6 +161,63 @@
 						?>
 								
 						</div>
+						<div>
+							<?php
+							 if(!isset($_REQUEST['idPerfil'])){
+
+								$sqlanuncio = "SELECT tbl_anuncio.* FROM tbl_anuncio  WHERE tbl_anuncio.usuario_anuncio = $_SESSION[id]";
+								$datos_anuncio = mysqli_query($con, $sqlanuncio);
+
+
+								while ($prod_anuncio = mysqli_fetch_array($datos_anuncio)){
+
+
+
+									$sqlpublicacion ="SELECT tbl_publicacion.*, CURRENT_DATE() AS Fecha FROM tbl_publicacion WHERE tbl_publicacion.fechainicio_publicacion <= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.fechafinal_publicacion >= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.anuncio_publicacion = $prod_anuncio[id_anuncio]";
+									$datos_publicacion = mysqli_query($con, $sqlpublicacion);
+									$prod_publicacion = mysqli_num_rows($datos_publicacion);
+
+									if($prod_publicacion==0){
+									//Anuncio desactivado
+									?>
+										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+											<div class="contenedorcatalogo">
+								
+												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
+									
+												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
+												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificarabubcio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="//<?php echo $prod['enlace_anuncio'] ?>">Activar</a></div>
+											</div>
+										</div>
+									<?php
+									}else{
+									//Anuncio activado
+									?>
+										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+											<div class="contenedorcatalogo">
+								
+												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
+									
+												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
+												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/modificarabubcio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+											</div>
+										</div>
+									<?php
+									}
+
+								}
+							}
+
+							?>
+						</div>
+
+
+
+
+
 					</div>
 				</div>
 			</div>
