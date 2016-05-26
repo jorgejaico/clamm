@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2016 a las 00:09:46
+-- Tiempo de generación: 26-05-2016 a las 12:46:56
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `imagen_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
   `usuario_anuncio` int(11) NOT NULL,
   `enlace_anuncio` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_anuncio`:
@@ -60,14 +60,15 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ima
 (4, 'Vestido halter plisado', 'Vestido corto y plisado con cuello halter, tirantes finos que se cruzan en la espalda, escote profundo delante y cintura elástica entallada. Forro de punto.', 'hmvest.jpg', 5, 'www2.hm.com/es_es/productpage.0383339002.html'),
 (5, 'Camisa en mezcla de lino', 'Camisa en tejido suave de mezcla de lino y algodón. Modelo de manga larga con cuello americano, un bolsillo superior, y canesú con pliegue y trabilla detrás. Corte estándar.', 'hmcamisa.jpg', 5, 'www2.hm.com/es_es/productpage.0363947007.html'),
 (6, 'Vestido', 'Largo estampado volante pecho', 'bers1.jpg', 8, 'www.bershka.com/es/promos/mujer/ver-todo-/vestido-largo-estampado-volante-pecho-c1010075037p100195004.html?colorId=800'),
-(7, 'Zapato Tacón', 'Zapato Tacón Grabado', 'berszapato.jpg', 5, 'www.bershka.com/es/zapatos/mujer/zapato-tac%C3%B3n/zapato-tac%C3%B3n-grabado-c1521701p100083017.html?colorId=001##crossSellingModule');
+(7, 'Zapato Tacón', 'Zapato Tacón Grabado', 'berszapato.jpg', 5, 'www.bershka.com/es/zapatos/mujer/zapato-tac%C3%B3n/zapato-tac%C3%B3n-grabado-c1521701p100083017.html?colorId=001##crossSellingModule'),
+(8, 'Ertyuioytrewqr', 'rtweyuiopytrewq', 'Penguins.jpg', 9, 'www.google.es');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -110,7 +111,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -120,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comentario` (
   `usuario_comentario` int(11) NOT NULL,
   `fecha_comentario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `articulo_comentario` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_comentario`:
@@ -147,14 +148,23 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 (12, 'No puedo creerlo ella es una diva.', 9, '2016-05-25 21:58:21', 29),
 (13, 'Deberían detenerla, que pague como el resto', 6, '2016-05-25 21:58:21', 29),
 (14, 'uhhhh secretitos :$ Me encantan este tipo de Artículos ', 5, '2016-05-25 22:01:17', 31),
-(15, 'Mis felicitaciones al editor <3', 5, '2016-05-25 22:01:17', 31);
+(15, 'Mis felicitaciones al editor <3', 5, '2016-05-25 22:01:17', 31),
+(16, 'Me encanta, una boda estilo 70''s me encanta :D', 5, '2016-05-26 08:44:15', 35),
+(17, 'Enserio, no me pondría ese vestido jamas.', 6, '2016-05-26 08:44:15', 35),
+(18, 'No puedo creer que gente se someta a esos tratamientos..', 9, '2016-05-26 08:48:26', 37),
+(19, 'Me indigna profundamente...', 5, '2016-05-26 08:48:26', 37),
+(20, 'Me encanta este apartado :)', 6, '2016-05-26 08:53:00', 39),
+(21, 'Es fantástico, informada en todo momento. ', 5, '2016-05-26 08:53:00', 39),
+(22, 'Gracias Chic@s. :)', 9, '2016-05-26 08:53:00', 39),
+(23, 'Creo que esta pagina empieza a tomar forma  :)', 6, '2016-05-26 08:53:00', 39),
+(24, 'Cada cuanto lo repetiras :$', 5, '2016-05-26 08:53:00', 39);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -175,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -187,6 +197,8 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
+--   `articulo_likes`
+--       `tbl_articulo` -> `id_articulo`
 --
 
 --
@@ -210,7 +222,7 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_preciopublicacion`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_preciopublicacion`;
@@ -239,7 +251,7 @@ INSERT INTO `tbl_preciopublicacion` (`id_preciopublicacion`, `nombre_preciopubli
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 10:07:47
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -248,9 +260,9 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
   `fechainicio_publicacion` date NOT NULL,
   `fechafinal_publicacion` date NOT NULL,
   `anuncio_publicacion` int(11) NOT NULL,
-  `visitas_publicacion` int(11) NOT NULL,
+  `visitas_publicacion` int(11) NOT NULL DEFAULT '0',
   `precio_publicacion` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_publicacion`:
@@ -268,14 +280,15 @@ INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fec
 (1, '2016-05-03', '2016-05-26', 2, 0, 1),
 (2, '2016-05-04', '2016-05-07', 3, 0, 1),
 (3, '2016-05-26', '2016-05-28', 4, 0, 2),
-(4, '2016-05-10', '2016-05-13', 3, 30, 2);
+(4, '2016-05-10', '2016-05-13', 3, 30, 2),
+(5, '2016-05-10', '2016-05-28', 8, 0, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -298,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -316,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tags` (
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -346,7 +359,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 25-05-2016 a las 14:34:07
+-- Creación: 26-05-2016 a las 08:38:09
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -378,7 +391,7 @@ INSERT INTO `tbl_usuario` (`id_usuario`, `usuario`, `pass`, `nombre_usuario`, `a
 (3, 'useditboss1', 'qwer1234', 'Eric', 'Sanchez', 'useditboss1@clamm.com', 'Usuario redactor-Jefe de articulos', 'editboss1.png', 4),
 (4, 'useditblog1', 'qwer1234', 'Alenjandro', 'Moreno', 'useditblog1@clamm.com', 'Usuario editor de blogs', 'editblog1.png', 4),
 (5, 'alexgarci', 'qwer1234', 'Alexia', 'Garcia', 'alegarcia@hotmail.com', 'Enamorado de la moda juvenil \r\nde los precios y rebajas que yo vi,\r\nenamorado de la moda juvenil.de los chicos, de las chicas, de los maniquís.\r\n', 'imagen.png', 4),
-(6, 'AitorB', 'qwer1234', 'Aitor', 'Blesa', 'aitble@hotmail.com', 'No controles mi forma de vestir \r\nporque es total y a todo el mundo gusto.', 'imagen.png', 4),
+(6, 'AitorB', 'qwer1234', 'Aitor', 'Rodriguez', 'aitble@hotmail.com', 'No controles mi forma de vestir \r\nporque es total y a todo el mundo gusto.', 'imagen.png', 4),
 (7, 'AlbertRR', 'qwer1234', 'Alberto', 'Ramirez', 'Curaj@gmail.com', 'Amante de la moda, preocupado por estar en la onda. Diseño mi propia ropa y posteo blogs', 'imagen.png', 4),
 (8, 'jelingu', 'qwer1234', 'MariaJesus', 'Gutierrez', 'jelingu84@gmail.com', 'Interesado conocer nuevos estilos, gente y la actualidad en moda.', 'imagen.png', 4),
 (9, 'TinaTirolina', 'qwer1234', 'Tina', 'Suave', 'tinatirolina@outlook.net', 'No me interesa la moda actual, tengo mi propia forma de vestir, mirad mis articulos y podras ser una Tirolain.', 'imagen.png', 4);
@@ -477,7 +490,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_anuncio`
 --
 ALTER TABLE `tbl_anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tbl_articulo`
 --
@@ -487,7 +500,7 @@ ALTER TABLE `tbl_articulo`
 -- AUTO_INCREMENT de la tabla `tbl_comentario`
 --
 ALTER TABLE `tbl_comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `tbl_imgarticulo`
 --
@@ -507,7 +520,7 @@ ALTER TABLE `tbl_preciopublicacion`
 -- AUTO_INCREMENT de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
