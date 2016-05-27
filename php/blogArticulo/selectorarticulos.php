@@ -207,7 +207,13 @@
 
 						<!-- Blogs Destacados -->
 			                <div class="blog-sidebar">
+			                	<?php
+			                		if(isset($_SESSION['id'])){
+			                	?>
 			                	<button><a href="../post/postear.php">Crear articulo</a></button>
+			                	<?php
+			                	}
+			                	?>
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
