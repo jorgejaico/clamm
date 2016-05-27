@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2016 a las 12:46:56
+-- Tiempo de generación: 27-05-2016 a las 13:22:34
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -68,7 +68,7 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ima
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -111,7 +111,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -164,7 +164,7 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
   `id_imgarticulo` int(11) NOT NULL,
   `nombre_imgarticulo` varchar(25) COLLATE utf8_bin NOT NULL,
   `articulo_imgarticulo` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_imgarticulo`:
@@ -180,12 +180,53 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
 --       `tbl_articulo` -> `id_articulo`
 --
 
+--
+-- Volcado de datos para la tabla `tbl_imgarticulo`
+--
+
+INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo_imgarticulo`) VALUES
+(3, 'vegano1.jpg', 16),
+(4, 'vegano2.jpg', 16),
+(5, 'tallaxxl1.jpg', 27),
+(6, 'tallaxxl2.jpg', 27),
+(7, 'tallaxxl3.jpg', 27),
+(26, 'aceite3.jpg', 43),
+(27, 'corbata1.jpg', 28),
+(28, 'corbata2.jpg', 28),
+(29, 'corbata3.jpg', 28),
+(30, 'ondasurferas1.jpg', 40),
+(31, 'ondasurferas2.jpg', 40),
+(32, 'aceite1.jpg', 43),
+(33, 'aceite2.jpg', 43),
+(34, 'beyonce1.jpg', 29),
+(35, 'beyonce2.jpg', 29),
+(36, 'beyonce3.jpg', 29),
+(37, 'bodakate1.jpg', 35),
+(38, 'bodakate2.jpg', 35),
+(39, 'bodakate3.jpg', 35),
+(50, 'alfombra4.jpg', 31),
+(51, 'alfombra1.jpg', 31),
+(52, 'alfombra2.jpg', 31),
+(53, 'alfombra3.jpg', 31),
+(54, 'lifting1.jpg', 37),
+(55, 'lifting2.jpg', 37),
+(56, 'lifting3.jpg', 37),
+(57, 'pestle1.jpg', 42),
+(58, 'pestle2.jpg', 42),
+(59, 'pestle3.jpg', 42),
+(60, 'pestle4.jpg', 42),
+(61, 'velas1.jpg', 41),
+(62, 'velas2.jpg', 41),
+(63, 'velas3.jpg', 41),
+(64, 'scoop1.jpg', 39),
+(65, 'scoop1.jpg', 39);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -220,38 +261,9 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_preciopublicacion`
---
--- Creación: 26-05-2016 a las 08:38:09
---
-
-DROP TABLE IF EXISTS `tbl_preciopublicacion`;
-CREATE TABLE IF NOT EXISTS `tbl_preciopublicacion` (
-  `id_preciopublicacion` int(11) NOT NULL,
-  `nombre_preciopublicacion` varchar(30) COLLATE utf8_bin NOT NULL,
-  `codescuento_preciopublicacion` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `precio_preciopublicacion` double NOT NULL,
-  `activo_preciopublicacion` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- RELACIONES PARA LA TABLA `tbl_preciopublicacion`:
---
-
---
--- Volcado de datos para la tabla `tbl_preciopublicacion`
---
-
-INSERT INTO `tbl_preciopublicacion` (`id_preciopublicacion`, `nombre_preciopublicacion`, `codescuento_preciopublicacion`, `precio_preciopublicacion`, `activo_preciopublicacion`) VALUES
-(1, 'precio1', NULL, 30, 1),
-(2, 'precio2', NULL, 20, 1);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 26-05-2016 a las 10:07:47
+-- Creación: 27-05-2016 a las 09:21:01
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -260,35 +272,32 @@ CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
   `fechainicio_publicacion` date NOT NULL,
   `fechafinal_publicacion` date NOT NULL,
   `anuncio_publicacion` int(11) NOT NULL,
-  `visitas_publicacion` int(11) NOT NULL DEFAULT '0',
-  `precio_publicacion` int(11) NOT NULL
+  `visitas_publicacion` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_publicacion`:
 --   `anuncio_publicacion`
 --       `tbl_anuncio` -> `id_anuncio`
---   `precio_publicacion`
---       `tbl_preciopublicacion` -> `id_preciopublicacion`
 --
 
 --
 -- Volcado de datos para la tabla `tbl_publicacion`
 --
 
-INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fechafinal_publicacion`, `anuncio_publicacion`, `visitas_publicacion`, `precio_publicacion`) VALUES
-(1, '2016-05-03', '2016-05-26', 2, 0, 1),
-(2, '2016-05-04', '2016-05-07', 3, 0, 1),
-(3, '2016-05-26', '2016-05-28', 4, 0, 2),
-(4, '2016-05-10', '2016-05-13', 3, 30, 2),
-(5, '2016-05-10', '2016-05-28', 8, 0, 1);
+INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fechafinal_publicacion`, `anuncio_publicacion`, `visitas_publicacion`) VALUES
+(1, '2016-05-03', '2016-05-26', 2, 0),
+(2, '2016-05-04', '2016-05-07', 3, 0),
+(3, '2016-05-26', '2016-05-28', 4, 0),
+(4, '2016-05-10', '2016-05-13', 3, 30),
+(5, '2016-05-10', '2016-05-28', 8, 0);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -296,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
   `id_tagarticulo` int(11) NOT NULL,
   `tag_tagarticulo` int(11) NOT NULL,
   `articulo_tagarticulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_tagarticulo`:
@@ -306,30 +315,64 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
 --       `tbl_tags` -> `id_tag`
 --
 
+--
+-- Volcado de datos para la tabla `tbl_tagarticulo`
+--
+
+INSERT INTO `tbl_tagarticulo` (`id_tagarticulo`, `tag_tagarticulo`, `articulo_tagarticulo`) VALUES
+(61, 1, 16),
+(62, 1, 31),
+(63, 1, 35),
+(64, 2, 27),
+(65, 2, 28),
+(66, 2, 31),
+(67, 2, 35),
+(68, 2, 37),
+(69, 3, 40),
+(70, 3, 41),
+(71, 3, 42),
+(72, 4, 35),
+(73, 5, 31),
+(74, 5, 39),
+(75, 5, 43),
+(76, 6, 29);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
 CREATE TABLE IF NOT EXISTS `tbl_tags` (
   `id_tag` int(11) NOT NULL,
   `nombre_tag` varchar(25) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_tags`:
 --
+
+--
+-- Volcado de datos para la tabla `tbl_tags`
+--
+
+INSERT INTO `tbl_tags` (`id_tag`, `nombre_tag`) VALUES
+(1, 'Amor'),
+(2, 'belleza'),
+(3, 'Vela'),
+(4, 'boda'),
+(5, 'noche'),
+(6, 'Beyoncé');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -359,7 +402,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 26-05-2016 a las 08:38:09
+-- Creación: 27-05-2016 a las 09:17:45
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -437,21 +480,12 @@ ALTER TABLE `tbl_likes`
   ADD KEY `articulo_like` (`articulo_likes`);
 
 --
--- Indices de la tabla `tbl_preciopublicacion`
---
-ALTER TABLE `tbl_preciopublicacion`
-  ADD PRIMARY KEY (`id_preciopublicacion`),
-  ADD UNIQUE KEY `codescuento_preciopublicacion_2` (`codescuento_preciopublicacion`),
-  ADD KEY `codescuento_preciopublicacion` (`codescuento_preciopublicacion`);
-
---
 -- Indices de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
   ADD PRIMARY KEY (`id_publicacion`),
   ADD UNIQUE KEY `id_publicacion` (`id_publicacion`),
-  ADD KEY `anuncio_publicacion` (`anuncio_publicacion`),
-  ADD KEY `precio_publicacion` (`precio_publicacion`);
+  ADD KEY `anuncio_publicacion` (`anuncio_publicacion`);
 
 --
 -- Indices de la tabla `tbl_tagarticulo`
@@ -505,17 +539,12 @@ ALTER TABLE `tbl_comentario`
 -- AUTO_INCREMENT de la tabla `tbl_imgarticulo`
 --
 ALTER TABLE `tbl_imgarticulo`
-  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT de la tabla `tbl_likes`
 --
 ALTER TABLE `tbl_likes`
   MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT de la tabla `tbl_preciopublicacion`
---
-ALTER TABLE `tbl_preciopublicacion`
-  MODIFY `id_preciopublicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tbl_publicacion`
 --
@@ -525,12 +554,12 @@ ALTER TABLE `tbl_publicacion`
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tagarticulo`
-  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
-  MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipousuario`
 --
@@ -573,8 +602,7 @@ ALTER TABLE `tbl_imgarticulo`
 -- Filtros para la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
-  ADD CONSTRAINT `tbl_publicacion_ibfk_1` FOREIGN KEY (`anuncio_publicacion`) REFERENCES `tbl_anuncio` (`id_anuncio`),
-  ADD CONSTRAINT `tbl_publicacion_ibfk_2` FOREIGN KEY (`precio_publicacion`) REFERENCES `tbl_preciopublicacion` (`id_preciopublicacion`);
+  ADD CONSTRAINT `tbl_publicacion_ibfk_1` FOREIGN KEY (`anuncio_publicacion`) REFERENCES `tbl_anuncio` (`id_anuncio`);
 
 --
 -- Filtros para la tabla `tbl_tagarticulo`
