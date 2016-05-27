@@ -131,10 +131,12 @@
 	?>
 
 		<!-- Page Content -->
-		<section class="container blog">
-			<div class="row">
+		<div class="col-md-12">
+			
 		        <!-- Blog Column -->
 		        <div class="col-md-8">
+		        <div class="blog1">
+		        
 		            <br><br><br>
 		            <!-- First Blog Post -->
 		            	<?php
@@ -195,7 +197,7 @@
 		            
 
 		 <!-- Nurmeros de paginación  -->
-		            <div > 
+		            <div class="paginacion"> 
 						<?php
 						//Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
 						//Nota: X = $total_paginas
@@ -211,9 +213,13 @@
 
 						}; ?>
 		            </div>
+		            </div>
 		        </div>
+		           
 		            <!-- Blog Sidebar Column -->
-		            <aside class="col-md-4 sidebar-padding">
+		            <div class="col-md-4">
+		            <div class="columnaaside">
+		   
 		                <div class="blog-sidebar">
 		                  
 		                </div>
@@ -221,14 +227,15 @@
 		                
 
 						<!-- Blogs Destacados -->
-			                <div class="blog-sidebar">
-			                	<?php
+						<?php
 			                		if(isset($_SESSION['id'])){
 			                	?>
-			                	<button><a href="../post/postear.php?tipoBlog=1">Crear blog</a></button>
-			                	<?php
+						<button><a href="../post/postear.php?tipoBlog=1">Crear blog</a></button>
+						<?php
 			                	}
 			                	?>
+			                <div class="blog-sidebar">
+			                	
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Blogs Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
@@ -262,14 +269,18 @@
 		            	}
 		                    ?>
 		                  
-
+						</div>
 
 		                </div>
 
 		                
-					</aside>
-				</div>
-		    </section>
+					</div></div>
+
+
+				
+				
+				
+		    </div>
 
        
 
