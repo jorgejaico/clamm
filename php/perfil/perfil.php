@@ -194,8 +194,8 @@
 								                    <input type='hidden' name='cmd' value='_xclick'>
 
 								                    <input type='hidden' name='item_name' value='Publicacion'>
-								                    <input type='hidden' name='item_number' value='123654'>
-								                                   <input type='hidden' name='amount' value='45'>
+								                    <input type='hidden' name='item_number' value='1'>
+								                                   <input type='hidden' name='amount' value='15'>
 
 								                    <input type='hidden' name='no_shipping' value='1'>
 								                    <input type='hidden' name='currency_code' value='EUR'>
