@@ -117,10 +117,12 @@
 	?>
 
 		<!-- Page Content -->
-		<section class="container blog">
-			<div class="row">
+		<div class="container blog">
+			
 		        <!-- Blog Column -->
+		        
 		        <div class="col-md-8">
+		        	<div class="blog1">
 		            <br><br><br>
 		            <!-- First Blog Post -->
 		            	<?php
@@ -196,9 +198,12 @@
 
 						}; ?>
 		            </div>
-		        </div>
+		        </div></div>
 		            <!-- Blog Sidebar Column -->
-		            <aside class="col-md-4 sidebar-padding">
+		            <div class="col-md-4">
+		            	<div class="columnaaside">
+
+
 		                <div class="blog-sidebar">
 		                   
 		                </div>
@@ -206,7 +211,7 @@
 		                
 
 						<!-- Blogs Destacados -->
-			                <div class="blog-sidebar">
+			                
 			                	<?php
 			                		if(isset($_SESSION['id'])){
 			                	?>
@@ -214,6 +219,7 @@
 			                	<?php
 			                	}
 			                	?>
+			                	<div class="blog-sidebar">
 			                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
 			                    <hr style="margin-bottom: 5px;">
 							<?php
@@ -251,10 +257,10 @@
 
 		                </div>
 
-		                
-					</aside>
-				</div>
-		    </section>
+		                </div>
+					</div>
+				
+		    </div>
 
        
 

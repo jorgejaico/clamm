@@ -131,7 +131,7 @@
 	?>
 
 		<!-- Page Content -->
-		<div class="col-md-12">
+		<div class="container blog">
 			
 		        <!-- Blog Column -->
 		        <div class="col-md-8">
@@ -269,7 +269,7 @@
 		            	}
 		                    ?>
 		                  
-						</div>
+						</div></div>	
 
 		                </div>
 

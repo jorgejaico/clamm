@@ -453,6 +453,11 @@ h8 {
   padding-left: 15%;
   padding-right: 5%;
 }
+.blog2 {
+  margin-top: 5%;
+text-align: left;
+  padding-right: 5%;
+}
 .columnaaside {
   margin-left: 3%;
   padding-right: 10%;
@@ -462,4 +467,15 @@ h8 {
   height: 33px;
   margin-left: 60%;
   width: 130px;
+}
+.container.blog {
+  width: 100%;
+   text-align: left;
+}
+
+.columnaaside > button{
+  font-size: 18px;
+  height: 33px;
+  margin-left: 60%;
+  width: 140px;
 }
