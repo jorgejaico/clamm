@@ -167,8 +167,11 @@
 
 								$sqlanuncio = "SELECT tbl_anuncio.* FROM tbl_anuncio  WHERE tbl_anuncio.usuario_anuncio = $_SESSION[id]";
 								$datos_anuncio = mysqli_query($con, $sqlanuncio);
-
-
+								?>
+								<div class="text-center"><h2>Catálogo</h2>
+									<img class="img-responsive displayed" src="../../images/short.png" alt="noticias">
+								</div>
+							<?php
 								while ($prod_anuncio = mysqli_fetch_array($datos_anuncio)){
 
 
@@ -214,7 +217,7 @@
 									?>
 										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
 											<div class="contenedorcatalogo">
-								
+												
 												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
 												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 									
