@@ -384,13 +384,7 @@ h5 {
   box-shadow: 1px 3px 6px;
   padding: 3% 3% 5%;
 }
-.imgresp {
-  border: 1px solid;
-  float: left;
-  height: 100px;
-  text-align: center;
-  width: 100px;
-}
+
 .blog-thumb a img {
   display: block;
   height: auto;
@@ -449,15 +443,16 @@ h8 {
   padding-left: 15%;
   padding-right: 5%;
 }
-.blog2 {
-  margin-top: 5%;
-text-align: left;
+.bloggers1 {
+  margin-top: 15%;
+  padding-left: 15%;
   padding-right: 5%;
 }
 .columnaaside {
   margin-left: 3%;
   padding-right: 10%;
 }
+
 .columnaaside > button {
   font-size: 18px;
   height: 33px;
@@ -465,7 +460,7 @@ text-align: left;
   width: 130px;
 }
 .container.blog {
-  width: 100%;
+  width: 100%; 
    text-align: left;
 }
 

@@ -109,13 +109,12 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 		
 
 		<!-- Page Content -->
-		<section class="container blog">
-			<div class="row">
+		<div class="container blog">
+			
 		        <!-- Blog Column -->
 		        <div class="col-md-8">
-		            <h1 class="page-header sidebar-title">
-		                Bloggers
-		            </h1>
+		        	<div class="bloggers1">
+		            
 		            <!-- First Blog Post -->
 		            <?php
 		            while ($prod = mysqli_fetch_array($consulta_resultados)){
@@ -129,7 +128,7 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 				            $prod_likes = mysqli_fetch_array($datos_likes);        	
 		            	?>
 			            <div class="row blogu">
-			                <div class="imgresp ">
+			                <div class="col-sm-2 col-md-2 ">
 			                    <div class="blog-thumb">
 			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>">
 			                            <img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo">
@@ -140,9 +139,9 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 			                    <h2 class="blog-title">
 			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>"><?php echo $prod['usuario'];?></a>
 			                    </h2>
-			                    <p><i class="fa fa-calendar-o"></i>  Nº de posts: <b><?php echo $prod_posts['COUNT(id_articulo)']; ?></b>
+			                    <p><i class="fa fa-files-o" aria-hidden="true"></i></i>  Nº de posts: <b><?php echo $prod_posts['COUNT(id_articulo)']; ?></b>
 			                        <span class="comments-padding"></span>
-			                        <i class="fa fa-comment"></i> Nº de Likes: <b><?php echo $prod_likes['num_likes'];?></b>
+			                        <i class="fa fa-thumbs-up" aria-hidden="true"></i></i> Nº de Likes: <b><?php echo $prod_likes['num_likes'];?></b>
 			                    </p>
 			                    <p><?php echo $prod['bio_usuario'];?></p>
 			                </div>
@@ -153,72 +152,32 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 		            ?>
 		           <!-- Paginacion -->
 		            <div class="text-center"> 
-						<?php
+			<?php
 						//Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
 						//Nota: X = $total_paginas
 						for ($i=1; $i<=$total_paginas; $i++) {
 							//En el bucle, muestra la paginación
-							 echo "<div class='text-center'> ";
+							 // echo "<div class='text-center'> ";
 								echo " <ul class='pagination'> ";
 								    echo " <li><a href='?pagina=".$i."'>".$i."</a>  </li> ";
 								            
 								    echo " </ul> ";
-							echo "  </div>";
+							// echo "  </div>";
 
 
 						}; ?>
 		            </div>
-		        </div>
+		        </div></div>
 		            <!-- Blog Sidebar Column -->
-		            <aside class="col-md-4 sidebar-padding">
+		            <div class="col-md-4">
 		                
-		                
-		                <!-- Bloggers Destacados-->
-		        <!--  Descomentar cuando tengamos la sentencia correcta-->
-                  <!-- 	<div class="blog-sidebar">
-		                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Bloggers destacados</h4>
-		                    <hr style="margin-bottom: 5px;">
+		                <div class="columnaaside">
 
-		                    <div class="media">
-		                        <a class="pull-left" href="#">
-		                            <img class="img-responsive media-object" src="../../images/blog1.jpg" alt="Media Object">
-		                        </a>
-		                        <div class="media-body">
-		                            <h4 class="media-heading"><a href="#">Post title 1</a></h4>
-		                            This is some sample text. This is some sample text. This is some sample text.
-		                        </div>
-		                    </div>
 
-		                    <div class="media">
-		                        <a class="pull-left" href="#">
-		                            <img class="img-responsive media-object" src="../../images/blog2.jpg" alt="Media Object">
-		                        </a>
-		                        <div class="media-body">
-		                            <h4 class="media-heading"><a href="#">Post title 2</a></h4>
-		                            This is some sample text. This is some sample text. This is some sample text.
-		                        </div>
-		                    </div>
-
-		                    <div class="media">
-		                        <a class="pull-left" href="#">
-		                            <img class="img-responsive media-object" src="../../images/blog3.jpg" alt="Media Object">
-		                        </a>
-		                        <div class="media-body">
-		                            <h4 class="media-heading"><a href="#">Post title 3</a></h4>
-		                            This is some sample text. This is some sample text. This is some sample text.
-		                        </div>
-		                    </div>
-		                    <div class="media">
-		                        <a class="pull-left" href="#">
-		                            <img class="img-responsive media-object" src="../../images/blog1.jpg" alt="Media Object">
-		                        </a>
-		                        <div class="media-body">
-		                            <h4 class="media-heading"><a href="#">Post title 4</a></h4>
-		                            This is some sample text. This is some sample text. This is some sample text.
-		                        </div>
-		                    </div>
-		                </div> -->
-
+		                <div class="blog-sidebar">
+		                   
+		                </div>
+		              
 		                <!-- Bloggers Recientes-->
 		                <div class="blog-sidebar">
 		                    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> Bloggers Recientes</h4>
@@ -247,9 +206,10 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 
 		                </div>
 
-					</aside>
-				</div>
-		    </section>
+		                </div>
+					</div>
+				
+		    </div>
 
         
 		
