@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2016 a las 13:22:34
+-- Tiempo de generación: 27-05-2016 a las 16:53:22
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -68,7 +68,7 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ima
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `portada_articulo` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `fecha_articulo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `tipo_articulo` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_articulo`:
@@ -104,14 +104,16 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 (40, 'Ondas surferas con David Mallett', '<p>La sal de Murray River, conocida hasta ahora por los grandes chefs del mundo entero, es el ingrediente base de la nueva creaci&oacute;n de David Mallett. Australian Salt Spray (30 &euro;) aporta al cabello un aspecto voluminoso y salvaje ideal para tus ondas surferas de verano. Con un ligero perfume de yuzu y bergamota proporciona el frescor vibrante y la textura que estabas buscando.</p>', 2, 'imgondassurferas.jpg', '2016-05-25 10:45:34', 0),
 (41, 'Velas de verano, por Baobab Collection', '<p>Baobab Collection celebra la llegada del verano con Eden Trillogy (desde 68 &euro;), una edici&oacute;n limitada de tres nuevas velas destinadas a formar parte de las casas vacacionales m&aacute;s espectaculares. Los paisajes ex&oacute;ticos de la costa africana son los protagonistas y la inspiraci&oacute;n para cada una de las velas, ilustradas por Cyril Destrade, que nos trasladan a un mundo de colores intensos y salvajes.</p>', 6, 'imgvelas.jpg', '2016-05-25 10:45:39', 1),
 (42, 'Pestle & Mortar en Laconium', '<p>El s&eacute;rum de &aacute;cido hialur&oacute;nico de Pestle &amp; Mortar (45.90 &euro;), una firma irlandesa, se convirti&oacute; al poco tiempo de su nacimiento en 2014 en un producto de culto en el mercado anglosaj&oacute;n. Y ahora llega a Laconium para sorprender con su eficacia. Cuenta con hasta un 80% de &aacute;cido hialur&oacute;nico en su f&oacute;rmula y penetra en la piel logrando los mejores efectos hidratantes y anti-edad.</p>', 3, 'imgpestle.jpg', '2016-05-25 10:45:44', 0),
-(43, 'Aceite de noche de Germinal', '<p>Germinal presenta su nuevo producto de noche para uso diario: el Aceite Nutrituvo de Tacto Seco (26 €), un tratamiento que complementa la rutina básica hidratando, nutriendo y rejuveneciendo la piel consiguiendo un aspecto suave, terso e iluminado. Sus 5 aceites de origen vegetal componen una novedosa fórmula apta para todo tipo de pieles.</p>', 2, 'imgaceite.jpg', '2016-05-25 10:45:50', 0);
+(43, 'Aceite de noche de Germinal', '<p>Germinal presenta su nuevo producto de noche para uso diario: el Aceite Nutrituvo de Tacto Seco (26 €), un tratamiento que complementa la rutina básica hidratando, nutriendo y rejuveneciendo la piel consiguiendo un aspecto suave, terso e iluminado. Sus 5 aceites de origen vegetal componen una novedosa fórmula apta para todo tipo de pieles.</p>', 2, 'imgaceite.jpg', '2016-05-25 10:45:50', 0),
+(44, 'La mafia de las modelos', '<p> Las cinco principales agencias de modelos que operan en el Reino Unido están siendo oficialmente investigadas por formar un cartel para fijar los abultados precios de un sector que mueve millones. El organismo regulador de la competencia (CMA, en sus siglas inglesas) acusa a estas compañías, entre ellas las descubridoras de la top Cara Delevingne o en su día Kate Moss, de “intercambiar información confidencial y sensible para la competencia, incluidos los planes de futuro”. Las alertas comenzaron a sonar el año pasado, a raíz de las quejas de algunas de las grandes empresas de la industria ante el disparado caché de las modelos. La CMA confirmó entonces que tres agencias, Models 1, Premier y Storm, estaban en el punto de mira, lista ahora ampliada con Viva y FM Models. La Autoridad de la Competencia y Mercados del Reino Unido les acusa de ponerse de acuerdo —a través de un “regular y sistemático” intercambio de emails— para rechazar las cifras ofrecidas por sus clientes y negociar precios más altos. </p>', 4, 'mafiaportada.jpg', '2016-05-27 14:44:57', 1),
+(45, 'Estas son las ''zapas'' más exclusivas del mundo', '<p>\r\nUna sencilla búsqueda en Instagram nos informa de que en la red social del "mira lo que tengo" hay actualmente más de 10 millones de imágenes con el hashtag #sneakers. Está claro: si antes las zapatillas servían para identificar la pertenencia a un grupo social, ahora la intención es que representen únicamente a su portador. Cuanto más exclusivas sean, mejor (y más likes generarán). Algo parecido pensó Dominic Chambrone cuando, a los 16 años, empezó a pintar las suyas con aerógrafo. "No quería llevar las mismas Jordans que todos mis compañeros", asegura este californiano que no tardó en ir un poco más allá. Tras iniciarse en el mundo del calzado, comenzó a destripar algunos de los modelos de zapatillas más célebres para crear mutaciones a golpe de tijera, reinterpretándolas con materiales lujosos (como piel de serpiente) o transformando unas simples Air Force 1 en mocasines. Había nacido The Shoe Surgeon, el cirujano (o el Doctor Frankenstein) de las sneakers.\r\n</p>', 4, 'nikeportada.jpg', '2016-05-27 14:44:57', 1);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -164,7 +166,7 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -172,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
   `id_imgarticulo` int(11) NOT NULL,
   `nombre_imgarticulo` varchar(25) COLLATE utf8_bin NOT NULL,
   `articulo_imgarticulo` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_imgarticulo`:
@@ -219,14 +221,19 @@ INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo
 (62, 'velas2.jpg', 41),
 (63, 'velas3.jpg', 41),
 (64, 'scoop1.jpg', 39),
-(65, 'scoop1.jpg', 39);
+(65, 'scoop1.jpg', 39),
+(66, 'mafia1.jpg', 44),
+(67, 'mafia2.jpg', 44),
+(68, 'nike1.jpg', 45),
+(69, 'nike2.jpg', 45),
+(70, 'nike3.jpg', 45);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -234,12 +241,10 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
   `id_likes` int(11) NOT NULL,
   `articulo_likes` int(11) NOT NULL,
   `usuario_likes` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
---   `articulo_likes`
---       `tbl_articulo` -> `id_articulo`
 --
 
 --
@@ -256,14 +261,19 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 (7, 27, 3),
 (8, 31, 3),
 (9, 31, 3),
-(10, 31, 4);
+(10, 31, 4),
+(11, 44, 5),
+(12, 44, 6),
+(13, 44, 7),
+(14, 45, 9),
+(15, 45, 2);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 27-05-2016 a las 09:21:01
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -297,7 +307,7 @@ INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fec
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -305,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
   `id_tagarticulo` int(11) NOT NULL,
   `tag_tagarticulo` int(11) NOT NULL,
   `articulo_tagarticulo` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- RELACIONES PARA LA TABLA `tbl_tagarticulo`:
@@ -335,14 +345,17 @@ INSERT INTO `tbl_tagarticulo` (`id_tagarticulo`, `tag_tagarticulo`, `articulo_ta
 (73, 5, 31),
 (74, 5, 39),
 (75, 5, 43),
-(76, 6, 29);
+(76, 6, 29),
+(77, 2, 44),
+(78, 5, 44),
+(79, 2, 45);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -372,7 +385,7 @@ INSERT INTO `tbl_tags` (`id_tag`, `nombre_tag`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -402,7 +415,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 27-05-2016 a las 09:17:45
+-- Creación: 27-05-2016 a las 14:27:31
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -529,7 +542,7 @@ ALTER TABLE `tbl_anuncio`
 -- AUTO_INCREMENT de la tabla `tbl_articulo`
 --
 ALTER TABLE `tbl_articulo`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de la tabla `tbl_comentario`
 --
@@ -539,12 +552,12 @@ ALTER TABLE `tbl_comentario`
 -- AUTO_INCREMENT de la tabla `tbl_imgarticulo`
 --
 ALTER TABLE `tbl_imgarticulo`
-  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
+  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `tbl_likes`
 --
 ALTER TABLE `tbl_likes`
-  MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `tbl_publicacion`
 --
@@ -554,7 +567,7 @@ ALTER TABLE `tbl_publicacion`
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tagarticulo`
-  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=77;
+  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tags`
 --
