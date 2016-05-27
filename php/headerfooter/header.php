@@ -35,16 +35,16 @@
 				</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right custom-menu">
-							<li class="active"><a href="">Home</a></li>
+							<li class="active"><a href="">Inicio</a></li>
 							<li><a href="#noticias">Noticias</a></li>
 							<li><a href="php/blogArticulo/selectorblogs.php">Blogs</a></li>
 							<li><a href="php/blogArticulo/selectorarticulos.php">Articulos</a></li>
 							<li><a href="php/perfil/bloggers.php">Bloggers</a></li>
-							<li><a href="php/tienda/tienda.php">Tienda</a></li>
+							<li><a href="php/tienda/tienda.php">Catalogo</a></li>
 							<?php
 							if(isset($_SESSION['mail'])){
 							?>
-								<li><a href="php/perfil/perfil.php">Perfil</a></li>
+								<li><a href="php/perfil/perfil.php">Mi perfil</a></li>
 								<?php
 							}
 								?>		
@@ -57,15 +57,15 @@
 				</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right custom-menu">
-							<li><a href="../../">Home</a></li>
+							<li><a href="../../">Inicio</a></li>
 							<li><a href="../blogArticulo/selectorblogs.php">Blogs</a></li>
 							<li><a href="../blogArticulo/selectorarticulos.php">Articulos</a></li>
 							<li><a href="../perfil/bloggers.php">Bloggers</a></li>
-							<li><a href="../tienda/tienda.php">Tienda</a></li>		
+							<li><a href="../tienda/tienda.php">Catalogo</a></li>		
 							<?php
 							if(isset($_SESSION['mail'])){
 							?>
-								<li><a href="../perfil/perfil.php">Perfil</a></li>
+								<li><a href="../perfil/perfil.php">Mi perfil</a></li>
 								<?php
 							}
 								?>		
