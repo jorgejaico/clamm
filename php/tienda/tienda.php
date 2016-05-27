@@ -91,9 +91,9 @@
 		//Realiza la consulta en el orden de ID ascendente (cambiar "id" por, por ejemplo, "nombre" o "edad", alfabéticamente, etc.)
 		//Limitada por la cantidad de cantidad por página
 			$consulta_resultados = mysqli_query($con,"
-			SELECT tbl_publicacion.*, tbl_anuncio.*, CURRENT_DATE() AS Fecha 
-			FROM tbl_publicacion 
-			INNER JOIN tbl_anuncio ON tbl_publicacion.anuncio_publicacion = tbl_anuncio.id_anuncio 
+			SELECT tbl_usuario.*, tbl_publicacion.*, tbl_anuncio.*, CURRENT_DATE() AS Fecha 
+			FROM tbl_usuario INNER JOIN tbl_anuncio ON id_usuario = usuario_anuncio
+			INNER JOIN tbl_publicacion ON tbl_publicacion.anuncio_publicacion = tbl_anuncio.id_anuncio 
 			WHERE tbl_publicacion.fechainicio_publicacion <= CAST(CURRENT_DATE() AS date) 
 			AND tbl_publicacion.fechafinal_publicacion >= CAST(CURRENT_DATE() AS date) 
 			ORDER BY tbl_publicacion.fechainicio_publicacion DESC");
@@ -112,7 +112,6 @@
 				</div>
 			<!-- Principio Tientda -->
 				<div class="row">
-				<h5>Tienda 1</h5>
 				<hr>
 					<div class="col-md-12 homeport1">
 
@@ -123,7 +122,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
 					<div class="contenedorcatalogo">
 							
-									<img class="img-responsive" src="../../images/<?php echo $prod['imagen_anuncio'] ?>" alt="photo">								
+									<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['imagen_anuncio'] ?>" alt="photo">								
 									<h3><?php echo utf8_encode($prod['titulo_anuncio']); ?></h3>      
 							
 							<p class="text-center"><?php echo utf8_encode($prod['texto_anuncio']); ?></p>
