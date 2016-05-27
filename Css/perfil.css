@@ -5,7 +5,7 @@ background:#eee;
 
 .current-profile .user-bg {
     background-position: bottom center;
-    height: 280px;
+    height: 320px;
     position: relative;
 }
 
@@ -27,25 +27,26 @@ background:#eee;
 
 .current-profile .user-details {
   left: 0;
+  padding-top: 10%;
   position: absolute;
   right: 0;
   text-align: center;
-  top: 51%;
 }
 
 .current-profile h4.user-name {
-    color: white;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  color: white;
+  font-weight: 100;
+  margin: 0;
+  padding-bottom: 1%;
+  text-align: center;
 }
 
 .current-profile h5.description {
-    color: white;
-    margin: 10px 0 0 0;
-    text-align: center;
-    font-weight: 100;
-    line-height: 21px;
+  color: white;
+  line-height: 21px;
+  margin: 0;
+  padding-bottom: 0.6%;
+  text-align: center;
 }
 
 .current-profile .social-list {
@@ -54,7 +55,8 @@ background:#eee;
   bottom: 0;
   left: 0;
   margin: 0;
-  padding: 6px 0;
+  padding-left: 0;
+  padding-right: 0;
   position: absolute;
   right: 0;
 }

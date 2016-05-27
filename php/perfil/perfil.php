@@ -89,9 +89,9 @@
                 </div>
                 <div class="user-details">
                 	<?php
-                		echo utf8_encode("<h4 class='user-name'>$prod[usuario]<i></i></h4>");
+                		echo utf8_encode("<h5 class='description'>$prod[usuario]<i></i></h4>");
                 	
-                		echo utf8_encode("<h5 class='description'>$prod[bio_usuario]</h5>");
+                		echo utf8_encode("<h4 class='user-name'>$prod[bio_usuario]</h5>");
 
                 	?>
                     	<a href="../cuentas/editarperfil.php" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Editar perfil</a>
