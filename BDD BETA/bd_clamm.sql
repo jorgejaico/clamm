@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2016 a las 16:07:47
+-- Tiempo de generación: 28-05-2016 a las 21:36:59
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `id_anuncio` int(11) NOT NULL,
   `titulo_anuncio` varchar(25) COLLATE utf8_bin NOT NULL,
   `texto_anuncio` varchar(250) COLLATE utf8_bin NOT NULL,
-  `imagen_anuncio` varchar(20) COLLATE utf8_bin NOT NULL,
+  `imagen_anuncio` varchar(150) COLLATE utf8_bin NOT NULL,
   `usuario_anuncio` int(11) NOT NULL,
   `enlace_anuncio` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `titulo_articulo` varchar(140) COLLATE utf8_bin NOT NULL,
   `texto_articulo` text COLLATE utf8_bin NOT NULL,
   `usuario_articulo` int(11) NOT NULL,
-  `portada_articulo` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `portada_articulo` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `fecha_articulo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `tipo_articulo` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -172,7 +172,7 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
 CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
   `id_imgarticulo` int(11) NOT NULL,
-  `nombre_imgarticulo` varchar(25) COLLATE utf8_bin NOT NULL,
+  `nombre_imgarticulo` varchar(150) COLLATE utf8_bin NOT NULL,
   `articulo_imgarticulo` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -429,7 +429,7 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
   `apellido_usuario` varchar(30) COLLATE utf8_bin NOT NULL,
   `correo_usuario` varchar(50) COLLATE utf8_bin NOT NULL,
   `bio_usuario` varchar(250) COLLATE utf8_bin NOT NULL,
-  `img_usuario` varchar(25) COLLATE utf8_bin NOT NULL,
+  `img_usuario` varchar(150) COLLATE utf8_bin NOT NULL,
   `tipousuario` int(11) NOT NULL DEFAULT '4'
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
