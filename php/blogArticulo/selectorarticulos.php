@@ -140,7 +140,17 @@
 			                    		<?php
 			                        echo "<a href='content.php?idArt=$prod[id_articulo]'>";
 			                        	?>
-			                            <img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['portada_articulo'] ?>" alt="photo">
+			                        	<?php
+					                	if ($prod['portada_articulo']==""){
+					                	?>
+					                		<img class="img-responsive" src="../../images/blogporDefecto.png" alt="photo"/>
+					                	<?php
+					                	}else{
+					                	?>
+			                            	<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['portada_articulo'] ?>" alt="photo">
+					                	<?php
+					                	}
+					                	?>
 			                        </a>
 			                    </div>
 			                </div>
@@ -229,7 +239,17 @@
 			                        	<?php
 			                        echo "<a class='pull-left' href='content.php?idArt=$prod3[id_articulo]'>";
 			                        	?>
-			                            <img class="img-responsive media-object" src="../../usuarios/<?php echo $prod3['usuario'] ?>/<?php echo $prod3['portada_articulo'] ?>" alt="Media Object">
+			                        	<?php
+					                	if ($prod3['portada_articulo']==""){
+					                	?>
+					                		<img class="img-responsive media-object" src="../../images/blogporDefecto.png" alt="Media Object"/>
+					                	<?php
+					                	}else{
+					                	?>
+			                            	<img class="img-responsive media-object" src="../../usuarios/<?php echo $prod3['usuario'] ?>/<?php echo $prod3['portada_articulo'] ?>" alt="Media Object">
+					                	<?php
+					                	}
+					                	?>
 			                        </a>
 			                        <div class="media-body">
 			                            <h4 class="media-heading">
