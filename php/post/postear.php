@@ -8,6 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>CLAMM - Marca tendencia</title>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="../../css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom Fonts -->
@@ -156,6 +157,55 @@
 
             }
         </script>
+        <script>
+//get the input and UL list
+var input = document.getElementById('filesToUpload');
+var list = document.getElementById('fileList');
+
+//empty list for now...
+while (list.hasChildNodes()) {
+	list.removeChild(ul.firstChild);
+}
+
+//for every file...
+for (var x = 0; x < input.files.length; x++) {
+	//add to list
+	var li = document.createElement('li');
+	li.innerHTML = 'File ' + (x + 1) + ':  ' + input.files[x].name;
+	list.append(li);
+}
+        </script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#skills" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
+   <script>
+  $(function() {
+    $( "#skills2" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
+    <script>
+  $(function() {
+    $( "#skills3" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
+    <script>
+  $(function() {
+    $( "#skills4" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
 	</head>
 
 	<body data-spy="scroll">
@@ -174,7 +224,7 @@
 	    <input type="text" id="titulo" placeholder="Título" />
 			<textarea id="my_editor"></textarea>
 			<iframe id="form_target" name="form_target" style="display:none"></iframe>
-	            <form id="my_form" action="../conexion/uploadBlog.proc.php" method="get">
+	            <form id="my_form" action="../conexion/uploadBlog.proc.php" method="POST" enctype="multipart/form-data">
 	            	<?php
 	            		if(isset($_REQUEST['tipoPost'])){
 	            	?>
@@ -184,8 +234,19 @@
 	            	?>
 	                <input type="hidden" id="tBlog" name="tBlog" />
 	                <input type="hidden" id="tiBlog" name="tiBlog" />
+	                <input type="file" id="portada" name="portada" />
+	                <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+	                <div class="ui-widget">
+					    <label for="skills">Tags: </label>
+					    <input id="skills" name="skills">
+					    <input id="skills2" name="skills2">
+					    <input id="skills3" name="skills3">
+					    <input id="skills4" name="skills4">
+					</div>
 	                <button type="submit" id="blog" name="blog" onClick="enviar();"/>Publicar</button>
 	            </form>
+	            
+					
 		</div>
 		
 
