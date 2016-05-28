@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2016 a las 02:44:51
+-- Tiempo de generación: 28-05-2016 a las 16:07:47
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -30,7 +30,7 @@ USE `bd_clamm`;
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_anuncio`;
@@ -68,7 +68,7 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ima
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_articulo`;
@@ -113,7 +113,7 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_comentario`;
@@ -166,7 +166,7 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_imgarticulo`;
@@ -233,7 +233,7 @@ INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:05:05
 --
 
 DROP TABLE IF EXISTS `tbl_likes`;
@@ -245,6 +245,8 @@ CREATE TABLE IF NOT EXISTS `tbl_likes` (
 
 --
 -- RELACIONES PARA LA TABLA `tbl_likes`:
+--   `articulo_likes`
+--       `tbl_articulo` -> `id_articulo`
 --
 
 --
@@ -273,7 +275,7 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_publicacion`;
@@ -307,7 +309,7 @@ INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fec
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_tagarticulo`;
@@ -355,7 +357,7 @@ INSERT INTO `tbl_tagarticulo` (`id_tagarticulo`, `tag_tagarticulo`, `articulo_ta
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_tags`;
@@ -385,7 +387,7 @@ INSERT INTO `tbl_tags` (`id_tag`, `nombre_tag`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_tipousuario`;
@@ -415,7 +417,7 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
--- Creación: 27-05-2016 a las 14:27:31
+-- Creación: 28-05-2016 a las 14:03:28
 --
 
 DROP TABLE IF EXISTS `tbl_usuario`;
@@ -490,7 +492,8 @@ ALTER TABLE `tbl_imgarticulo`
 --
 ALTER TABLE `tbl_likes`
   ADD PRIMARY KEY (`id_likes`),
-  ADD KEY `articulo_like` (`articulo_likes`);
+  ADD KEY `articulo_like` (`articulo_likes`),
+  ADD KEY `articulo_likes` (`articulo_likes`);
 
 --
 -- Indices de la tabla `tbl_publicacion`
@@ -610,6 +613,12 @@ ALTER TABLE `tbl_comentario`
 --
 ALTER TABLE `tbl_imgarticulo`
   ADD CONSTRAINT `tbl_imgarticulo_ibfk_1` FOREIGN KEY (`articulo_imgarticulo`) REFERENCES `tbl_articulo` (`id_articulo`);
+
+--
+-- Filtros para la tabla `tbl_likes`
+--
+ALTER TABLE `tbl_likes`
+  ADD CONSTRAINT `tbl_likes_ibfk_1` FOREIGN KEY (`articulo_likes`) REFERENCES `tbl_articulo` (`id_articulo`);
 
 --
 -- Filtros para la tabla `tbl_publicacion`
