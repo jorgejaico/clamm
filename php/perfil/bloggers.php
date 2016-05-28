@@ -131,7 +131,18 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 			                <div class="col-sm-2 col-md-2 ">
 			                    <div class="blog-thumb">
 			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>">
-			                            <img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo">
+			                            <?php
+					                	if ($prod['img_usuario']==""){
+					                	?>
+					                		<img src="../../images/perfilporDefecto.png" class="img-responsive" alt="photo"/>
+					                	<?php
+					                	}else{
+					                	?>
+					                		<img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo"/>
+					                	<?php
+					                	}
+					                	?>
+
 			                        </a>
 			                    </div>
 			                </div>
@@ -189,8 +200,17 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 		                    	
 
 		                        <a class="pull-left" href="perfil.php" >
-		                        	
-		                            <img class="img-responsive media-object" src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" alt="Media Object">
+		                        		<?php
+					                	if ($prod2['img_usuario']==""){
+					                	?>
+					                		<img class="img-responsive media-object" src="../../images/perfilporDefecto.png"  alt="photo" alt="Media Object"/>
+					                	<?php
+					                	}else{
+					                	?>
+					                		<img class="img-responsive media-object" src="../../usuarios/<?php echo $prod2['usuario'] ?>/<?php echo $prod2['img_usuario'] ?>" alt="Media Object"/>
+					                	<?php
+					                	}
+					                	?>
 		                        </a>
 		                        <div class="media-body">
 		                            <h4 class="media-heading"><a href="perfil.php"><?php echo $prod2['usuario']; ?></a></h4>
