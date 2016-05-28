@@ -181,7 +181,7 @@
 						?>
 								
 						</div>
-						<div>
+						<div class="col-md-12 homeport1">
 							<?php
 							 if(!isset($_REQUEST['idPerfil']) or $_REQUEST['idPerfil'] == $_SESSION['id']){
 
@@ -203,7 +203,8 @@
 									if($prod_publicacion==0){
 									//Anuncio desactivado
 									?>
-										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+
+										<div class="col-md-4 col-sm-6 col-xs-12 ">
 											<div class="contenedorcatalogo">
 								
 												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
@@ -225,7 +226,7 @@
 								                    <input type='hidden' name='handling' value='0'>
 								                    <input type='hidden' name='cancel_return' value='http://localhost/clamm/php/perfil/perfil.php'>
 								                    <input type='hidden' name='return' value='http://localhost/clamm/php/perfil/perfil.php'>
-								                    <div class="text-center"><button type="submit"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Activar</a></button></div>
+								                    <div class="text-center"><button type="submit"><a class="botonactivar">Activar</a></button></div>
 								                    <!-- <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
 								                    <!-- <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
 								                </form> 
@@ -235,7 +236,9 @@
 									}else{
 									//Anuncio activado
 									?>
-										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+									
+										
+										<div class="col-md-4 col-sm-6 col-xs-12 ">
 											<div class="contenedorcatalogo">
 												
 												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
@@ -244,8 +247,8 @@
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
 												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
 											</div>
-										</div>
-									<?php
+										</div></div>								
+											<?php
 									}
 
 								}
