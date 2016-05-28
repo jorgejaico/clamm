@@ -234,8 +234,8 @@ for (var x = 0; x < input.files.length; x++) {
 	            	?>
 	                <input type="hidden" id="tBlog" name="tBlog" />
 	                <input type="hidden" id="tiBlog" name="tiBlog" />
-	                <input type="file" id="portada" name="portada" />
-	                <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+	                Portada: <input type="file" id="portada" name="portada" />
+	                Imagenes: <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
 	                <div class="ui-widget">
 					    <label for="skills">Tags: </label>
 					    <input id="skills" name="skills">
