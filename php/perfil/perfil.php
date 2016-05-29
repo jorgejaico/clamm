@@ -168,7 +168,17 @@
 								?>
 							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 								<figure class="effect-oscar">
+								<?php
+									if($prod2['portada_articulo'] != ""){
+								?>
 									<img src="../../usuarios/<?php echo $prod2['usuario']?>/<?php echo $prod2['portada_articulo'] ?>" class="img-responsive" />
+								<?php
+								}else{
+								?>
+									<img src="../../images/perfilporDefecto.png" class="img-responsive" />
+								<?php
+								}
+								?>
 									<figcaption>
 										<h2><?php echo utf8_encode($prod2['titulo_articulo']) ?></h2>
 										<a href="#">View more</a>
