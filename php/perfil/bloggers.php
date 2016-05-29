@@ -132,13 +132,20 @@ SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_likes
 			                    <div class="blog-thumb">
 			                        <a href="perfil.php?idPerfil=<?php echo $prod['id_usuario']  ?>">
 			                            <?php
+			                            $filename = "../../usuarios/".$prod['usuario'];
 					                	if ($prod['img_usuario']==""){
+					                	?>
+					                		<img src="../../images/perfilporDefecto.png" class="img-responsive" alt="photo"/>
+					                	<?php
+					                	
+					                	}else if(!file_exists($filename)){
 					                	?>
 					                		<img src="../../images/perfilporDefecto.png" class="img-responsive" alt="photo"/>
 					                	<?php
 					                	}else{
 					                	?>
 					                		<img src="../../usuarios/<?php echo $prod['usuario'] ?>/<?php echo $prod['img_usuario'] ?>" class="img-responsive" alt="photo"/>
+					                	
 					                	<?php
 					                	}
 					                	?>
