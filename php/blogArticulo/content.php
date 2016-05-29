@@ -117,6 +117,8 @@
 										echo $datosLikes['COUNT(id_likes)'];
 								}
 								?>	
+
+								
 							<div class="page_content">
 						    </div>
 						    <?php
@@ -159,13 +161,13 @@
 			                <div class="blog-sidebar">
 			                		<?php
 										if(isset($_REQUEST['idB'])){
-											$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
+											$sql2 = "SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_usuario INNER JOIN tbl_articulo ON id_usuario = usuario_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
 									?>
 											<h4 class="sidebar-title"><i class="fa fa-align-left"></i> Blogs Destacados</h4>
 
 									<?php
 										}else{
-											$sql2 = "SELECT tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 1 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
+											$sql2 = "SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_usuario INNER JOIN tbl_articulo ON id_usuario = usuario_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 1 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
 									?>
 											<h4 class="sidebar-title"><i class="fa fa-align-left"></i> Articulos Destacados</h4>
 									<?php
@@ -181,7 +183,7 @@
 			                        	<?php
 			                        echo "<a class='pull-left' href='articulo.php?idart=$datos2[id_articulo]'>";
 			                        	?>
-			                            <img class="img-responsive media-object" src="../../images/<?php echo $datos2['portada_articulo'] ?>" alt="Media Object">
+			                            <img class="img-responsive media-object" src="../../usuarios/<?php echo $datos2['usuario'] ?>/<?php echo $datos2['portada_articulo'] ?>" alt="Media Object">
 			                        </a>
 			                        <div class="media-body">
 			                            <h4 class="media-heading">
