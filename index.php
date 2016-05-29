@@ -85,7 +85,7 @@
 		?>
 
 		<section id="noticias">
-			<div class="container">
+			<div class="contenedornoticias">
 				<div class="text-center"><h2>Últimos blogs</h2>
 					<img class="img-responsive displayed" src="images/short.png" alt="noticias">
 				</div>
