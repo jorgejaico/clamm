@@ -93,9 +93,20 @@
                 		echo utf8_encode("<h4 class='user-name'>$prod[usuario]<i></i></h4>");
                 	
                 		echo utf8_encode("<h5 class='description'>$prod[bio_usuario]</h5>");
-
-                	?>
-                    	<a href="../cuentas/editarperfil.php" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Editar perfil</a>
+                		if(isset($_SESSION['id'])){
+                			if(isset($_REQUEST['idPerfil'])){
+	                			if($_SESSION['id'] == $_REQUEST['idPerfil']){
+	                	?>
+	                    			<a href="../cuentas/editarperfil.php" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Editar perfil</a>
+	                    			<?php
+	                    		}
+	                    	}else{
+	                    		?>
+	                    		<a href="../cuentas/editarperfil.php" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Editar perfil</a>
+	                    		<?php
+	                    	}
+                    	}
+                    ?>
                     
                     <br>
                 </div>
@@ -157,7 +168,7 @@
 								?>
 							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 								<figure class="effect-oscar">
-									<img src="images/<?php echo $prod2['portada_articulo'] ?>" class="img-responsive" />
+									<img src="../../usuarios/<?php echo $prod2['usuario']?>/<?php echo $prod2['portada_articulo'] ?>" class="img-responsive" />
 									<figcaption>
 										<h2><?php echo utf8_encode($prod2['titulo_articulo']) ?></h2>
 										<a href="#">View more</a>
