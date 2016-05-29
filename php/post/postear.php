@@ -219,9 +219,10 @@ for (var x = 0; x < input.files.length; x++) {
 			
 		<!-- Page Content -->
 
-		<div class="container">
+		<div class="contenedorpost">
 		<h1>TinyMCE Quick Start Guide</h1>
-	    <input type="text" id="titulo" placeholder="Título" />
+        <div class="titulo">
+	    <input type="text" id="titulo" placeholder="Título" /></div>
 			<textarea id="my_editor"></textarea>
 			<iframe id="form_target" name="form_target" style="display:none"></iframe>
 	            <form id="my_form" action="../conexion/uploadBlog.proc.php" method="POST" enctype="multipart/form-data">
@@ -234,17 +235,19 @@ for (var x = 0; x < input.files.length; x++) {
 	            	?>
 	                <input type="hidden" id="tBlog" name="tBlog" />
 	                <input type="hidden" id="tiBlog" name="tiBlog" />
-	                Portada: <input type="file" id="portada" name="portada" />
+                    <div class="contenedorpost2">
+	                Portada: <input type="file" id="portada" name="portada" /><br>
 	                Imagenes: <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
-	                <div class="ui-widget">
+	                <div class="ui-widget"></div></div>
 					    <label for="skills">Tags: </label>
 					    <input id="skills" name="skills">
 					    <input id="skills2" name="skills2">
 					    <input id="skills3" name="skills3">
 					    <input id="skills4" name="skills4">
 					</div>
+                    <div class="publicar">
 	                <button type="submit" id="blog" name="blog" onClick="enviar();"/>Publicar</button>
-	            </form>
+	            </form></div>
 	            
 					
 		</div>
