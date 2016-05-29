@@ -80,7 +80,7 @@
 
 
 		<?php
-			$sql = "SELECT*FROM tbl_articulo ORDER BY fecha_articulo ASC LIMIT 6";
+			$sql = "SELECT tbl_articulo.*, tbl_usuario.* FROM tbl_articulo INNER JOIN tbl_usuario ON usuario_articulo = id_usuario ORDER BY fecha_articulo ASC LIMIT 6";
 			$art_fechas=mysqli_query($con, $sql);
 		?>
 
@@ -97,14 +97,24 @@
 							<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 								<div class="contenedorarticulos">
 								<figure class="effect-oscar">
-									<img src="images/<?php echo utf8_encode($datos['portada_articulo']) ?>" class="img-responsive" />
+								<?php
+								if(!empty($datos['portada_articulo'])){
+									?>
+									<img src="usuarios/<?php echo $datos['usuario'] ?>/<?php echo utf8_encode($datos['portada_articulo']) ?>" class="img-responsive" />
+								<?php
+							}else{
+								?>
+								<img src="images/blogporDefecto.png" class="img-responsive" />
+								<?php
+							}
+							?>
 									<figcaption>
 										<h2><?php echo utf8_encode($datos['titulo_articulo']) ?></h2>
-										<a href="#">View more</a>
+										<a href="php/blogArticulo/content.php?idB=<?php echo utf8_encode($datos['id_articulo']) ?>">View more</a>
 									</figcaption>           
 								</figure>
 								<p class="text-center"><?php echo utf8_encode(substr($datos['texto_articulo'], 0, 141)) ?></p>
-								<div class="text-center"><a href="php/blogArticulo/blog.php?idB=<?php echo utf8_encode($datos['id_articulo']) ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
+								<div class="text-center"><a href="php/blogArticulo/content.php?idB=<?php echo utf8_encode($datos['id_articulo']) ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
 							</div></div>
 						<?php
 							}
