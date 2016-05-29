@@ -4,6 +4,7 @@
 	<head>
 		<?php
 			session_start();
+
 		?>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,8 @@
         <link href="../../css/reset.css" rel="stylesheet" type="text/css">
 		<link href="../../css/style.css" rel="stylesheet" type="text/css">
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/main.css" type="text/css">
+		<script   src="https://code.jquery.com/jquery-1.4.1.js"   integrity="sha256-ntyfgTeB7KKq1t5474XNvpLuMrsKVnkb5NoPp7Rywdg="   crossorigin="anonymous"></script>
 
         <!-- Custom Fonts -->
         <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -71,6 +74,12 @@
 		}else{
 			$id = $_REQUEST['idArt'];
 		}
+			$sqlArtIMG = "SELECT*FROM tbl_imgarticulo WHERE articulo_imgarticulo = $id";
+			$datosArtIMG = mysqli_query($con,$sqlArtIMG);
+			$datosArtIMG2 = mysqli_query($con,$sqlArtIMG);
+			$sqlusuario = "SELECT*FROM tbl_articulo INNER JOIN tbl_usuario ON tbl_articulo.usuario_articulo = tbl_usuario.id_usuario WHERE id_articulo=$id";	
+			$blogusuario = mysqli_query($con,$sqlusuario);
+			$produsuari = mysqli_fetch_array($blogusuario);
 	?>
 
 		<!-- Page Content -->
@@ -118,7 +127,94 @@
 								}
 								?>	
 
-								
+								<!-- Slider -->
+		<div id='wrapperslider'>
+		<div id='headerslider'></div>
+		<div id='bodyslider'>
+			<div id="bigPic">
+				<?php
+				while ($prodArtIMG = mysqli_fetch_array($datosArtIMG)){
+					?>
+				<img src="../../usuarios/<?php echo $produsuari['usuario'] ?>/<?php echo $prodArtIMG['nombre_imgarticulo']?>" alt="" />
+				
+					<?php
+				};
+				?>				
+
+			</div>
+			
+			
+			<ul id="thumbs">
+<!-- <li class='active' rel='1'>  -->
+				<?php
+				$NumIMG = 1;
+				while ($prodArtIMG2 = mysqli_fetch_array($datosArtIMG2)){
+					if ($NumIMG == 1){
+						echo "<li class='active' rel='1'>";
+						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					}else{
+						echo "<li rel='".$NumIMG."'>";
+						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					};
+				$NumIMG = $NumIMG + 1;
+				}
+				?>
+
+			</ul>
+		</li>
+		</div>
+		<div class='clearfix'></div>
+		<div id='pushslider'></div>
+	</div>
+	<div class="page_content">
+						    </div>
+
+			<script type="text/javascript">
+	var currentImage;
+    var currentIndex = -1;
+    var interval;
+    function showImage(index){
+        if(index < $('#bigPic img').length){
+        	var indexImage = $('#bigPic img')[index]
+            if(currentImage){   
+            	if(currentImage != indexImage ){
+                    $(currentImage).css('z-index',2);
+                    clearTimeout(myTimer);
+                    $(currentImage).fadeOut(250, function() {
+					    myTimer = setTimeout("showNext()", 3000);
+					    $(this).css({'display':'none','z-index':1})
+					});
+                }
+            }
+            $(indexImage).css({'display':'block', 'opacity':1});
+            currentImage = indexImage;
+            currentIndex = index;
+            $('#thumbs li').removeClass('active');
+            $($('#thumbs li')[index]).addClass('active');
+        }
+    }
+    
+    function showNext(){
+        var len = $('#bigPic img').length;
+        var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
+        showImage(next);
+    }
+    
+    var myTimer;
+    
+    $(document).ready(function() {
+	    myTimer = setTimeout("showNext()", 3000);
+		showNext(); //loads first image
+        $('#thumbs li').bind('click',function(e){
+        	var count = $(this).attr('rel');
+        	showImage(parseInt(count)-1);
+        });
+	});
+    
+	
+	</script>
 							<div class="page_content">
 						    </div>
 						    <?php
