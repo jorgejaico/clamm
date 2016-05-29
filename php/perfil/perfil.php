@@ -185,7 +185,7 @@
 									</figcaption>           
 								</figure>
 								<p class="text-center"><?php echo utf8_encode(substr($prod2['texto_articulo'], 0, 141)) ?></p>
-								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
+								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
 							</div>
 							<?php
 							}
