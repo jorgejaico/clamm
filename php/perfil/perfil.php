@@ -217,7 +217,7 @@
 										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
 											<div class="contenedorcatalogo">
 								
-												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+												<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
 												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 									
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
@@ -249,7 +249,7 @@
 										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
 											<div class="contenedorcatalogo">
 												
-												<img class="img-responsive" src="../../<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+												<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
 												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 									
 												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
