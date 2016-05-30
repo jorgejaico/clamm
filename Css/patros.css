@@ -453,6 +453,12 @@ h8 {
   padding-left: 15%;
   padding-right: 5%;
 }
+.blog2 {
+  margin-top: 5%;
+  padding-left: 5%;
+  padding-right: 10%;
+  text-align: center;
+}
 .bloggers1 {
   margin-top: 15%;
   padding-left: 15%;
@@ -511,4 +517,15 @@ h8 {
   padding-bottom: 2%;
   padding-left: 47%;
   padding-top: 2%;
+}
+.sidecontent {
+  float: right;
+  padding-top: 38%;
+  width: 100%;
+}
+.titulocontent {
+  padding-bottom: 3%;
+}
+.contenedortexto {
+  padding-bottom: %;
 }

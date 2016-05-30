@@ -16,12 +16,20 @@ echo "<div class='comments_content'>";
 if(isset($_SESSION['id'])){
 
 	if($_SESSION['id'] == $row['usuario_comentario']){
-		echo "<h4><a href='delete.php?id=" . $row['id_comentario'] . "&idB=".$id."'> X</a></h4>";
+		echo "<div class='eliminarcoment'>";
+		echo "<h4><a href='delete.php?id=" . $row['id_comentario'] . "&idB=".$id."'> Eliminar Comentario </a></h4>";
+		echo "</div>";
 	}
+
+
 }
+echo "<div class='coment'>";
 echo "<h1>" . $datosUsu['usuario'] . "</h1>";
 echo "<h2>" . $row['fecha_comentario'] . "</h2></br></br>";
 echo "<h3>" . $row['texto_comentario'] . "</h3>";
+echo "</div>";
+echo "</div>";
+echo "<div class='page_content'>";
 echo "</div>";
 }
 mysqli_close($con);

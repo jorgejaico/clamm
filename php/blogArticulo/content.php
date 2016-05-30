@@ -83,11 +83,12 @@
 	?>
 
 		<!-- Page Content -->
-		<section class="container blog">
-			<div class="row">
+		<div class="container blog">
+			
 		        <!-- Blog Column -->
 		        <div class="col-md-8">
-		            <br><br><br>
+		        	<div class="blog2">
+		            <br>
 		            
 			            <div class="row blogu">
 			            	<?php
@@ -96,9 +97,11 @@
 							$blog = mysqli_query($con,$sql1);
 							$datos = mysqli_fetch_array($blog);
 							?>
-						<h2><?php echo utf8_encode($datos['titulo_articulo']); ?></h2>
+							<div class="titulocontent">
+						<h3><?php echo utf8_encode($datos['titulo_articulo']); ?></h3></div>
 							
 							<?php
+							echo "<div class='contenedortexto'>";
 								echo utf8_encode($datos['texto_articulo']);
 								$sqlLikes = "SELECT COUNT(id_likes) FROM tbl_likes WHERE articulo_likes=".$id;
 								$artLikes = mysqli_query($con,$sqlLikes);
@@ -106,7 +109,9 @@
 								if(isset($_SESSION['id'])){
 									$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE usuario_likes=$_SESSION[id] AND articulo_likes=".$id;
 									$artLinkLikes = mysqli_query($con,$sqlLinkLikes);
+									echo "</div>";
 								}
+
 								if(isset($_REQUEST['idB'])){
 									$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$_REQUEST['idB'];
 								}else{
@@ -119,127 +124,18 @@
 								<?php
 								if(isset($_SESSION['id'])){
 									if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){
-										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta</a>";
+										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta </a>";
 									}else{
-										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta</a>";
+										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta </a>";
 									}
 										echo $datosLikes['COUNT(id_likes)'];
 								}
 								?>	
+								</div>
 
 								<!-- Slider -->
-		<div id='wrapperslider'>
-		<div id='headerslider'></div>
-		<div id='bodyslider'>
-			<div id="bigPic">
-				<?php
-				while ($prodArtIMG = mysqli_fetch_array($datosArtIMG)){
-					?>
-				<img src="../../usuarios/<?php echo $produsuari['usuario'] ?>/<?php echo $prodArtIMG['nombre_imgarticulo']?>" alt="" />
-				
-					<?php
-				};
-				?>				
 
-			</div>
-			
-			
-			<ul id="thumbs">
-<!-- <li class='active' rel='1'>  -->
-				<?php
-				$NumIMG = 1;
-				while ($prodArtIMG2 = mysqli_fetch_array($datosArtIMG2)){
-					if ($NumIMG == 1){
-						echo "<li class='active' rel='1'>";
-						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
-						echo "</li>";
-					}else{
-						echo "<li rel='".$NumIMG."'>";
-						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
-						echo "</li>";
-					};
-				$NumIMG = $NumIMG + 1;
-				}
-				?>
-
-			</ul>
-		</li>
-		</div>
-		<div class='clearfix'></div>
-		<div id='pushslider'></div>
-	</div>
-	<div class="page_content">
-						    </div>
-
-			<script type="text/javascript">
-	var currentImage;
-    var currentIndex = -1;
-    var interval;
-    function showImage(index){
-        if(index < $('#bigPic img').length){
-        	var indexImage = $('#bigPic img')[index]
-            if(currentImage){   
-            	if(currentImage != indexImage ){
-                    $(currentImage).css('z-index',2);
-                    clearTimeout(myTimer);
-                    $(currentImage).fadeOut(250, function() {
-					    myTimer = setTimeout("showNext()", 3000);
-					    $(this).css({'display':'none','z-index':1})
-					});
-                }
-            }
-            $(indexImage).css({'display':'block', 'opacity':1});
-            currentImage = indexImage;
-            currentIndex = index;
-            $('#thumbs li').removeClass('active');
-            $($('#thumbs li')[index]).addClass('active');
-        }
-    }
-    
-    function showNext(){
-        var len = $('#bigPic img').length;
-        var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
-        showImage(next);
-    }
-    
-    var myTimer;
-    
-    $(document).ready(function() {
-	    myTimer = setTimeout("showNext()", 3000);
-		showNext(); //loads first image
-        $('#thumbs li').bind('click',function(e){
-        	var count = $(this).attr('rel');
-        	showImage(parseInt(count)-1);
-        });
-	});
-    
-	
-	</script>
-							<div class="page_content">
-						    </div>
-						    <?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						    <div class="comment_input">
-						        <form name="form1">
-						    <?php
-								}
-						    ?>
-						        	<input type="hidden" id="idBlog" value="<?php echo $id ?>" />
-							<?php
-						    	if(isset($_SESSION['id'])){
-						    ?>
-						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
-						           
-						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
-						        </form>
-						    </div>
-						     <?php
-								}
-						    ?>
-						    <div id="comment_logs">
-						    	Cargando comentarios...
-						    </div>
+		
 			            </div>
 
 		           
@@ -248,13 +144,13 @@
 		            
 		        	</div>
 		         
-		            <aside class="col-md-4 sidebar-padding">
+		            <div class="col-md-4 sidebar-padding">
 		               
 		                
 		                
 
 						<!-- Blogs Destacados -->
-			                <div class="blog-sidebar">
+			                <div class="sidecontent">
 			                		<?php
 										if(isset($_REQUEST['idB'])){
 											$sql2 = "SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_usuario INNER JOIN tbl_articulo ON id_usuario = usuario_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
@@ -313,16 +209,134 @@
 		                  
 
 
-		                </div>
+		                
 
 	
-					</aside>
+					</div>
 				
 				</div> 
-				
-		    </section>
 
-       
+				<div id='wrapperslider'>
+		<div id='headerslider'></div>
+		<div class="slider">
+		<div id='bodyslider'>
+			<div id="bigPic">
+				<?php
+				while ($prodArtIMG = mysqli_fetch_array($datosArtIMG)){
+					?>
+				<img src="../../usuarios/<?php echo $produsuari['usuario'] ?>/<?php echo $prodArtIMG['nombre_imgarticulo']?>" alt="" />
+				
+					<?php
+				};
+				?>				
+
+			</div>
+			
+			
+			<ul id="thumbs">
+<!-- <li class='active' rel='1'>  -->
+				<?php
+				$NumIMG = 1;
+				while ($prodArtIMG2 = mysqli_fetch_array($datosArtIMG2)){
+					if ($NumIMG == 1){
+						echo "<li class='active' rel='1'>";
+						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					}else{
+						echo "<li rel='".$NumIMG."'>";
+						echo "<img src='../../usuarios/".$produsuari['usuario']."/".$prodArtIMG2['nombre_imgarticulo']."' alt='' />";
+						echo "</li>";
+					};
+				$NumIMG = $NumIMG + 1;
+				}
+				?>
+
+			</ul>
+		</li>
+		</div>
+		<div class='clearfix'></div>
+		<div id='pushslider'></div>
+	</div>
+	<div class="page_content">
+						    </div></div>
+
+			<script type="text/javascript">
+	var currentImage;
+    var currentIndex = -1;
+    var interval;
+    function showImage(index){
+        if(index < $('#bigPic img').length){
+        	var indexImage = $('#bigPic img')[index]
+            if(currentImage){   
+            	if(currentImage != indexImage ){
+                    $(currentImage).css('z-index',2);
+                    clearTimeout(myTimer);
+                    $(currentImage).fadeOut(250, function() {
+					    myTimer = setTimeout("showNext()", 3000);
+					    $(this).css({'display':'none','z-index':1})
+					});
+                }
+            }
+            $(indexImage).css({'display':'block', 'opacity':1});
+            currentImage = indexImage;
+            currentIndex = index;
+            $('#thumbs li').removeClass('active');
+            $($('#thumbs li')[index]).addClass('active');
+        }
+    }
+    
+    function showNext(){
+        var len = $('#bigPic img').length;
+        var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
+        showImage(next);
+    }
+    
+    var myTimer;
+    
+    $(document).ready(function() {
+	    myTimer = setTimeout("showNext()", 3000);
+		showNext(); //loads first image
+        $('#thumbs li').bind('click',function(e){
+        	var count = $(this).attr('rel');
+        	showImage(parseInt(count)-1);
+        });
+	});
+    
+	
+	</script>
+
+
+				
+		    </div>   <div id="comment_logs">
+						    	Cargando comentarios...
+						    </div>
+
+
+
+							
+						    <?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						    <div class="comment_input">
+						        <form name="form1">
+						    <?php
+								}
+						    ?>
+						        	<input type="hidden" id="idBlog" value="<?php echo $id ?>" />
+							<?php
+						    	if(isset($_SESSION['id'])){
+						    ?>
+						            <textarea name="comments" placeholder="Deja aquí tu comentario..." style="width:635px; height:100px;"></textarea></br></br>
+						           
+						            <a href="#" onClick="commentSubmit()" class="button">Publicar</a></br>
+						        </form>
+						    </div>
+						     <?php
+								}
+						    ?>
+						 
+         
+
 
 	
 
