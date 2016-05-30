@@ -181,11 +181,11 @@
 								?>
 									<figcaption>
 										<h2><?php echo utf8_encode($prod2['titulo_articulo']) ?></h2>
-										<a href="#">View more</a>
+										<a href="../blogArticulo/content.php?idB=<?php echo $prod2['id_articulo'] ?>">View more</a>
 									</figcaption>           
 								</figure>
 								<p class="text-center"><?php echo utf8_encode(substr($prod2['texto_articulo'], 0, 141)) ?></p>
-								<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
+								<div class="text-center"><a href="../blogArticulo/content.php?idB=<?php echo $prod2['id_articulo'] ?>" class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Leer más</a></div>
 							</div>
 							<?php
 							}

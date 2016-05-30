@@ -24,8 +24,8 @@ if(isset($_SESSION['id'])){
 
 }
 echo "<div class='coment'>";
-echo "<h1>" . $datosUsu['usuario'] . "</h1>";
-echo "<h2>" . $row['fecha_comentario'] . "</h2></br></br>";
+echo "<h5>" . $datosUsu['usuario'] . "</h1>";
+echo "<h6>" . $row['fecha_comentario'] . "</h2></br></br>";
 echo "<h3>" . $row['texto_comentario'] . "</h3>";
 echo "</div>";
 echo "</div>";
