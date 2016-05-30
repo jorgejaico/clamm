@@ -24,9 +24,9 @@ if(isset($_SESSION['id'])){
 
 }
 echo "<div class='coment'>";
-echo "<h5>" . $datosUsu['usuario'] . "</h1>";
-echo "<h6>" . $row['fecha_comentario'] . "</h2></br></br>";
-echo "<h3>" . $row['texto_comentario'] . "</h3>";
+echo "<h5>" . utf8_encode($datosUsu['usuario']) . "</h1>";
+echo "<h6>" . utf8_encode($row['fecha_comentario']) . "</h2></br></br>";
+echo "<h3>" . utf8_encode($row['texto_comentario']) . "</h3>";
 echo "</div>";
 echo "</div>";
 echo "<div class='page_content'>";

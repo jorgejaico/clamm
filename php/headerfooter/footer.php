@@ -12,7 +12,7 @@
 				<div class="row myfooter">
 
 					<div class="col-sm-6"><div class="pull-left">
-					© Copyright Clamm 2016 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+					 Copyright Clamm 2016 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
 
 					</div></div>
 					

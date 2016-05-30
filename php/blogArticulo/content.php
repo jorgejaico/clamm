@@ -109,9 +109,9 @@
 								if(isset($_SESSION['id'])){
 									$sqlLinkLikes = "SELECT*FROM tbl_likes WHERE usuario_likes=$_SESSION[id] AND articulo_likes=".$id;
 									$artLinkLikes = mysqli_query($con,$sqlLinkLikes);
-									echo "</div>";
+									
 								}
-
+								echo "</div>";
 								if(isset($_REQUEST['idB'])){
 									$sqlTags = "SELECT tbl_articulo.*, tbl_tagarticulo.*, tbl_tags.* FROM tbl_articulo INNER JOIN tbl_tagarticulo ON id_articulo=articulo_tagarticulo INNER JOIN tbl_tags ON id_tag=tag_tagarticulo WHERE id_articulo=".$_REQUEST['idB'];
 								}else{
@@ -120,7 +120,7 @@
 								$datosTags = mysqli_query($con, $sqlTags);
 								while($prodTags = mysqli_fetch_array($datosTags)){
 			                    ?>
-			                    	<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".$prodTags['nombre_tag']."</a>"; }?></p>
+			                    	<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".utf8_encode($prodTags['nombre_tag'])."</a>"; }?></p>
 								<?php
 								if(isset($_SESSION['id'])){
 									if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){

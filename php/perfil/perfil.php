@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
+<?php 
+error_reporting(0);
+	session_start(); 
+?>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -194,71 +197,73 @@
 						</div>
 						<div>
 							<?php
-							 if(!isset($_REQUEST['idPerfil']) or $_REQUEST['idPerfil'] == $_SESSION['id']){
+							 if(!isset($_REQUEST['idPerfil'])){
+							 	if(isset($_SESSION['id'])){
 
-								$sqlanuncio = "SELECT*FROM tbl_anuncio WHERE tbl_anuncio.usuario_anuncio = $_SESSION[id]";
-								$datos_anuncio = mysqli_query($con, $sqlanuncio);
-								?>
-								<div class="text-center"><h2>Catálogo</h2>
-									<img class="img-responsive displayed" src="../../images/short.png" alt="noticias">
-								</div>
-							<?php
-								while ($prod_anuncio = mysqli_fetch_array($datos_anuncio)){
-
-
-
-									$sqlpublicacion ="SELECT tbl_publicacion.*, CURRENT_DATE() AS Fecha FROM tbl_publicacion WHERE tbl_publicacion.fechainicio_publicacion <= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.fechafinal_publicacion >= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.anuncio_publicacion = $prod_anuncio[id_anuncio]";
-									$datos_publicacion = mysqli_query($con, $sqlpublicacion);
-									$prod_publicacion = mysqli_num_rows($datos_publicacion);
-
-									if($prod_publicacion==0){
-									//Anuncio desactivado
-									?>
-										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-											<div class="contenedorcatalogo">
-								
-												<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
-												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
-									
-												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
-												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
-												
-												<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal1'>
-								                    <input type='hidden' name='business' value='Clamm_moda@clamm.com'>
-								                    <input type='hidden' name='cmd' value='_xclick'>
-
-								                    <input type='hidden' name='item_name' value='Publicacion'>
-								                    <input type='hidden' name='item_number' value='1'>
-								                                   <input type='hidden' name='amount' value='15'>
-
-								                    <input type='hidden' name='no_shipping' value='1'>
-								                    <input type='hidden' name='currency_code' value='EUR'>
-								                    <input type='hidden' name='handling' value='0'>
-								                    <input type='hidden' name='cancel_return' value='http://localhost/clamm/php/perfil/perfil.php'>
-								                    <input type='hidden' name='return' value="http://localhost/clamm/php/perfil/perfil.php?publi=cor&anun=<?php echo $prod_anuncio['titulo_anuncio'] ?>">
-								                    <div class="text-center"><button type="submit"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Activar</a></button></div>
-								                    <!-- <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
-								                    <!-- <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
-								                </form> 
-											</div>
+										$sqlanuncio = "SELECT*FROM tbl_anuncio WHERE tbl_anuncio.usuario_anuncio = $_SESSION[id]";
+										$datos_anuncio = mysqli_query($con, $sqlanuncio);
+										?>
+										<div class="text-center"><h2>Catálogo</h2>
+											<img class="img-responsive displayed" src="../../images/short.png" alt="noticias">
 										</div>
 									<?php
-									}else{
-									//Anuncio activado
-									?>
-										<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
-											<div class="contenedorcatalogo">
-												
-												<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
-												<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
-									
-												<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
-												<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
-											</div>
-										</div>
-									<?php
+										while ($prod_anuncio = mysqli_fetch_array($datos_anuncio)){
+
+
+
+											$sqlpublicacion ="SELECT tbl_publicacion.*, CURRENT_DATE() AS Fecha FROM tbl_publicacion WHERE tbl_publicacion.fechainicio_publicacion <= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.fechafinal_publicacion >= CAST(CURRENT_DATE() AS date) AND tbl_publicacion.anuncio_publicacion = $prod_anuncio[id_anuncio]";
+											$datos_publicacion = mysqli_query($con, $sqlpublicacion);
+											$prod_publicacion = mysqli_num_rows($datos_publicacion);
+
+											if($prod_publicacion==0){
+											//Anuncio desactivado
+											?>
+												<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+													<div class="contenedorcatalogo">
+										
+														<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+														<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
+											
+														<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
+														<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+														
+														<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal1'>
+										                    <input type='hidden' name='business' value='Clamm_moda@clamm.com'>
+										                    <input type='hidden' name='cmd' value='_xclick'>
+
+										                    <input type='hidden' name='item_name' value='Publicacion'>
+										                    <input type='hidden' name='item_number' value='1'>
+										                                   <input type='hidden' name='amount' value='15'>
+
+										                    <input type='hidden' name='no_shipping' value='1'>
+										                    <input type='hidden' name='currency_code' value='EUR'>
+										                    <input type='hidden' name='handling' value='0'>
+										                    <input type='hidden' name='cancel_return' value='http://localhost/clamm/php/perfil/perfil.php'>
+										                    <input type='hidden' name='return' value="http://localhost/clamm/php/perfil/perfil.php?publi=cor&anun=<?php echo $prod_anuncio['titulo_anuncio'] ?>">
+										                    <div class="text-center"><button type="submit"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Activar</a></button></div>
+										                    <!-- <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
+										                    <!-- <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
+										                </form> 
+													</div>
+												</div>
+											<?php
+											}else{
+											//Anuncio activado
+											?>
+												<div class="col-md-3 col-sm-6 col-xs-12 portfolio-item">
+													<div class="contenedorcatalogo">
+														
+														<img class="img-responsive" src="../../usuarios/<?php echo $prod['usuario']?>/<?php echo $prod_anuncio['imagen_anuncio'] ?>" alt="photo">								
+														<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
+											
+														<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
+														<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+													</div>
+												</div>
+											<?php
 									}
 
+}
 								}
 							}
 
