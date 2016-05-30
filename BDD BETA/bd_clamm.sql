@@ -1,13 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2016 a las 03:23:18
--- Versión del servidor: 10.0.17-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 30-05-2016 a las 12:40:50
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,21 +22,32 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_clamm`
 --
+CREATE DATABASE IF NOT EXISTS `bd_clamm` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `bd_clamm`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_anuncio`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_anuncio` (
+DROP TABLE IF EXISTS `tbl_anuncio`;
+CREATE TABLE IF NOT EXISTS `tbl_anuncio` (
   `id_anuncio` int(11) NOT NULL,
   `titulo_anuncio` varchar(25) COLLATE utf8_bin NOT NULL,
   `texto_anuncio` varchar(250) COLLATE utf8_bin NOT NULL,
   `imagen_anuncio` varchar(150) COLLATE utf8_bin NOT NULL,
   `usuario_anuncio` int(11) NOT NULL,
   `enlace_anuncio` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_anuncio`:
+--   `usuario_anuncio`
+--       `tbl_usuario` -> `id_usuario`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_anuncio`
@@ -53,8 +67,11 @@ INSERT INTO `tbl_anuncio` (`id_anuncio`, `titulo_anuncio`, `texto_anuncio`, `ima
 --
 -- Estructura de tabla para la tabla `tbl_articulo`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_articulo` (
+DROP TABLE IF EXISTS `tbl_articulo`;
+CREATE TABLE IF NOT EXISTS `tbl_articulo` (
   `id_articulo` int(11) NOT NULL,
   `titulo_articulo` varchar(140) COLLATE utf8_bin NOT NULL,
   `texto_articulo` text COLLATE utf8_bin NOT NULL,
@@ -62,7 +79,13 @@ CREATE TABLE `tbl_articulo` (
   `portada_articulo` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `fecha_articulo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `tipo_articulo` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_articulo`:
+--   `usuario_articulo`
+--       `tbl_usuario` -> `id_usuario`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_articulo`
@@ -89,14 +112,23 @@ INSERT INTO `tbl_articulo` (`id_articulo`, `titulo_articulo`, `texto_articulo`, 
 --
 -- Estructura de tabla para la tabla `tbl_comentario`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_comentario` (
+DROP TABLE IF EXISTS `tbl_comentario`;
+CREATE TABLE IF NOT EXISTS `tbl_comentario` (
   `id_comentario` int(11) NOT NULL,
   `texto_comentario` varchar(250) COLLATE utf8_bin NOT NULL,
   `usuario_comentario` int(11) NOT NULL,
   `fecha_comentario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `articulo_comentario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_comentario`:
+--   `articulo_comentario`
+--       `tbl_articulo` -> `id_articulo`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_comentario`
@@ -133,12 +165,21 @@ INSERT INTO `tbl_comentario` (`id_comentario`, `texto_comentario`, `usuario_come
 --
 -- Estructura de tabla para la tabla `tbl_imgarticulo`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_imgarticulo` (
+DROP TABLE IF EXISTS `tbl_imgarticulo`;
+CREATE TABLE IF NOT EXISTS `tbl_imgarticulo` (
   `id_imgarticulo` int(11) NOT NULL,
   `nombre_imgarticulo` varchar(150) COLLATE utf8_bin NOT NULL,
   `articulo_imgarticulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_imgarticulo`:
+--   `articulo_imgarticulo`
+--       `tbl_articulo` -> `id_articulo`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_imgarticulo`
@@ -191,12 +232,21 @@ INSERT INTO `tbl_imgarticulo` (`id_imgarticulo`, `nombre_imgarticulo`, `articulo
 --
 -- Estructura de tabla para la tabla `tbl_likes`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_likes` (
+DROP TABLE IF EXISTS `tbl_likes`;
+CREATE TABLE IF NOT EXISTS `tbl_likes` (
   `id_likes` int(11) NOT NULL,
   `articulo_likes` int(11) NOT NULL,
   `usuario_likes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_likes`:
+--   `articulo_likes`
+--       `tbl_articulo` -> `id_articulo`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_likes`
@@ -224,14 +274,23 @@ INSERT INTO `tbl_likes` (`id_likes`, `articulo_likes`, `usuario_likes`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_publicacion`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_publicacion` (
+DROP TABLE IF EXISTS `tbl_publicacion`;
+CREATE TABLE IF NOT EXISTS `tbl_publicacion` (
   `id_publicacion` int(11) NOT NULL,
   `fechainicio_publicacion` date NOT NULL,
   `fechafinal_publicacion` date NOT NULL,
   `anuncio_publicacion` int(11) NOT NULL,
   `visitas_publicacion` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_publicacion`:
+--   `anuncio_publicacion`
+--       `tbl_anuncio` -> `id_anuncio`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_publicacion`
@@ -248,12 +307,23 @@ INSERT INTO `tbl_publicacion` (`id_publicacion`, `fechainicio_publicacion`, `fec
 --
 -- Estructura de tabla para la tabla `tbl_tagarticulo`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_tagarticulo` (
+DROP TABLE IF EXISTS `tbl_tagarticulo`;
+CREATE TABLE IF NOT EXISTS `tbl_tagarticulo` (
   `id_tagarticulo` int(11) NOT NULL,
   `tag_tagarticulo` int(11) NOT NULL,
   `articulo_tagarticulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_tagarticulo`:
+--   `articulo_tagarticulo`
+--       `tbl_articulo` -> `id_articulo`
+--   `tag_tagarticulo`
+--       `tbl_tags` -> `id_tag`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_tagarticulo`
@@ -285,11 +355,18 @@ INSERT INTO `tbl_tagarticulo` (`id_tagarticulo`, `tag_tagarticulo`, `articulo_ta
 --
 -- Estructura de tabla para la tabla `tbl_tags`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_tags` (
+DROP TABLE IF EXISTS `tbl_tags`;
+CREATE TABLE IF NOT EXISTS `tbl_tags` (
   `id_tag` int(11) NOT NULL,
   `nombre_tag` varchar(25) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_tags`:
+--
 
 --
 -- Volcado de datos para la tabla `tbl_tags`
@@ -308,12 +385,19 @@ INSERT INTO `tbl_tags` (`id_tag`, `nombre_tag`) VALUES
 --
 -- Estructura de tabla para la tabla `tbl_tipousuario`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_tipousuario` (
+DROP TABLE IF EXISTS `tbl_tipousuario`;
+CREATE TABLE IF NOT EXISTS `tbl_tipousuario` (
   `id_tipoUsuario` int(11) NOT NULL,
   `nombre_tipousuario` varchar(15) COLLATE utf8_bin NOT NULL,
   `desc_tipousuario` varchar(150) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_tipousuario`:
+--
 
 --
 -- Volcado de datos para la tabla `tbl_tipousuario`
@@ -331,8 +415,11 @@ INSERT INTO `tbl_tipousuario` (`id_tipoUsuario`, `nombre_tipousuario`, `desc_tip
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
+-- Creación: 30-05-2016 a las 09:42:09
+--
 
-CREATE TABLE `tbl_usuario` (
+DROP TABLE IF EXISTS `tbl_usuario`;
+CREATE TABLE IF NOT EXISTS `tbl_usuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(20) COLLATE utf8_bin NOT NULL,
   `pass` varchar(20) COLLATE utf8_bin NOT NULL,
@@ -342,7 +429,13 @@ CREATE TABLE `tbl_usuario` (
   `bio_usuario` varchar(250) COLLATE utf8_bin NOT NULL,
   `img_usuario` varchar(150) COLLATE utf8_bin NOT NULL,
   `tipousuario` int(11) NOT NULL DEFAULT '4'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_usuario`:
+--   `tipousuario`
+--       `tbl_tipousuario` -> `id_tipoUsuario`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_usuario`
@@ -445,52 +538,52 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_anuncio`
 --
 ALTER TABLE `tbl_anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tbl_articulo`
 --
 ALTER TABLE `tbl_articulo`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de la tabla `tbl_comentario`
 --
 ALTER TABLE `tbl_comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `tbl_imgarticulo`
 --
 ALTER TABLE `tbl_imgarticulo`
-  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_imgarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `tbl_likes`
 --
 ALTER TABLE `tbl_likes`
-  MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_likes` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `tbl_publicacion`
 --
 ALTER TABLE `tbl_publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_tagarticulo`
-  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_tagarticulo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
-  MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipousuario`
 --
 ALTER TABLE `tbl_tipousuario`
-  MODIFY `id_tipoUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tipoUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
@@ -543,6 +636,8 @@ ALTER TABLE `tbl_tagarticulo`
 --
 ALTER TABLE `tbl_usuario`
   ADD CONSTRAINT `tbl_usuario_ibfk_1` FOREIGN KEY (`tipousuario`) REFERENCES `tbl_tipousuario` (`id_tipoUsuario`);
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
