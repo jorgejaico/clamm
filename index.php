@@ -132,7 +132,7 @@
 
 		
 		<!-- Footer -->
-		<div class="col-lg-12 col-md-8">
+		<div class="footer2">
 	<?php
 		include ("php/headerfooter/footer.php");
 	?></div>

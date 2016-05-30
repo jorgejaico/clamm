@@ -492,7 +492,8 @@ h8 {
 }
 .text-center > button {
   margin-top: 3%;
-  width: 27%;
+  padding-left: 0;
+  padding-right: 0;
 }
 .contenedornoticias {
   padding-left: 15%;
@@ -528,4 +529,7 @@ h8 {
 }
 .contenedortexto {
   padding-bottom: %;
+}
+.footer2 {
+  width: 100%;
 }
