@@ -150,8 +150,15 @@
 		                
 
 						<!-- Blogs Destacados -->
-			                <div class="sidecontent">
+						
+			                <div class="sidecontent">			                	
 			                		<?php
+			                			if(isset($_SESSION['id'])){
+			                		?>
+										<button><a href="../post/editar.php?id=<?php echo $id ?>">Editar blog</a></button>
+										<button><a href="../conexion/eliminar.proc.php?idEliminar=<?php echo $id ?>">Eliminar blog</a></button>
+									<?php
+			                		}
 										if(isset($_REQUEST['idB'])){
 											$sql2 = "SELECT tbl_usuario.*, tbl_articulo.*, COUNT(tbl_likes.id_likes) AS num_like FROM tbl_usuario INNER JOIN tbl_articulo ON id_usuario = usuario_articulo LEFT JOIN tbl_likes ON tbl_likes.articulo_likes = tbl_articulo.id_articulo WHERE tbl_articulo.tipo_articulo = 0 GROUP BY tbl_articulo.id_articulo ORDER by COUNT(tbl_likes.id_likes) DESC LIMIT 4";
 									?>
