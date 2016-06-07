@@ -231,8 +231,8 @@ for (var x = 0; x < input.files.length; x++) {
 		<div class="contenedorpost">
 		<h1>TinyMCE Quick Start Guide</h1>
         <div class="titulo">
-	    <input type="text" id="titulo" placeholder="Título" value="<?php echo $resultado['titulo_articulo']?>"/></div>
-        <input type="hidden" id="articulo" name="articulo" value="<?php echo $resultado['texto_articulo']?>" />
+	    <input type="text" id="titulo" placeholder="Título" value="<?php echo utf8_encode($resultado['titulo_articulo'])?>"/></div>
+        <input type="hidden" id="articulo" name="articulo" value="<?php echo utf8_encode ($resultado['texto_articulo'])?>" />
 			<textarea id="my_editor"></textarea>
 			<iframe id="form_target" name="form_target" style="display:none"></iframe>
 	            <form id="my_form" action="../conexion/editarBlog.proc.php" method="POST" enctype="multipart/form-data">
