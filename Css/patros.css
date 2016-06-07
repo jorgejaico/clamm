@@ -521,7 +521,7 @@ h8 {
 }
 .sidecontent {
   float: right;
-  padding-top: 38%;
+  padding-top: 10%;
   width: 100%;
 }
 .titulocontent {
@@ -535,4 +535,7 @@ h8 {
 }
 .current-profile {
   padding-top: 3.9%;
+}
+.botonescont {
+  padding-top: 10%;
 }

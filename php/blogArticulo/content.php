@@ -120,13 +120,13 @@
 								$datosTags = mysqli_query($con, $sqlTags);
 								while($prodTags = mysqli_fetch_array($datosTags)){
 			                    ?>
-			                    	<p><?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".utf8_encode($prodTags['nombre_tag'])."</a>"; }?></p>
+			                    	<?php echo "<a href='selectorblogs.php?idT=$prodTags[id_tag]'>".utf8_encode($prodTags['nombre_tag']). "  "."</a>"; }?>
 								<?php
 								if(isset($_SESSION['id'])){
 									if($datosLinkLikes = mysqli_num_rows($artLinkLikes) != 0){
-										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta </a>";
+										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>No me gusta: </a>";
 									}else{
-										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta </a>";
+										echo "<br/><a href='../conexion/like.proc.php?idB=$id'>Me gusta: </a>";
 									}
 										echo $datosLikes['COUNT(id_likes)'];
 								}
@@ -150,13 +150,16 @@
 		                
 
 						<!-- Blogs Destacados -->
+							<div class="botonescont">
+								<button><a href="../post/editar.php?id=<?php echo $id ?>">Editar blog</a></button>
+								<button><a href="../conexion/eliminar.proc.php?idEliminar=<?php echo $id ?>">Eliminar blog</a></button>
+							</div>
 						
 			                <div class="sidecontent">			                	
 			                		<?php
 			                			if(isset($_SESSION['id'])){
 			                		?>
-										<button><a href="../post/editar.php?id=<?php echo $id ?>">Editar blog</a></button>
-										<button><a href="../conexion/eliminar.proc.php?idEliminar=<?php echo $id ?>">Eliminar blog</a></button>
+			                			
 									<?php
 			                		}
 										if(isset($_REQUEST['idB'])){
