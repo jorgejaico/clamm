@@ -151,8 +151,16 @@
 
 						<!-- Blogs Destacados -->
 							<div class="botonescont">
-								<button><a href="../post/editar.php?id=<?php echo $id ?>">Editar blog</a></button>
-								<button><a href="../conexion/eliminar.proc.php?idEliminar=<?php echo $id ?>">Eliminar blog</a></button>
+							<?php
+								if(isset($_SESSION['id'])){
+									if($datos['usuario_articulo'] == $_SESSION['id']){
+							?>
+									<button><a href="../post/editar.php?id=<?php echo $id ?>">Editar blog</a></button>
+									<button><a href="../conexion/eliminar.proc.php?idEliminar=<?php echo $id ?>">Eliminar blog</a></button>
+							<?php
+								}
+							}
+							?>
 							</div>
 						
 			                <div class="sidecontent">			                	
