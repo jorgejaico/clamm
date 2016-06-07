@@ -225,7 +225,7 @@ error_reporting(0);
 														<h3><?php echo utf8_encode($prod_anuncio['titulo_anuncio']); ?></h3>      
 											
 														<p class="text-center"><?php echo utf8_encode($prod_anuncio['texto_anuncio']); ?></p>
-														<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
+														<div class="botonmodificar"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../tienda/editaranuncio.php?mdA=<?php echo $prod_anuncio['id_anuncio'] ?>">Modificar</a></div>
 														
 														<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal1'>
 										                    <input type='hidden' name='business' value='Clamm_moda@clamm.com'>
@@ -240,7 +240,7 @@ error_reporting(0);
 										                    <input type='hidden' name='handling' value='0'>
 										                    <input type='hidden' name='cancel_return' value='http://localhost/clamm/php/perfil/perfil.php'>
 										                    <input type='hidden' name='return' value="http://localhost/clamm/php/perfil/perfil.php?publi=cor&anun=<?php echo $prod_anuncio['titulo_anuncio'] ?>">
-       														<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../conexion/eliminaranuncio.proc.php?idanun=<?php echo $prod_anuncio['id_anuncio'] ?>">Eliminar</a></div>
+       														<div class="botoneliminar"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom" href="../conexion/eliminaranuncio.proc.php?idanun=<?php echo $prod_anuncio['id_anuncio'] ?>">Eliminar</a></div>
 									                    	<div class="text-center"><button type="submit"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Activar</a></button></div>
 										                    <!-- <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
 										                    <!-- <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
